@@ -1,27 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Page elements</title>
     <link rel="stylesheet" href="elementStyles.css">
 </head>
 <body>
-    <h1>Header 1</h1>
-    <h2>Header 2</h2>
-    <h3>Header 3</h3>
-    <p>Paragraph</p>
-    <a href="https://www.google.com">Link</a>
-    <label for="input">Label</label>
-    <input id="input" type="text" placeholder="Input">
-    <button class="main" >
-        Button
-        <img class="chevron-right">
-    </button>
-    <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-    </ul>
+<form>
+    <label for="fname">
+        <span>Firstname</span>
+        <input type="text" id="fname">
+    </label>
+    <label for="lname">
+        <span>Lastname</span>
+        <input type="text" id="lname">
+    </label>
+    <label for="date">
+        <span>Date</span>
+        <input type="date" id="date">
+    </label>
+    <label for="time">
+        <span>Time</span>
+        <input type="time" id="time">
+    </label>
+    <label for="email">
+        <span>Email</span>
+        <input type="email" id="email">
+    </label>
+    <label for="url">
+        <span>URL</span>
+        <input type="url" id="url">
+    </label>
+    <label for="tel">
+        <span>Telephone</span>
+        <input type="tel" id="tel">
+    </label>
+    <label for="number">
+        <span>Number</span>
+        <input type="number" id="number">
+    </label>
+    <label for="range">
+        <span>Range</span>
+        <input type="range" id="range">
+    </label>
+    <label for="color">
+        <span>Color</span>
+        <input type="color" id="color">
+    </label>
+    <label for="search">
+        <span>Search</span>
+        <input type="search" id="search">
+    </label>
+    <label for="password">
+        <span>Password</span>
+        <input type="password" id="password">
+    </label>
+    <label for="file">
+        <span>File</span>
+        <input type="file" id="file">
+    </label>
+    <label for="textarea">
+        <span>Textarea</span>
+        <textarea id="textarea"></textarea>
+    </label>
+</form>
+<form>
+    <label>
+        <span>Checkbox</span>
+        <input type="checkbox">
+    </label>
+    <label>
+        <input type="button" value="Button" >
+    </label>
+</form>
+
+<button>Submit</button>
 
 </body>
 </html>
