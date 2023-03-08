@@ -1,0 +1,112 @@
+body, * {
+    font-family: 'Monsterrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+// color variables definition
+$color-main: #2947A3;
+$color-secondary: #9CD336;
+$color-dark: #0D1220;
+$color-light: #F6F8FE;
+$color-warning: #CC0022;
+$color-light-grey: #C2C7D6;
+$color-dark-grey: #61636B;
+$color-card-bg: #E4E8F1;
+$color-main-dark: #142452;
+$color-secondary-dark: #202E05;
+
+// font variables definition
+h1 {
+    font-weight: 900;
+    font-size: 48px;
+}
+
+h2 {
+    font-weight: 900;
+    font-size: 36px;
+}
+
+h3 {
+    font-weight: 800;
+    font-size: 24px;
+}
+
+h4 {
+    font-weight: 600;
+    font-size: 22px;
+}
+
+p {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+a {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+// button variables definition
+button {
+    display: inline-flex;
+    font-weight: 600;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 64px;
+    padding: 8px 32px;
+    text-align: center;
+    transition: all 0.1s ease;
+    img{
+        width: 24px;
+        height: 24px;
+        background-color: $color-light;
+        &.chevron-right{
+            -webkit-mask-image: url("icons/chevron-right.svg");
+        }
+        &.arrow-right-circle{
+            -webkit-mask-image: url("icons/arrow-right-circle.svg");
+        }
+        &.plus-circle{
+            -webkit-mask-image: url("icons/plus-circle.svg");
+        }
+        &.circle{
+            -webkit-mask-image: url("icons/circle.svg");
+        }
+        &.check{
+            -webkit-mask-image: url("icons/check.svg");
+        }
+        &.check-circle{
+            -webkit-mask-image: url("icons/check-circle.svg");
+        }
+        &.user{
+            -webkit-mask-image: url("icons/user.svg");
+        }
+        &.heart{
+            -webkit-mask-image: url("icons/heart.svg");
+        }
+
+    }
+    &.main {
+        background: $color-main;
+        color: $color-light;
+        &:hover {
+            background: $color-main-dark;
+        }
+        &:active {
+            background: $color-main;
+            padding:  6px 30px;
+            margin: 2px 2px;
+        }
+        &:disabled {
+            background: $color-light-grey;
+            color: $color-dark-grey;
+            cursor: not-allowed;
+        }
+    }
+    &.secondary {
+        background: $color-secondary;
+        color: $color-dark;
+    }
+}
