@@ -170,6 +170,25 @@ form{
                 border: 1px solid $color-main;
             }
         }
+        [type=checkbox], [type=radio]{
+            -webkit-appearance : none;
+            text-align: center;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            accent-color: $color-main;
+            border: 1px solid $color-light-grey;
+            border-radius: 6px;
+            &:focus{
+                outline: none;
+                border: 1px solid $color-main;
+            }
+            &:checked{
+                background-image: $color-light -webkit-image-set(url("icons/check.svg") 1x);
+                background-color: $color-main;
+                background-size: auto 90%;
+            }
+        }
     }
 }
 
