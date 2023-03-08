@@ -1,15 +1,3 @@
-body, * {
-    font-family: 'Monsterrat', sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
 // color variables definition
 $color-main: #2947A3;
 $color-secondary: #9CD336;
@@ -21,6 +9,16 @@ $color-dark-grey: #61636B;
 $color-card-bg: #E4E8F1;
 $color-main-dark: #142452;
 $color-secondary-dark: #202E05;
+
+body, * {
+    font-family: 'Monsterrat', sans-serif;
+    font-weight: 500;
+    color: $color-dark;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: $color-light;
+}
 
 // font variables definition
 h1 {
@@ -49,8 +47,12 @@ p {
 }
 
 a {
+    display: block;
     font-weight: 500;
     font-size: 16px;
+    color: $color-main;
+    text-decoration: none;
+    text-decoration-line: underline;
 }
 
 // button variables definition
@@ -74,36 +76,37 @@ button {
         background-color: $color-light;
 
         &.chevron-right {
-            -webkit-mask-image: url("icons/chevron-right.svg");
+            -webkit-mask-image: url("addons/icons/chevron-right.svg");
         }
 
         &.arrow-right-circle {
-            -webkit-mask-image: url("icons/arrow-right-circle.svg");
+            -webkit-mask-image: url("addons/icons/arrow-right-circle.svg");
         }
 
         &.plus-circle {
-            -webkit-mask-image: url("icons/plus-circle.svg");
+            -webkit-mask-image: url("addons/icons/plus-circle.svg");
         }
 
         &.circle {
-            -webkit-mask-image: url("icons/circle.svg");
+            -webkit-mask-image: url("addons/icons/circle.svg");
         }
 
         &.check {
-            -webkit-mask-image: url("icons/check.svg");
+            -webkit-mask-image: url("addons/icons/check.svg");
         }
 
         &.check-circle {
-            -webkit-mask-image: url("icons/check-circle.svg");
+            -webkit-mask-image: url("addons/icons/check-circle.svg");
         }
 
         &.user {
-            -webkit-mask-image: url("icons/user.svg");
+            -webkit-mask-image: url("addons/icons/user.svg");
         }
 
         &.heart {
-            -webkit-mask-image: url("icons/heart.svg");
+            -webkit-mask-image: url("addons/icons/heart.svg");
         }
+
         /*
         Add the different images you want in the buttons from the icon folder
          */
@@ -147,53 +150,57 @@ button {
 
 }
 
-form{
-    display: block;
-    width: 50%;
+form {
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    background: $color-light;
+    box-shadow: 0 0 5px $color-light-grey;
     padding: 32px;
-    label{
+    img {
+        width: 100%;
+    }
+    label {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        margin: 16px 0;
-        span{
+        margin-top: 8px;
+        span {
             font-weight: 600;
             margin-bottom: 8px;
         }
-        [type=text], [type=email], [type=password], [type=number], [type=date], [type=time], [type=tel], [type=url], [type=week], [type=month], [type=search], [type=color], [type=range], [type=datetime-local], [type=checkbox], [type=radio], [type=file], select, textarea{
+
+        [type=text], [type=email], [type=password], [type=number], [type=date], [type=time], [type=tel], [type=url], [type=week], [type=month], [type=search], [type=color], [type=range], [type=datetime-local], [type=checkbox], [type=radio], [type=file], select, textarea {
             padding: 8px;
             border: 1px solid $color-light-grey;
             border-radius: 6px;
             color: $color-main-dark;
-            &:focus{
+            margin-bottom: 8px;
+            &:focus {
                 outline: none;
                 border: 1px solid $color-main;
             }
         }
-        [type=checkbox], [type=radio]{
-            -webkit-appearance : none;
-            text-align: center;
-            width: 16px;
-            height: 16px;
-            margin-right: 8px;
-            accent-color: $color-main;
-            border: 1px solid $color-light-grey;
-            border-radius: 6px;
-            &:focus{
-                outline: none;
-                border: 1px solid $color-main;
-            }
-            &:checked{
-                background-image: $color-light -webkit-image-set(url("icons/check.svg") 1x);
-                background-color: $color-main;
-                background-size: auto 90%;
-            }
+
+        [type=checkbox], [type=radio] {
+            // à faire
         }
+    }
+    button {
+        margin-top: 16px;
     }
 }
 
-
-
+#connexion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: $color-light;
+}
 
 
 
