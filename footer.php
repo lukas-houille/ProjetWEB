@@ -5,16 +5,16 @@
         <div class="horizontal-align" id="navigation">
             <div class="vertical-align links">
                 <p>Navigation</p>
-                <a>cocucc</a>
-                <a>cocucc</a>
-                <a>cocucc</a>
-                <a>cocucc</a>
+                <a>Acceuil</a>
+                <a>Offres de stage</a>
+                <a>Entreprises</a>
+                <a>Espace personnel</a>
+                <a>Contact</a>
             </div>
             <div class="vertical-align links">
-                <a>cocucc</a>
-                <a>cocucc</a>
-                <a>cocucc</a>
-                <a>cocucc</a>
+                <p>Info</p>
+                <a>Mentions légales</a>
+                <a>RGPD</a>
             </div>
         </div>
     </div>
