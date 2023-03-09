@@ -51,8 +51,6 @@ a {
     font-weight: 500;
     font-size: 16px;
     color: $color-main;
-    text-decoration: none;
-    text-decoration-line: underline;
 }
 
 // button variables definition
@@ -160,7 +158,8 @@ form {
     box-shadow: 0 0 5px $color-light-grey;
     padding: 32px;
     img {
-        width: 100%;
+        width: 300px;
+        margin-bottom: 24px;
     }
     label {
         display: flex;
@@ -177,6 +176,7 @@ form {
             border-radius: 6px;
             color: $color-main-dark;
             margin-bottom: 8px;
+            width: 200px;
             &:focus {
                 outline: none;
                 border: 1px solid $color-main;
@@ -192,6 +192,61 @@ form {
     }
 }
 
+footer{
+    display: flex;
+    background: $color-dark;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    img{
+        width: 300px;
+        background-color: $color-dark;
+        padding: 32px;
+    }
+    .horizontal-align{
+        background-color: $color-dark;
+        height: 100%;
+        *{
+            background-color: $color-dark;
+        }
+        #navigation{
+            a{
+                color: $color-light;
+                text-decoration: none;
+            }
+            p{
+                color: $color-light-grey;
+                font-weight: 600;
+            }
+            .links{
+                padding: 16px;
+            }
+            background-color: $color-dark;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+    }
+    #copyright{
+             background-color: $color-light-grey;
+             p{
+                 padding: 4px;
+                 background-color: $color-light-grey;
+             }
+         }
+}
+
+.vertical-align{
+    display: flex;
+    flex-direction: column;
+}
+
+.horizontal-align{
+    display: flex;
+    flex-direction: row;
+}
+
+// specific styling
+
 #connexion{
     display: flex;
     flex-direction: column;
@@ -201,7 +256,6 @@ form {
     height: 100vh;
     background: $color-light;
 }
-
 
 
 
