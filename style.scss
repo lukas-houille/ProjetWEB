@@ -157,14 +157,17 @@ form {
     background: $color-light;
     box-shadow: 0 0 5px $color-light-grey;
     padding: 32px;
+
     img {
         width: 300px;
         margin-bottom: 24px;
     }
+
     label {
         display: flex;
         flex-direction: column;
         margin-top: 8px;
+
         span {
             font-weight: 600;
             margin-bottom: 8px;
@@ -177,6 +180,7 @@ form {
             color: $color-main-dark;
             margin-bottom: 8px;
             width: 200px;
+
             &:focus {
                 outline: none;
                 border: 1px solid $color-main;
@@ -187,39 +191,46 @@ form {
             // à faire
         }
     }
+
     button {
         margin-top: 16px;
     }
 }
 
-footer{
+footer {
     display: flex;
     background: $color-dark;
     flex-wrap: wrap;
     justify-content: space-between;
-    img{
+
+    img {
         width: 300px;
         background-color: $color-dark;
         padding: 32px;
     }
-    .horizontal-align{
+
+    .horizontal-align {
         background-color: $color-dark;
         height: 100%;
-        *{
+
+        * {
             background-color: $color-dark;
         }
-        #navigation{
-            a{
+
+        #navigation {
+            a {
                 color: $color-light;
                 text-decoration: none;
                 width: 150px;
             }
-            p{
+
+            p {
                 color: $color-light-grey;
                 font-weight: 600;
                 width: 100%;
             }
-            .links{
+
+            .links {
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -228,36 +239,83 @@ footer{
                 height: 100%;
                 padding: 16px;
             }
+
             flex-wrap: wrap;
             background-color: $color-dark;
             justify-content: center;
             width: 100%;
         }
     }
-    #copyright{
-             background-color: $color-light-grey;
+
+    #copyright {
+        background-color: $color-light-grey;
         width: 100%;
-             p{
-                 padding: 4px;
-                 background-color: $color-light-grey;
-             }
-         }
+
+        p {
+            padding: 4px;
+            background-color: $color-light-grey;
+        }
+    }
 }
 
-.vertical-align{
+#nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: $color-light;
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 0 5px $color-light-grey;
+    margin: 32px;
+
+    img {
+        width: 300px;
+    }
+
+    #nav-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        a {
+            margin: 0 16px;
+        }
+    }
+
+    .nav-bar-link {
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+        align-items: center;
+        color: $color-main-dark;
+        font-weight: 600;
+
+        &:hover {
+            color: $color-main;
+        }
+
+        img {
+            width: 32px;
+            margin-right: 8px;
+        }
+    }
+}
+
+.vertical-align {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
 }
 
-.horizontal-align{
+.horizontal-align {
     display: flex;
     flex-direction: row;
 }
 
 // specific styling
 
-#connexion{
+#connexion {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -268,10 +326,9 @@ footer{
 }
 
 
-
 @media (max-width: 480px) {
-    footer{
-        #footer-content{
+    footer {
+        #footer-content {
             flex-direction: column;
         }
     }
