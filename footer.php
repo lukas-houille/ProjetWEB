@@ -1,7 +1,6 @@
 <footer class="vertical-align">
     <div class="horizontal-align" id="footer-content">
-
-        <img src="addons/images/LogoBig.svg" alt="logo">
+        <img src="addons/images/LogoBig.svg" alt="logo" id="big">
         <div class="horizontal-align" id="navigation">
             <div class="vertical-align links">
                 <p>Navigation</p>
