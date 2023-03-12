@@ -7,15 +7,15 @@
             <span class="material-symbols-rounded" > home </span>
             <p>Accueil</p>
         </a>
-        <a href="https://google.com">
+        <a href="offers.php">
             <span class="material-symbols-rounded" > Description </span>
             <p>Stages</p>
         </a>
-        <a href="https://google.com">
+        <a href="businness.php">
             <span class="material-symbols-rounded" > business_center </span>
             <p>Entreprises</p>
         </a>
-        <a href="https://google.com">
+        <a href="login.php">
             <span class="material-symbols-rounded" > Lock </span>
             <p>Connexion</p>
         </a>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Page elements</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+    <?php
+    include('header.php');
+    ?>
 </head>
 <body>
+
 <div id="connexion">
     <form>
         <img src="addons/images/LogoBig.svg">
@@ -21,4 +23,9 @@
         <button type="submit">Sign in</button>
     </form>
 </div>
+
+<?php
+include('footer.php');
+?>
 </body>
+</html>

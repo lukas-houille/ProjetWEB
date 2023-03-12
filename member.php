@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Accueil</title>
+    <title>Member</title>
     <?php
     include('header.php');
     ?>
