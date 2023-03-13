@@ -3,10 +3,6 @@
         <img src="addons/images/LogoBig.svg" alt="Logo">
     </a>
     <div id="nav-links">
-        <a href="index.php">
-            <span class="material-symbols-rounded" > home </span>
-            <p>Accueil</p>
-        </a>
         <a href="offers.php">
             <span class="material-symbols-rounded" > Description </span>
             <p>Stages</p>

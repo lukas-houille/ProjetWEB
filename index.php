@@ -11,8 +11,7 @@
 include('navbar.php');
 ?>
 
-
-// mettre son code ici
+Bienvenu sur cesitonstage !
 
 <?php
 include('footer.php');
