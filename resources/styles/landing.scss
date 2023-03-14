@@ -18,6 +18,17 @@
         }
     }
     img{
-        width: 30rem;
+        width: 25rem;
+    }
+}
+
+@media (max-width: 850px) {
+    #landing-page{
+        h2{
+            font-size: 1.5rem;
+        }
+        img{
+            width: 10rem;
+        }
     }
 }
