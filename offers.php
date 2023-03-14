@@ -15,7 +15,7 @@ include('navbar.php');
 // mettre son code ici
 
 <?php
-include('footer.php');
+include('footer.html');
 ?>
 </body>
 </html>

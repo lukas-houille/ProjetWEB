@@ -11,10 +11,10 @@
 include('navbar.php');
 ?>
 
-Bienvenu sur cesitonstage !
+Bienvenue sur cesitonstage !
 
 <?php
-include('footer.php');
+include('footer.html');
 ?>
 </body>
 </html>

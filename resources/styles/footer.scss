@@ -1,0 +1,64 @@
+@import "base";
+
+footer {
+    display: flex;
+    background: $color-dark;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    img {
+        width: 300px;
+        background-color: $color-dark;
+        padding: 2rem;
+    }
+
+    .horizontal-align {
+        background-color: $color-dark;
+        height: 100%;
+
+        * {
+            background-color: $color-dark;
+        }
+
+        #navigation {
+            a {
+                color: $color-light;
+                text-decoration: none;
+                width: 9rem;
+                padding: 0.5rem 0.5rem 0.5rem 0;
+            }
+
+            p {
+                color: $color-light-grey;
+                font-weight: 600;
+                font-size: 1.25rem;
+                width: 100%;
+            }
+
+            .links {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                max-width: 20rem;
+                height: 100%;
+                padding: 1rem;
+            }
+
+            flex-wrap: wrap;
+            background-color: $color-dark;
+            justify-content: center;
+            width: 100%;
+        }
+    }
+
+    #copyright {
+        background-color: $color-light-grey;
+        width: 100%;
+
+        p {
+            padding: 0.25rem;
+            background-color: $color-light-grey;
+        }
+    }
+}

@@ -10,7 +10,7 @@
 
 <div id="connexion">
     <form>
-        <img src="addons/images/LogoBig.svg">
+        <img src="resources/images/LogoBig.svg">
         <label for="username">
             <span>Username</span>
             <input type="text" name="username" id="username">
@@ -25,7 +25,7 @@
 </div>
 
 <?php
-include('footer.php');
+include('footer.html');
 ?>
 </body>
 </html>
