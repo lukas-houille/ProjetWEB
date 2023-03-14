@@ -8,7 +8,7 @@
             <p>Stages</p>
         </a>
         <a href="business.php">
-            <span class="material-symbols-rounded" > business_center </span>
+            <span class="material-symbols-rounded" > Store </span>
             <p>Entreprises</p>
         </a>
         <a href="login.php">
