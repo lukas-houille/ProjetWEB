@@ -30,6 +30,7 @@ h1 {
 h2 {
     font-weight: 900;
     font-size: 2rem;
+
 }
 
 h3 {
@@ -57,7 +58,7 @@ a {
 }
 
 .material-symbols-rounded {
-    font-family: 'Material Symbols Rounded';
+    font-family: 'Material Symbols Rounded', serif ;
     font-weight: normal;
     font-style: normal;
     font-size: 24px;
@@ -81,4 +82,56 @@ a {
 .horizontal-align {
     display: flex;
     flex-direction: row;
+}
+
+button {
+    display: inline-flex;
+    font-weight: 600;
+    font-size: 1.25rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 4rem;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    transition: all 0.1s ease;
+    background: $color-main;
+    color: $color-light;
+    box-shadow: 0 0.125rem $color-secondary;
+
+    &:hover {
+        background: $color-main-dark;
+        box-shadow: 0 0.25rem $color-secondary;
+        transform: translateY(-0.25rem);
+    }
+
+    &:active {
+        background: $color-main;
+        box-shadow: none;
+        transform: none;
+        // click effect
+
+    }
+
+    &:disabled {
+        background: $color-light-grey;
+        color: $color-dark-grey;
+        cursor: not-allowed;
+        box-shadow: 0 0;
+        transform: none;
+    }
+
+    // add after the comment the different options you need following the exemple :
+    /*
+    &.class-option-name{
+        &:hover {
+            background: $button-color;
+            box-shadow: $color-secondary; // shadow color
+        }
+        &:active {
+            background: $color-main;
+            box-shadow: $color-secondary;
+        }
+    }
+    */
+
 }

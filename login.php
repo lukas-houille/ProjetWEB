@@ -9,7 +9,7 @@
 <body>
 
 <div id="connexion">
-    <form>
+    <form method="post">
         <img src="resources/images/LogoBig.svg">
         <label for="username">
             <span>Username</span>

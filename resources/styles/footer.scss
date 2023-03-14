@@ -62,3 +62,11 @@ footer {
         }
     }
 }
+
+@media (max-width: 850px) {
+    footer {
+        .horizontal-align {
+            flex-direction: column;
+        }
+    }
+}
