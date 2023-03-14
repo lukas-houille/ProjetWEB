@@ -18,6 +18,6 @@
         </div>
     </div>
     <div id="copyright">
-        <p>Copyright © 2022 - 2023 tous les droits réservés.</p>
+        <p>Copyright © 2022 - 2023 tous droits réservés.</p>
     </div>
 </footer>
