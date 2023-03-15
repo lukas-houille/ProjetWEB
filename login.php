@@ -18,9 +18,8 @@
         <label for="password">
             <span>Password</span>
             <input type="password" name="password" id="password">
-            <a href="http://google.com" target="_blank">Forgot password?</a>
         </label>
-        <button type="submit">Sign in</button>
+        <button type="submit" id="btn-login">Sign in</button>
     </form>
 </div>
 

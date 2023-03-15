@@ -8,31 +8,33 @@
     background: $color-light;
     padding: 1rem;
     img {
-        width: 19rem;
+        height: 100%;
+    }
+    a {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        color: $color-main;
+        text-decoration: none;
+        padding: 0 1rem;
+        height: 44.5px;
+        transition: all 0.2s ease;
+        border-radius: 4rem;
+        p{
+            background-color: transparent;
+            font-weight: 800;
+        }
+        &:hover {
+            background: $color-light-grey;
+        }
     }
     #nav-links {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
         align-items: center;
-        a {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            color: $color-main;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            transition: all 0.2s ease;
-            p{
-                background-color: transparent;
-                font-weight: 800;
-            }
-            &:hover {
-                background: $color-light-grey 50%;
-            }
-        }
     }
 }
 
