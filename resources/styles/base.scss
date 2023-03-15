@@ -10,6 +10,8 @@ $color-card-bg: #E4E8F1;
 $color-main-dark: #142452;
 $color-secondary-dark: #202E05;
 
+$view-height: calc(100vh - 76.5px);
+
 body, * {
     font-family: 'Monsterrat', sans-serif;
     font-weight: 500;
@@ -58,6 +60,7 @@ a {
 }
 
 .material-symbols-rounded {
+    background-color: transparent;
     font-family: 'Material Symbols Rounded', serif ;
     font-weight: normal;
     font-style: normal;
@@ -85,19 +88,28 @@ a {
 }
 
 button {
-    display: inline-flex;
-    font-weight: 600;
-    font-size: 1.25rem;
+    display: flex;
     border: none;
     cursor: pointer;
     border-radius: 4rem;
     padding: 0.5rem 2rem;
-    text-align: center;
+    justify-content: center;
     transition: all 0.1s ease;
     background: $color-main;
     color: $color-light;
     box-shadow: 0 0.125rem $color-secondary;
-
+    .text{
+        color: $color-light;
+        display: flex;
+        font-weight: 600;
+        font-size: 1.25rem;
+        background-color: transparent;
+        align-items: center;
+    }
+    .material-symbols-rounded{
+        font-size: 32px;
+        color: $color-light;
+    }
     &:hover {
         background: $color-main-dark;
         box-shadow: 0 0.25rem $color-secondary;
@@ -144,10 +156,11 @@ label {
     span {
         font-weight: 600;
         margin-bottom: 0.5rem;
+        background-color: transparent;
     }
 
     [type=text], [type=email], [type=password], [type=number], [type=date], [type=time], [type=tel], [type=url], [type=week], [type=month], [type=search], [type=color], [type=range], [type=datetime-local], [type=checkbox], [type=radio], [type=file], select, textarea {
-        padding: 8px;
+        padding: 0.5rem;
         border: 1px solid $color-light-grey;
         border-radius: 0.5rem;
         color: $color-main-dark;

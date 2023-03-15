@@ -9,6 +9,8 @@
         <a href="business.php">
             <p>Entreprises</p>
         </a>
+        <?php
+        ?>
         <a href="login.php">
             <p>Connexion</p>
         </a>
