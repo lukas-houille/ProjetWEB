@@ -1,64 +1,50 @@
-.cardbody{
-  position: relative;
-  padding: 5px;
-  display: grid;
-  color: var(--color);
-  grid-template-columns: 80px 5fr;
-  box-shadow: rgba(0, 0, 0, 0.5) 0 3px 8px;
-  width: 700px;
-  border-radius: 12px;
-  background-color: $color-card-bg;
+@import "base";
+
+.card{
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 3px 8px;
+    width: 500px;
+    background-color: $color-card-bg;
+    img {
+        height: 80px;
+        background-color: $color-card-bg;
+    }
+    .offer-info {
+        width: 100%;
+        background-color: $color-card-bg;
+        margin-left: 2rem;
+        .description{
+            margin-top: 1rem;
+            background-color: transparent;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-row: auto;
+            grid-column-gap: 20px;
+            p{
+                font-weight: 600;
+            }
+        }
+        .submit{
+            background-color: transparent;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        span{
+            font-weight: 500;
+            font-size: 1rem;
+            background-color: transparent;
+        }
+    }
 }
 
-.cardbody img{
-  width:100%;
-  height: 80px;
-  border-radius: 8px;
-  position: relative;
-  top: 50%;
-  left: 1%;
-  transform: translateY(-50%);
-  transition: 0.3s;
-  margin-left: 5px;
-  background-color: $color-card-bg;
-}
-
-.details{
-  position: relative;
-  left: 1%;
-  margin-left: 10px;
-  background-color: $color-card-bg;
-}
-
-.details h2{
-  font-size: 1.5rem;
-  font-weight: bold;
-  background-color: $color-card-bg;
-}
-
-.details p{
-  font-size: 0.9rem;
-  font-weight: 400;
-  background-color: $color-card-bg;
-}
-
-.description{
-  display: grid;
-  grid-template-columns: repeat(2, 100px);
-  grid-gap: 0.5rem 0rem;
-  margin-top: 10px;
-  background-color: $color-card-bg;
-}
-
-.description span{
-  font-size: 0.8rem;
-  font-weight: 400;
-  background-color: $color-card-bg;
-  display: grid;
-  grid-template-columns: 100% 100%;
-}
-
-.description div{
-  background-color: $color-card-bg;
-  width: 100%;
+#cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row: auto;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
 }

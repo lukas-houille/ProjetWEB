@@ -2,29 +2,132 @@
 include 'header.php';
 ?>
 
-<div class = 'cardbody'>
-    <img src = 'resources/images/Logo small.svg' alt = 'logo test' class = 'logosmall'>
-    <div class = details>
-        <h2>Intitulé du poste</h2>
-        <p>Nom entreprise</p>
-        <p>Localisation</p>
-        <div class = 'description'>
-            <div>
-                <span>Profile</span>
-                <span>vartypeprofile</span>
+<div id="cards">
+
+    <form method="get" class="card">
+        <img src = 'resources/images/Logo small.svg' alt = 'logo test' class = 'logosmall'>
+        <div class = "offer-info">
+            <h3>Intitulé du poste</h3>
+            <p>Nom entreprise</p>
+            <p>Localisation</p>
+            <div class = "description">
+                <p>Profile :<span>varProfile</span></p>
+                <p>Durée :<span>x mois</span></p>
+                <p>Publication :<span>dd/mm/aaaa</span></p>
+                <p>Debut :<span>dd/mm/aaaa</span></p>
             </div>
-            <div>
-                <span>Durée</span>
-                <span>varduree</span>
-            </div>
-            <div>
-                <span>Publication</span>
-                <span>varpublication</span>
-            </div>
-            <div>
-                <span>Debut</span>
-                <span>vardebut</span>
+            <div class="submit">
+                <button>Postuler</button>
             </div>
         </div>
-    </div>
+    </form>
+
+    <form method="get" class="card">
+        <img src = 'resources/images/Logo small.svg' alt = 'logo test' class = 'logosmall'>
+        <div class = "offer-info">
+            <h3>Intitulé du poste</h3>
+            <p>Nom entreprise</p>
+            <p>Localisation</p>
+            <div class = "description">
+                <p>Profile :<span>varProfile</span></p>
+                <p>Durée :<span>x mois</span></p>
+                <p>Publication :<span>dd/mm/aaaa</span></p>
+                <p>Debut :<span>dd/mm/aaaa</span></p>
+            </div>
+            <div class="submit">
+                <button>Postuler</button>
+            </div>
+        </div>
+    </form>
+
+    <form method="get" class="card">
+        <img src = 'resources/images/Logo small.svg' alt = 'logo test' class = 'logosmall'>
+        <div class = "offer-info">
+            <h3>Intitulé du poste</h3>
+            <p>Nom entreprise</p>
+            <p>Localisation</p>
+            <div class = "description">
+                <p>Profile :<span>varProfile</span></p>
+                <p>Durée :<span>x mois</span></p>
+                <p>Publication :<span>dd/mm/aaaa</span></p>
+                <p>Debut :<span>dd/mm/aaaa</span></p>
+            </div>
+            <div class="submit">
+                <button>Postuler</button>
+            </div>
+        </div>
+    </form>
+
+    <form method="get" class="card">
+        <img src = 'resources/images/Logo small.svg' alt = 'logo test' class = 'logosmall'>
+        <div class = "offer-info">
+            <h3>Intitulé du poste</h3>
+            <p>Nom entreprise</p>
+            <p>Localisation</p>
+            <div class = "description">
+                <p>Profile :<span>varProfile</span></p>
+                <p>Durée :<span>x mois</span></p>
+                <p>Publication :<span>dd/mm/aaaa</span></p>
+                <p>Debut :<span>dd/mm/aaaa</span></p>
+            </div>
+            <div class="submit">
+                <button>Postuler</button>
+            </div>
+        </div>
+    </form>
+
+    <form method="get" class="card">
+        <img src = 'resources/images/Logo small.svg' alt = 'logo test' class = 'logosmall'>
+        <div class = "offer-info">
+            <h3>Intitulé du poste</h3>
+            <p>Nom entreprise</p>
+            <p>Localisation</p>
+            <div class = "description">
+                <p>Profile :<span>varProfile</span></p>
+                <p>Durée :<span>x mois</span></p>
+                <p>Publication :<span>dd/mm/aaaa</span></p>
+                <p>Debut :<span>dd/mm/aaaa</span></p>
+            </div>
+            <div class="submit">
+                <button>Postuler</button>
+            </div>
+        </div>
+    </form>
+
+    <form method="get" class="card">
+        <img src = 'resources/images/Logo small.svg' alt = 'logo test' class = 'logosmall'>
+        <div class = "offer-info">
+            <h3>Intitulé du poste</h3>
+            <p>Nom entreprise</p>
+            <p>Localisation</p>
+            <div class = "description">
+                <p>Profile :<span>varProfile</span></p>
+                <p>Durée :<span>x mois</span></p>
+                <p>Publication :<span>dd/mm/aaaa</span></p>
+                <p>Debut :<span>dd/mm/aaaa</span></p>
+            </div>
+            <div class="submit">
+                <button>Postuler</button>
+            </div>
+        </div>
+    </form>
+
+    <form method="get" class="card">
+        <img src = 'resources/images/Logo small.svg' alt = 'logo test' class = 'logosmall'>
+        <div class = "offer-info">
+            <h3>Intitulé du poste</h3>
+            <p>Nom entreprise</p>
+            <p>Localisation</p>
+            <div class = "description">
+                <p>Profile :<span>varProfile</span></p>
+                <p>Durée :<span>x mois</span></p>
+                <p>Publication :<span>dd/mm/aaaa</span></p>
+                <p>Debut :<span>dd/mm/aaaa</span></p>
+            </div>
+            <div class="submit">
+                <button>Postuler</button>
+            </div>
+        </div>
+    </form>
+
 </div>
