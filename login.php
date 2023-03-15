@@ -10,7 +10,7 @@
 
 <div id="connexion">
     <form method="post">
-        <img src="resources/images/LogoBig.svg">
+        <img src="resources/images/LogoBig.svg" alt="logo">
         <label for="username">
             <span>Username</span>
             <input type="text" name="username" id="username">
