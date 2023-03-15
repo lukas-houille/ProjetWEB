@@ -6,6 +6,7 @@
     padding: 1rem;
     box-shadow: rgba(0, 0, 0, 0.5) 0 3px 8px;
     width: 500px;
+    margin: 1rem;
     background-color: $color-card-bg;
     img {
         height: 80px;
@@ -18,12 +19,13 @@
         .description{
             margin-top: 1rem;
             background-color: transparent;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            grid-row: auto;
-            grid-column-gap: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
             p{
+                display: flex;
                 font-weight: 600;
+                flex-wrap: wrap;
             }
         }
         .submit{
@@ -41,10 +43,14 @@
     }
 }
 
-#cards{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-row: auto;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
+@media (max-width: 700px) {
+    .card{
+        width: 100%;
+        img{
+            display: none;
+        }
+        .offer-info{
+            margin: 0;
+        }
+    }
 }
