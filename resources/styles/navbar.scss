@@ -7,9 +7,11 @@
     align-items: center;
     background: $color-light;
     padding: 1rem;
+
     img {
         height: 100%;
     }
+
     a {
         display: flex;
         flex-direction: row;
@@ -22,34 +24,40 @@
         height: 44.5px;
         transition: all 0.2s ease;
         border-radius: 4rem;
-        p{
+        p {
             background-color: transparent;
             font-weight: 800;
         }
-        &:hover {
-            background: $color-light-grey;
-        }
     }
+
     #nav-links {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
         align-items: center;
+        a{
+            &:hover {
+                background: $color-light-grey;
+            }
+        }
     }
 }
 
+
 @media (max-width: 850px) {
     #nav-bar {
-        img{
+        img {
             display: none;
         }
+
         width: 100%;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
+
         #nav-links {
-            a{
+            a {
                 padding: 0.5rem;
             }
         }
