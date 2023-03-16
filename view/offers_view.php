@@ -38,6 +38,7 @@ include('navbar.php');
     {{/offers}}
 </div> 
 <script>
+    $(".offers").hide();
 	$.ajax({
 		type:"POST",
 		url:"./model/offers_ajax.php",
@@ -59,6 +60,7 @@ include('navbar.php');
                 }
             }
             $(".offers").html(Mustache.render($(".offers").html(), {"offers" : response.message}));
+            $(".offers").show();
 		}
 	});
 </script>
