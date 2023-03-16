@@ -40,7 +40,7 @@ include('navbar.php');
 <script>
 	$.ajax({
 		type:"POST",
-		url:"http://cesitonstage.com/model/offers_ajax.php",
+		url:"/model/offers_ajax.php",
 		dataType: "json",
 		success: function(response) {
             for(let y = 0; y < response.message.length; y++) {
@@ -58,7 +58,6 @@ include('navbar.php');
                     }
                 }
             }
-            console.log(response.message);
             $(".offers").html(Mustache.render($(".offers").html(), {"offers" : response.message}));
 		}
 	});
