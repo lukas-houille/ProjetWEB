@@ -40,7 +40,7 @@ include('navbar.php');
 <script>
 	$.ajax({
 		type:"POST",
-		url:"http://localhost/data/Projet/model/offers_ajax.php",
+		url:"http://cesitonstage.com/model/offers_ajax.php",
 		dataType: "json",
 		success: function(response) {
             for(let y = 0; y < response.message.length; y++) {
