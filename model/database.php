@@ -1,6 +1,7 @@
 <?php
 require "database-config.php";
 
+
 class Database {
     private $PDO;
     private $connected = false;
