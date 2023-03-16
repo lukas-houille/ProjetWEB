@@ -12,4 +12,10 @@
     function allow_login(string &$login) {
         $_SESSION["login"]=$login;
     }
+    function check_login() {
+        if(isset($_SESSION["login"]) && !empty($_SESSION["login"])) {
+            return true;
+        }
+        return false;
+    }
 ?>

@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Offers</title>
-    <?php
-    include('header.php');
-    ?>
-</head>
-<body>
 <?php
-include('navbar.php');
-?>
-
-
-// mettre son code ici
-
-<?php
-include('footer.html');
-?>
-</body>
-</html>
+require_once "./model/session_model.php";
+initialise_session();
+if(check_login()) {
+    require_once "./view/offers_view.php";
+}
+else {
+    require_once "login.php";
+}
