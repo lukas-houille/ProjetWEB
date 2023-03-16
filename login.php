@@ -1,6 +1,6 @@
 Hello
 <?php
-require_once "./model/login_model.php";
+require_once ".\model\login_model.php";
 $warning = "";
 if((isset($_POST["username"]) && !empty($_POST["username"])) && (isset($_POST["password"]) && !empty($_POST["password"]))) {
     $hash = userHash($_POST["username"],$base);
@@ -14,4 +14,4 @@ if((isset($_POST["username"]) && !empty($_POST["username"])) && (isset($_POST["p
         $warning = "<p>Wrong password or username!</p>";
     }
 }
-require_once "./view/login_view.php";
+require_once "view\login_view.php";
