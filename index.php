@@ -9,15 +9,6 @@
 <body>
 <?php
 
-
-require_once "mustache.php-main/src/Mustache/Autoloader.php";
-Mustache_Autoloader::register();
-$mustache = new Mustache_Engine(array('loader' => new Mustache_Loader_FilesystemLoader(dirname('mustache.php-main') . '/templates'),));
-
-$mustache->render('cardoffer', array('planet' => 'World'));
-
-
-
 include('navbar.php');
 
 
