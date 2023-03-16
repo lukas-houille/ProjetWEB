@@ -1,6 +1,13 @@
 <?php
 include 'header.php';
 ?>
+
+
+Hello {{planet}}
+
+
+
+
 <form method="get" class="card">
     <img src='resources/images/Logo small.svg' alt='logo test' class='logosmall'>
     <div class="offer-info">

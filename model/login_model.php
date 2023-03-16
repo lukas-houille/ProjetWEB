@@ -3,7 +3,7 @@ require_once "database.php";
 require_once "session_model.php";
 
 function userHash(string $username, Database $base) {
-    $result = $base->executeQuery("SELECT password FROM login WHERE login=:username LIMIT 1",["username" => $_POST["username"]]);
+    $result = $base->executeQuery("SELECT password FROM Login WHERE login=:username LIMIT 1",["username" => $_POST["username"]]);
     if (!empty($result)) {
         return $result[0]["password"];
     }
