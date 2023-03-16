@@ -13,7 +13,7 @@ class Database {
             echo "not working";
         }
     }
-    public function execute_query(string $query_template, array $fields=[], int $return_option=PDO::FETCH_ASSOC) {
+    public function executeQuery(string $query_template, array $fields=[], int $return_option=PDO::FETCH_ASSOC) {
         if($this->connected) {
             try { // Try preparing the query
                 $query = $this->PDO->prepare($query_template);
