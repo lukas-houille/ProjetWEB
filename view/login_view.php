@@ -10,7 +10,8 @@
 
 <div id="connexion">
     <form method="post">
-        <img src="resources/images/LogoBig.svg">
+        <img src="../resources/images/LogoBig.svg" alt="LogoBig">
+        <?= $warning ?>
         <label for="username">
             <span>Username</span>
             <input type="text" name="username" id="username">
@@ -18,9 +19,7 @@
         <label for="password">
             <span>Password</span>
             <input type="password" name="password" id="password">
-            <a href="http://google.com" target="_blank">Forgot password?</a>
         </label>
-        <?= $warning ?>
         <button type="submit">Sign in</button>
     </form>
 </div>

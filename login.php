@@ -15,7 +15,7 @@ if((isset($_POST["username"]) && !empty($_POST["username"])) && (isset($_POST["p
         die();
     }
     else {
-        $warning = "<p>Wrong password or username!</p>";
+        $warning = "<p class='warning'>Wrong username or password !</p>";
     }
 }
 require "./view/login_view.php";

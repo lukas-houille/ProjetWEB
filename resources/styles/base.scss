@@ -193,3 +193,8 @@ form {
     box-shadow: 0 0 0.25rem $color-light-grey;
     padding: 2rem;
 }
+
+.warning{
+    color: $color-warning;
+    font-weight: 600;
+}
