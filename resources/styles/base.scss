@@ -198,3 +198,8 @@ form {
     color: $color-warning;
     font-weight: 600;
 }
+
+.content{
+    width: 100%;
+    min-height: $view-height;
+}

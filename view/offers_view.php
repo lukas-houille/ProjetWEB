@@ -12,38 +12,56 @@
 <?php
 include('navbar.php');
 ?>
-<div class="offers">
-    {{#offers}}
-    <form method="get" class="card">
-    <img src='resources/images/Logo small.svg' alt='logo test' class='logosmall'>
-    <div class="offer-info">
-        <h3>{{description}}</h3>
-        <p>{{name}}</p>
-        <p>{{city}}</p>
-        <div class="description">
-            <div class="vertical-align">
-                <p>Profile:<span> {{required}}</span></p>
-                <p>Durée:<span> {{duration}} mois</span></p>
-            </div>
-            <div class="vertical-align">
-                <!--<p>Publication:<span> dd/mm/aaaa</span></p>--><!-- Not in DB for now -->
-                <p>Debut:<span> {{date}}</span></p>
-            </div>
+<div class="content">
+
+    <form>
+        //some content
+
+        <div class="search">
+            <input type="text" placeholder="Rechercher" name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
         </div>
-        <div class="submit" value="AHAHA">
-            <button>Postuler</button>
-        </div>
-    </div>
     </form>
-    {{/offers}}
-</div> 
+
+    <div class="offers">
+        {{#offers}}
+        <form method="get" class="card">
+            <img src='resources/images/Logo small.svg' alt='logo test' class='logosmall'>
+            <div class="offer-info">
+                <h3>{{description}}</h3>
+                <p>{{name}}</p>
+                <p>{{city}}</p>
+                <div class="description">
+                    <div class="vertical-align">
+                        <p>Profile:<span> {{required}}</span></p>
+                        <p>Durée:<span> {{duration}} mois</span></p>
+                    </div>
+                    <div class="vertical-align">
+                        <!--<p>Publication:<span> dd/mm/aaaa</span></p>--><!-- Not in DB for now -->
+                        <p>Debut:<span> {{date}}</span></p>
+                    </div>
+                </div>
+                <div class="submit" value="AHAHA">
+                    <button>Postuler</button>
+                </div>
+            </div>
+        </form>
+        {{/offers}}
+    </div>
+
+</div>
+
+
+<?php
+include('footer.html');
+?>
 <script>
     $(".offers").hide();
-	$.ajax({
-		type:"POST",
-		url:"./model/offers_ajax.php",
-		dataType: "json",
-		success: function(response) {
+    $.ajax({
+        type:"POST",
+        url:"./model/offers_ajax.php",
+        dataType: "json",
+        success: function(response) {
             for(let y = 0; y < response.message.length; y++) {
                 response.message[y].required = "";
                 for(let i = 0; i < response.message[y].abilities.length; i++) {
@@ -61,11 +79,8 @@ include('navbar.php');
             }
             $(".offers").html(Mustache.render($(".offers").html(), {"offers" : response.message}));
             $(".offers").show();
-		}
-	});
+        }
+    });
 </script>
-<?php
-include('footer.html');
-?>
 </body>
 </html>

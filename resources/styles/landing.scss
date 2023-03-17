@@ -1,6 +1,5 @@
 #landing-page{
-    height: calc(100vh - 76.5px);
-    width: 100%;
+    height: $view-height;
     display: flex;
     justify-content: space-around;
     align-items: center;
