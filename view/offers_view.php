@@ -26,7 +26,7 @@ include('navbar.php');
                 <p>Durée:<span> {{duration}} mois</span></p>
             </div>
             <div class="vertical-align">
-                <p>Compétences:<span> {{required}}</span></p>
+                <p>Savoir:<span> {{required}}</span></p>
                 <p>Debut:<span> {{date}}</span></p>
             </div>
         </div>
