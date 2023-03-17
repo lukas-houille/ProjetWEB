@@ -9,7 +9,6 @@
 <body>
 <?php
 include('navbar.php');
-
 ?>
 
 <div id="landing-page">
