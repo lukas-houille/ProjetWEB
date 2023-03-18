@@ -61,7 +61,7 @@ a {
     font-family: 'Material Symbols Rounded';
     font-style: normal;
     font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/materialsymbolsrounded/v92/syl0-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190FjpZIvDmUSVOK7BDJ_vb9vUSzq3wzLK-P0J-V_Zs-QtQth3-jOc7TOVpeRL2w5rwZu2rIelXxc.woff2) format('woff2');
+    src: url(https://fonts.gstatic.com/s/materialsymbolsrounded/v92/sykg-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190Fjzag.woff2) format('woff2');
 }
 
 .material-symbols-rounded {
@@ -110,9 +110,10 @@ button {
         font-size: 1.25rem;
         background-color: transparent;
         align-items: center;
+        padding-right: 0.25rem;
     }
     .material-symbols-rounded{
-        font-size: 32px;
+        font-size: 24px;
         color: $color-light;
     }
     &:hover {
@@ -125,8 +126,6 @@ button {
         background: $color-main;
         box-shadow: none;
         transform: none;
-        // click effect
-
     }
 
     &:disabled {
@@ -137,32 +136,67 @@ button {
         transform: none;
     }
 
-    // add after the comment the different options you need following the exemple :
-    /*
-    &.class-option-name{
+    &.outlined {
+        background: $color-light;
+        color: $color-main-dark;
+        box-shadow: none;
+        border : 1px solid $color-main-dark;
+        .text{
+            color: $color-main-dark;
+            display: flex;
+            font-weight: 600;
+            font-size: 1.25rem;
+            background-color: transparent;
+            align-items: center;
+        }
+        .material-symbols-rounded{
+            color: $color-main-dark;
+        }
         &:hover {
-            background: $button-color;
-            box-shadow: $color-secondary; // shadow color
+            transform: translate(-0.125rem, -0.125rem);
+            box-shadow: 0.125rem 0.125rem 0 $color-main-dark;
         }
         &:active {
-            background: $color-main;
-            box-shadow: $color-secondary;
+            box-shadow: none;
+            transform: none;
+        }
+        &:disabled {
+
         }
     }
-    */
+    &.sort{
+        border-radius: 4rem;
+        background: transparent;
+        box-shadow: none;
+        padding: 0.5rem;
+        .text{
+            color: $color-dark;
+            background-color: transparent;
+            align-items: center;
+            margin-left: 0.5rem;
+        }
+        .material-symbols-rounded{
+                color: $color-dark;
+            margin-right: 0.5rem;
+        }
+        &:hover {
+            transform: none;
+            background: radial-gradient( $color-light-grey , $color-light 70%);
+        }
+        &:active {
+            box-shadow: none;
+            transform: none;
+        }
+        &:disabled {
 
+        }
+    }
 }
 
 label {
     display: flex;
     flex-direction: column;
     margin-top: 0.5rem;
-
-    span {
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        background-color: transparent;
-    }
 
     [type=text], [type=email], [type=password], [type=number], [type=date], [type=time], [type=tel], [type=url], [type=week], [type=month], [type=search], [type=color], [type=range], [type=datetime-local], [type=checkbox], [type=radio], [type=file], select, textarea {
         padding: 0.5rem;
@@ -192,6 +226,26 @@ form {
     background: $color-light;
     box-shadow: 0 0 0.25rem $color-light-grey;
     padding: 2rem;
+}
+
+.pop-up{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    form{
+        position: fixed;
+        top: calc(100vh/6);
+        left: calc(100vw/6);
+        width: 100%;
+        max-width: calc(200vw/3);
+        height: 100%;
+        max-height: calc(200vh/3);
+        overflow: auto;
+    }
 }
 
 .warning{

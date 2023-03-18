@@ -15,13 +15,16 @@ require_once('view/navbar.php');
         <div id="welcome-text">
             <h2>Vous cherchez un stage ? </h2>
             <h2>Pen'CESI (pensez y)</h2>
-            <button type="button" onclick="window.location.href='offers.php'"><span class="text"> Voir les stages !</span></button>
+            <button type="button" onclick="window.location.href='offers.php'">
+                <span class="text"> Voir les stages !</span>
+            </button>
         </div>
         <div id="welcome-image">
             <img src="resources/images/corpo.svg" alt="Logo">
         </div>
     </div>
 </div>
+
 
 
 <?php
