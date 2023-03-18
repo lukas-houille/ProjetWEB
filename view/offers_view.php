@@ -22,18 +22,22 @@ include('navbar.php');
             </button>
         </div>
     </div>
-    <div class="pop-up" id="page-offers-filter">
+    <div class="pop-up" id="offers-popup-filter">
         <!-- Filter Pop up form -->
         <form action="offers.php" method="get" >
-
+            <div class="close">
+                <span class="material-symbols-rounded" id="offers-popup-filter-close"> close </span>
+            </div>
             <button>
-            <span class="text"> Afficher les offres </span>
+                <span class="text"> Afficher les offres </span>
                 <span class="material-symbols-rounded"> chevron_right </span>
             </button>
         </form>
     </div>
-    <div class="offers">
-        Hello
+    <div class="offers-layout-cards">
+        Here will be the offers displayed in cards
+
+
     </div>
 
 </div>

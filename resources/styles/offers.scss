@@ -6,22 +6,27 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-wrap: wrap;
+
     h1 {
         margin: 4rem;
     }
-    .filter{
+
+    .filter {
         display: flex;
         width: 100%;
         justify-content: center;
+        margin-bottom: 4rem;
     }
 }
 
-.offers{
-    background: $color-light-grey;
-    width: 100%;
+.offers-layout-cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    align-content: center;
+    margin: 1rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid $color-main-dark;
 }
