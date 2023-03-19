@@ -3,7 +3,7 @@
 <head>
     <title>Accueil</title>
     <?php
-    include('view/header.php');
+    require_once('view/header.php');
     ?>
 </head>
 <body>
