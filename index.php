@@ -8,7 +8,15 @@
 </head>
 <body>
 <?php
-require_once('view/navbar.php');
+require_once "./model/session_model.php";
+initialise_session();
+if(check_login()) {
+    require_once('view/navbar.php');
+}
+else {
+    $_SESSION["name"] = "Connexion";
+    require_once('view/navbar.php');
+}
 ?>
 <div class="content">
     <div id="landing-page">

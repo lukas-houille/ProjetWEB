@@ -61,7 +61,8 @@ a {
     font-family: 'Material Symbols Rounded';
     font-style: normal;
     font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/materialsymbolsrounded/v92/sykg-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190Fjzag.woff2) format('woff2');
+    src: local('Material Symbols Rounded'), local('Material-Symbols-Rounded') ,url("/resources/iconfont/webfont.woff2") format('woff2'), url(https://fonts.gstatic.com/s/materialsymbolsrounded/v92/sykg-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190Fjzag.woff2) format('woff2');
+    font-display: swap;
 }
 
 .material-symbols-rounded {

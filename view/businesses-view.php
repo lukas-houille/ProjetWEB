@@ -15,6 +15,28 @@ require_once('navbar.php');
 
 <div class="content">
 
+    <div class="title-filter">
+        <h1>Entreprises</h1>
+        <div class="filter">
+            <button class="outlined btn-filter-popup">
+                <span class="text"> Filtrer / Trier </span>
+                <span class="material-symbols-rounded"> filter_list </span>
+            </button>
+        </div>
+    </div>
+
+    <div class="pop-up">
+        <!-- Filter Pop up form -->
+        <form action="offers.php" method="get">
+            <div class="close">
+                <span class="material-symbols-rounded popup-close"> close </span>
+            </div>
+            <button>
+                <span class="text"> Afficher les offres </span>
+                <span class="material-symbols-rounded"> chevron_right </span>
+            </button>
+        </form>
+    </div>
 
 </div>
 

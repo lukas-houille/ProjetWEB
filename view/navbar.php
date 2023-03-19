@@ -9,10 +9,10 @@
         <a href="business.php">
             <p>Entreprises</p>
         </a>
-        <?php
-        ?>
-        <a href="login.php">
-            <p>Connexion</p>
+        <a href="member.php">
+            <?php
+            echo "<p>". $_SESSION["name"] ."</p>";
+            ?>
         </a>
     </div>
 </nav>

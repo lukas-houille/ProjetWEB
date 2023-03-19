@@ -16,7 +16,7 @@ include('navbar.php');
     <div class="title-filter">
         <h1>Stages</h1>
         <div class="filter">
-            <button class="outlined" id="btn-offers-filter" onclick="showFilterOffers()">
+            <button class="outlined btn-filter-popup">
                 <span class="text"> Filtrer / Trier </span>
                 <span class="material-symbols-rounded"> filter_list </span>
             </button>
@@ -24,9 +24,9 @@ include('navbar.php');
     </div>
     <div class="pop-up" id="offers-popup-filter">
         <!-- Filter Pop up form -->
-        <form action="offers.php" method="get" >
+        <form action="offers.php" method="get">
             <div class="close">
-                <span class="material-symbols-rounded" id="offers-popup-filter-close"> close </span>
+                <span class="material-symbols-rounded popup-close"> close </span>
             </div>
             <button>
                 <span class="text"> Afficher les offres </span>
@@ -35,44 +35,36 @@ include('navbar.php');
         </form>
     </div>
     <div class="offers-layout-cards">
-        Here will be the offers displayed in cards
-
-
+        {{#offers}}
+        <form method="get" action="#id_offer={{id_offer}}" class="card">
+            <img src='resources/images/Logo small.svg' alt='logo test' class='logosmall'>
+            <div class="offer-info">
+                <h3>{{description}}</h3>
+                <p>{{name}}</p>
+                <p>{{city}}</p>
+                <div class="description">
+                    <div class="vertical-align">
+                        <p>Profile:<span> {{concerns}}</span></p>
+                        <p>Durée:<span> {{duration}} mois</span></p>
+                    </div>
+                    <div class="vertical-align">
+                        <p>Savoir:<span> {{required}}</span></p>
+                        <p>Debut:<span> {{date}}</span></p>
+                    </div>
+                </div>
+                <div class="submit">
+                    <button class="outlined">
+                        <span class="text"> Postuler </span>
+                        <span class="material-symbols-rounded"> open_in_new </span>
+                    </button>
+                </div>
+            </div>
+        </form>
+        {{/offers}}
     </div>
 
 </div>
 
-
-<!--à ajouter dans le code ci-dessus -->
-
-<div class="offers">
-    {{#offers}}
-    <form method="get" action="#id_offer={{id_offer}}" class="card">
-        <img src='resources/images/Logo small.svg' alt='logo test' class='logosmall'>
-        <div class="offer-info">
-            <h3>{{description}}</h3>
-            <p>{{name}}</p>
-            <p>{{city}}</p>
-            <div class="description">
-                <div class="vertical-align">
-                    <p>Profile:<span> {{concerns}}</span></p>
-                    <p>Durée:<span> {{duration}} mois</span></p>
-                </div>
-                <div class="vertical-align">
-                    <p>Savoir:<span> {{required}}</span></p>
-                    <p>Debut:<span> {{date}}</span></p>
-                </div>
-            </div>
-            <div class="submit">
-                <button class="outlined">
-                    <span class="text"> Postuler </span>
-                    <span class="material-symbols-rounded"> open_in_new </span>
-                </button>
-            </div>
-        </div>
-    </form>
-    {{/offers}}
-</div>
 <script>
     $(".offers").hide();
     $.ajax({
