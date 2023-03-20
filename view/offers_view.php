@@ -36,9 +36,9 @@ include('navbar.php');
     </div>
     <div class="offers-layout-cards">
         {{#offers}}
-        <form method="get" class="card">
+        <form method="get" action="/postulate.php" class="card">
+            <input type="hidden" name="id_offer" value="{{id_offer}}">
             <img src='resources/images/Logo small.svg' alt='logo test' class='logosmall'>
-            <input type="hidden" name="offer" value="2">
             <div class="offer-info">
                 <h3>{{description}}</h3>
                 <div>
