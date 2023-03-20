@@ -40,8 +40,16 @@ include('navbar.php');
             <img src='resources/images/Logo small.svg' alt='logo test' class='logosmall'>
             <div class="offer-info">
                 <h3>{{description}}</h3>
-                <p>{{name}}</p>
-                <p>{{city}}</p>
+                <div>
+                    <div class="header-info">
+                        <span class="material-symbols-rounded">Work</span>
+                        <p>{{name}}</p>
+                    </div>
+                </div>
+                <div class="header-info">
+                    <span class="material-symbols-rounded">Home_Pin</span>
+                    <p>{{city}}</p>
+                </div>
                 <div class="description">
                     <div class="vertical-align">
                         <p>Profile:<span> {{concerns}}</span></p>
@@ -62,7 +70,6 @@ include('navbar.php');
         </form>
         {{/offers}}
     </div>
-
 </div>
 
 <script>
