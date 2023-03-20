@@ -1,5 +1,5 @@
 <nav id="nav-bar">
-    <a href="index.php">
+    <a href="index.php" id="logo">
         <img src="resources/images/LogoBig.svg" alt="Logo">
     </a>
     <div id="nav-links">

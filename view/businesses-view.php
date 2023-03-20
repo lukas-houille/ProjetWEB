@@ -32,7 +32,7 @@ require_once('navbar.php');
                 <span class="material-symbols-rounded popup-close"> close </span>
             </div>
             <button>
-                <span class="text"> Afficher les offres </span>
+                <span class="text"> Enregistrer </span>
                 <span class="material-symbols-rounded"> chevron_right </span>
             </button>
         </form>
