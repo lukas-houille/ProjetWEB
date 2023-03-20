@@ -29,9 +29,24 @@ include('navbar.php');
                 <span class="material-symbols-rounded popup-close"> close </span>
             </div>
             <select id="skills">
-                <?= $options ?>
+                <?= $skills_options ?>
             </select>
             <div id="selected_skills"></div>
+            <select id="promotions">
+                <?= $promotions_options ?>
+            </select>
+            <div id="selected_promotions"></div>
+            <p>Trier par : <select id="sort">
+                <option>ne pas trier</option>
+                <option value="placesasc">nombre de places offertes croissant</option>
+                <option value="placesdesc">nombre de places offertes décroissant</option>
+                <option value="durationasc">durée croissante</option>
+                <option value="durationdesc">durée décroissante</option>
+                <option value="salaryasc">base de rémunération croissante</option>
+                <option value="salarydesc">base de rémunération décroissante</option>
+                <option value="dateasc">date plus proches</option>
+                <option value="datedesc">date plus éloginées</option>
+            </select></p>
             <button type="button" onclick="loadFiltered()">
                 <span class="text"> Enregistrer </span>
                 <span class="material-symbols-rounded"> chevron_right </span>
@@ -92,7 +107,7 @@ include('navbar.php');
         }
     });
     $("#skills option").click(function() {
-        if(!$("span[value="+$("#skills option:selected").val()+"]").length) {
+        if(!$("#selected_skills span[value="+$("#skills option:selected").val()+"]").length) {
             $("<span/>", {
                 value: $("#skills option:selected").val(),
                 html: $("#skills option:selected").text()+" ",
@@ -102,10 +117,25 @@ include('navbar.php');
             }).appendTo("#selected_skills");
         }
     });
+    $("#promotions option").click(function() {
+        if(!$("#selected_promotions span[value="+$("#promotions option:selected").val()+"]").length) {
+            $("<span/>", {
+                value: $("#promotions option:selected").val(),
+                html: $("#promotions option:selected").text()+" ",
+                click: function(){
+                    $(this).remove();
+                }
+            }).appendTo("#selected_promotions");
+        }
+    });
     function loadFiltered() {
         var skills = [];
         $('#selected_skills span').each(function() {
             skills.push($(this).attr("value"));
+        });
+        var promotions = [];
+        $('#selected_promotions span').each(function() {
+            promotions.push($(this).attr("value"));
         });
         $(".offers-layout-cards").hide();
         $.ajax({
@@ -114,7 +144,9 @@ include('navbar.php');
             dataType: "json",
             data: {
                 action: "showFiltered",
-                skills: skills
+                skills: skills,
+                promotions: promotions,
+                sort: $("#sort option:selected").attr("value")
             },
             success: function (response) {
                 formatDisplay(response);
