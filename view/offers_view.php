@@ -95,7 +95,7 @@ include('navbar.php');
         if(!$("span[value="+$("#skills option:selected").val()+"]").length) {
             $("<span/>", {
                 value: $("#skills option:selected").val(),
-                html: $("#skills option:selected").text(),
+                html: $("#skills option:selected").text()+" ",
                 click: function(){
                     $(this).remove();
                 }
