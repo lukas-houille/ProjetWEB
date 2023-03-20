@@ -90,7 +90,7 @@ include('navbar.php');
                     }
                 }
             }
-            $(".offers-layout-cards").html(Mustache.render($(".offers-layout-cards").html(), {"offers-layout-cards": response.message}));
+            $(".offers-layout-cards").html(Mustache.render($(".offers-layout-cards").html(), {"offers": response.message}));
             $(".offers-layout-cards").show();
         }
     });
