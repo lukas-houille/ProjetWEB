@@ -24,11 +24,15 @@ include('navbar.php');
     </div>
     <div class="pop-up" id="offers-popup-filter">
         <!-- Filter Pop up form -->
-        <form action="offers.php" method="get">
+        <form>
             <div class="close">
                 <span class="material-symbols-rounded popup-close"> close </span>
             </div>
-            <button>
+            <select id="skills">
+                <?= $options ?>
+            </select>
+            <div id="selected_skills"></div>
+            <button type="button" onclick="load()">
                 <span class="text"> Enregistrer </span>
                 <span class="material-symbols-rounded"> chevron_right </span>
             </button>
@@ -79,6 +83,9 @@ include('navbar.php');
         type: "POST",
         url: "./model/offers_ajax.php",
         dataType: "json",
+        data: {
+            action: "showAll"
+        },
         success: function (response) {
             console.log(response.message);
             format = [["groups", "concerns", 20], ["abilities", "required", 10]];
@@ -102,7 +109,56 @@ include('navbar.php');
             $(".offers-layout-cards").show();
         }
     });
-
+    $("#skills option").click(function() {
+        if(!$("span[value="+$("#skills option:selected").val()+"]").length) {
+            $("<span/>", {
+                value: $("#skills option:selected").val(),
+                html: $("#skills option:selected").text(),
+                click: function(){
+                    $(this).remove();
+                }
+            }).appendTo("#selected_skills");
+        }
+    });
+    function load() {
+        var test = [];
+        $('#selected_skills span').each(function() {
+            test.push($(this).attr("value"));
+        });
+        console.log(test);
+        $(".offers-layout-cards").hide();
+        $.ajax({
+            type: "POST",
+            url: "./model/offers_ajax.php",
+            dataType: "json",
+            data: {
+                action: "showFiltered",
+                skills: test
+            },
+            success: function (response) {
+                console.log(response.message);
+                format = [["groups", "concerns", 20], ["abilities", "required", 10]];
+                for (let f = 0; f < format.length; f++) {
+                    for (let y = 0; y < response.message.length; y++) {
+                        response.message[y][format[f][1]] = "";
+                        for (let i = 0; i < response.message[y][format[f][0]].length; i++) {
+                            if ((response.message[y][format[f][1]] + response.message[y][format[f][0]][i].name).length >= format[f][2]) {
+                                response.message[y][format[f][1]] += "...";
+                                break
+                            } else {
+                                if (i != 0 && i != response.message[y][format[f][0]].length - 1 || i == 1) {
+                                    response.message[y][format[f][1]] += ",";
+                                }
+                                response.message[y][format[f][1]] += response.message[y][format[f][0]][i].name;
+                            }
+                        }
+                    }
+                }
+                $(".offers-layout-cards").html(Mustache.render($(".offers-layout-cards").html(), {"offers": response.message}));
+                $(".offers-layout-cards").show();
+            }
+        });
+    }
 </script>
 
 <?php
