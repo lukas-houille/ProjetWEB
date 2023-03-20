@@ -32,7 +32,7 @@ include('navbar.php');
                 <?= $options ?>
             </select>
             <div id="selected_skills"></div>
-            <button type="button" onclick="load()">
+            <button type="button" onclick="loadFiltered()">
                 <span class="text"> Enregistrer </span>
                 <span class="material-symbols-rounded"> chevron_right </span>
             </button>
@@ -78,6 +78,7 @@ include('navbar.php');
 </div>
 
 <script>
+    const base_html = $(".offers-layout-cards").html();
     $(".offers-layout-cards").hide();
     $.ajax({
         type: "POST",
@@ -87,26 +88,7 @@ include('navbar.php');
             action: "showAll"
         },
         success: function (response) {
-            console.log(response.message);
-            format = [["groups", "concerns", 20], ["abilities", "required", 10]];
-            for (let f = 0; f < format.length; f++) {
-                for (let y = 0; y < response.message.length; y++) {
-                    response.message[y][format[f][1]] = "";
-                    for (let i = 0; i < response.message[y][format[f][0]].length; i++) {
-                        if ((response.message[y][format[f][1]] + response.message[y][format[f][0]][i].name).length >= format[f][2]) {
-                            response.message[y][format[f][1]] += "...";
-                            break
-                        } else {
-                            if (i != 0 && i != response.message[y][format[f][0]].length - 1 || i == 1) {
-                                response.message[y][format[f][1]] += ",";
-                            }
-                            response.message[y][format[f][1]] += response.message[y][format[f][0]][i].name;
-                        }
-                    }
-                }
-            }
-            $(".offers-layout-cards").html(Mustache.render($(".offers-layout-cards").html(), {"offers": response.message}));
-            $(".offers-layout-cards").show();
+            formatDisplay(response);
         }
     });
     $("#skills option").click(function() {
@@ -120,12 +102,11 @@ include('navbar.php');
             }).appendTo("#selected_skills");
         }
     });
-    function load() {
-        var test = [];
+    function loadFiltered() {
+        var skills = [];
         $('#selected_skills span').each(function() {
-            test.push($(this).attr("value"));
+            skills.push($(this).attr("value"));
         });
-        console.log(test);
         $(".offers-layout-cards").hide();
         $.ajax({
             type: "POST",
@@ -133,31 +114,33 @@ include('navbar.php');
             dataType: "json",
             data: {
                 action: "showFiltered",
-                skills: test
+                skills: skills
             },
             success: function (response) {
-                console.log(response.message);
-                format = [["groups", "concerns", 20], ["abilities", "required", 10]];
-                for (let f = 0; f < format.length; f++) {
-                    for (let y = 0; y < response.message.length; y++) {
-                        response.message[y][format[f][1]] = "";
-                        for (let i = 0; i < response.message[y][format[f][0]].length; i++) {
-                            if ((response.message[y][format[f][1]] + response.message[y][format[f][0]][i].name).length >= format[f][2]) {
-                                response.message[y][format[f][1]] += "...";
-                                break
-                            } else {
-                                if (i != 0 && i != response.message[y][format[f][0]].length - 1 || i == 1) {
-                                    response.message[y][format[f][1]] += ",";
-                                }
-                                response.message[y][format[f][1]] += response.message[y][format[f][0]][i].name;
-                            }
-                        }
-                    }
-                }
-                $(".offers-layout-cards").html(Mustache.render($(".offers-layout-cards").html(), {"offers": response.message}));
-                $(".offers-layout-cards").show();
+                formatDisplay(response);
             }
         });
+    }
+    function formatDisplay(response) {
+        format = [["groups", "concerns", 20], ["abilities", "required", 10]];
+        for (let f = 0; f < format.length; f++) {
+            for (let y = 0; y < response.message.length; y++) {
+                response.message[y][format[f][1]] = "";
+                for (let i = 0; i < response.message[y][format[f][0]].length; i++) {
+                    if ((response.message[y][format[f][1]] + response.message[y][format[f][0]][i].name).length >= format[f][2]) {
+                        response.message[y][format[f][1]] += "...";
+                        break
+                    } else {
+                        if (i != 0 && i != response.message[y][format[f][0]].length - 1 || i == 1) {
+                            response.message[y][format[f][1]] += ",";
+                        }
+                        response.message[y][format[f][1]] += response.message[y][format[f][0]][i].name;
+                    }
+                }
+            }
+        }
+        $(".offers-layout-cards").html(Mustache.render(base_html, {"offers": response.message}));
+        $(".offers-layout-cards").show();
     }
 </script>
 
