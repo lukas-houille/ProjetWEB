@@ -21,12 +21,11 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQUE
             $sql .= ")";
             $sorting_options = ["placesasc" => "places ASC","placesdesc" => "places DESC",
                 "durationasc" => "duration ASC", "durationdesc" => "duration DESC",
-                "salarayasc" => "salary ASC", "salarydesc" => "salary DESC",
+                "salaryasc" => "salary ASC", "salarydesc" => "salary DESC",
                 "dateasc" => "date ASC", "datedesc" => "date DESC"];
             if(isset($_POST["sort"]) && array_key_exists($_POST["sort"],$sorting_options)) {
                 $sql .= " ORDER BY ".$sorting_options[$_POST["sort"]];
             }
-            //echo $sql;
             $result = $base->executeQueryUnNamed($sql,$values,return_option:PDO::FETCH_OBJ);
             returnResults($result, $base);
         }
