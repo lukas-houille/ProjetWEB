@@ -66,7 +66,7 @@ include('navbar.php');
 </div>
 
 <script>
-    $(".offers").hide();
+    $(".offers-layout-cards").hide();
     $.ajax({
         type: "POST",
         url: "./model/offers_ajax.php",
@@ -90,8 +90,8 @@ include('navbar.php');
                     }
                 }
             }
-            $(".offers").html(Mustache.render($(".offers").html(), {"offers": response.message}));
-            $(".offers").show();
+            $(".offers-layout-cards").html(Mustache.render($(".offers-layout-cards").html(), {"offers-layout-cards": response.message}));
+            $(".offers-layout-cards").show();
         }
     });
 
