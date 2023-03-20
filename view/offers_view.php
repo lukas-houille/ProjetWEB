@@ -36,8 +36,9 @@ include('navbar.php');
     </div>
     <div class="offers-layout-cards">
         {{#offers}}
-        <form method="get" action="#id_offer={{id_offer}}" class="card">
+        <form method="get" class="card">
             <img src='resources/images/Logo small.svg' alt='logo test' class='logosmall'>
+            <input type="hidden" name="offer" value="2">
             <div class="offer-info">
                 <h3>{{description}}</h3>
                 <div>
@@ -61,7 +62,7 @@ include('navbar.php');
                     </div>
                 </div>
                 <div class="submit">
-                    <button class="outlined">
+                    <button class="outlined" type="submit">
                         <span class="text"> Postuler </span>
                         <span class="material-symbols-rounded"> open_in_new </span>
                     </button>
