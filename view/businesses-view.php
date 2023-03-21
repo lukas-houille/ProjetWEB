@@ -38,6 +38,14 @@ require_once('navbar.php');
         </form>
     </div>
 
+    <div class="businesses-layout-cards">
+
+
+        <!-- Antonin mets ton code d'une carte ici -->
+
+
+    </div>
+
 </div>
 
 <?php

@@ -1,27 +1,5 @@
 @import "base";
 
-.title-filter {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-
-    h1 {
-        margin: 4rem;
-    }
-
-    .filter {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        margin: 4rem;
-        button{
-            margin: 0 1rem;
-        }
-    }
-}
-
 .offers-layout-cards {
     display: flex;
     flex-direction: row;
