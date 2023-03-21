@@ -13,7 +13,22 @@ require_once('view/navbar.php');
 ?>
 
 <div class="content">
-    //deconnexion
+    <div class="member-name-info">
+        <h1> Bonjour <?php echo $name->first_name; ?> </h1>
+        <div id="info">
+            <h3>Infos</h3>
+            <!-- Mettre les infos de l'utilisateur avec mustache -->
+        </div>
+    </div>
+    <?php
+    if($type == "Admin" || $type == "Tutor") {
+        echo '<button type="button" onclick="window.location.href=\'dashboard.php\'">
+                <span class="text"> Dashboard </span>
+                <span class="material-symbols-rounded"> Team_Dashboard </span>
+            </button>';
+    }
+    ?>
+
     <button>
         <span class="material-symbols-rounded"> logout </span>
         <span class="text"> Se déconnecter </span>
