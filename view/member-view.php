@@ -12,20 +12,19 @@
 require_once('view/navbar.php');
 ?>
 
-<p>Pour rappel, vous êtes un <?= $type ?></p>
 <div class="content">
     <div class="member-name-info">
-        <h1> Bonjour
+        <h1> Bonjour <?php echo $name->first_name; ?> </h1>
         <div id="info">
             <h3>Infos</h3>
             <!-- Mettre les infos de l'utilisateur avec mustache -->
         </div>
     </div>
     <?php
-    if(($type == "Pilote")||($type == "Admin")) {
+    if($type == "Admin" || $type == "Tutor") {
         echo '<button type="button" onclick="window.location.href=\'dashboard.php\'">
-                <span class="material-symbols-rounded"> Team_Dashboard </span>
                 <span class="text"> Dashboard </span>
+                <span class="material-symbols-rounded"> Team_Dashboard </span>
             </button>';
     }
     ?>
