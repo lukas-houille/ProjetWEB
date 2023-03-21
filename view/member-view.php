@@ -14,6 +14,22 @@ require_once('view/navbar.php');
 
 <p>Pour rappel, vous êtes un <?= $type ?></p>
 <div class="content">
+    <div class="member-name-info">
+        <h1> Bonjour
+        <div id="info">
+            <h3>Infos</h3>
+            <!-- Mettre les infos de l'utilisateur avec mustache -->
+        </div>
+    </div>
+    <?php
+    if(($type == "pilote")||($type == "admin")) {
+        echo '<button type="button" onclick="window.location.href=\'dashboard.php\'">
+                <span class="material-symbols-rounded"> Team_Dashboard </span>
+                <span class="text"> Dashboard </span>
+            </button>';
+    }
+    ?>
+
     <button>
         <span class="material-symbols-rounded"> logout </span>
         <span class="text"> Se déconnecter </span>
