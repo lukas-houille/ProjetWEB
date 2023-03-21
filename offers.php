@@ -2,7 +2,7 @@
 require_once "./model/session_model.php";
 require_once "./model/database.php";
 initialise_session();
-if(check_login()) {
+if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
     $skills = $base->executeQuery("SELECT id_ability, name FROM Ability", return_option:PDO::FETCH_OBJ);
     $skills_options = "";
     foreach($skills as $skill) {
