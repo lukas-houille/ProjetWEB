@@ -1,0 +1,105 @@
+$color-main: #2947A3;
+$color-secondary: #9CD336;
+$color-dark: #0D1220;
+$color-light: #F6F8FE;
+$color-warning: #CC0022;
+$color-light-grey: #C2C7D6;
+$color-dark-grey: #61636B;
+$color-card-bg: #E4E8F1;
+$color-main-dark: #142452;
+$color-secondary-dark: #202E05;
+
+body, * {
+    font-family: 'Monsterrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: $color-dark;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: $color-light;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#url {
+    font-weight: 600;
+    font-size: 1.25rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 4rem;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    transition: all 0.1s ease;
+    background: $color-main;
+    color: $color-light;
+    box-shadow: 0 0.125rem $color-secondary;
+    align-items: center;
+    margin: 1rem;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+h2 {
+    font-weight: 900;
+    font-size: 2rem;
+    text-align: center;
+}
+
+h3 {
+    font-weight: 800;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    footer .horizontal-align {
+        flex-direction: column;
+    }
+    
+    #nav-bar img {
+        display: none;
+    }
+    
+    body, * {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    footer .horizontal-align {
+        flex-direction: column;
+    }
+    
+    #nav-bar img {
+        display: none;
+    }
+    
+    body, * {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 350px) {
+    footer .horizontal-align {
+        flex-direction: column;
+    }
+    
+    #nav-bar img {
+        display: none;
+    }
+    
+    body, * {
+        font-size: 2px;
+    }
+}
