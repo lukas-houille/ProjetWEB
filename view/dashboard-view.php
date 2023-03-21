@@ -1,3 +1,11 @@
+<?php
+require_once "./model/session_model.php";
+initialise_session();
+if ($type == "Tutor" || $type == "Admin") {
+} else {
+    require_once "login.php";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
