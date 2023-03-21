@@ -42,7 +42,40 @@ require_once('navbar.php');
 
 
         <!-- Antonin mets ton code d'une carte ici -->
-
+        {{#offers}}
+        <form method="get" action="#id_offer={{id_offer}}" class="card">
+            <img src='resources/images/Logo small.svg' alt='logo test' class='logosmall'>
+            <div class="offer-info">
+                <h3>{{description}}</h3>
+                <div>
+                    <div class="header-info">
+                        <span class="material-symbols-rounded">Work</span>
+                        <p>{{name}}</p>
+                    </div>
+                </div>
+                <div class="header-info">
+                    <span class="material-symbols-rounded">Home_Pin</span>
+                    <p>{{city}}</p>
+                </div>
+                <div class="description">
+                    <div class="vertical-align">
+                        <p>Profile:<span> {{concerns}}</span></p>
+                        <p>Durée:<span> {{duration}} mois</span></p>
+                    </div>
+                    <div class="vertical-align">
+                        <p>Savoir:<span> {{required}}</span></p>
+                        <p>Debut:<span> {{date}}</span></p>
+                    </div>
+                </div>
+                <div class="submit">
+                    <button class="outlined">
+                        <span class="text"> Postuler </span>
+                        <span class="material-symbols-rounded"> open_in_new </span>
+                    </button>
+                </div>
+            </div>
+        </form>
+        {{/offers}}
 
     </div>
 
