@@ -65,7 +65,13 @@ include('navbar.php');
     <div class="offers-layout-cards">
         {{#offers}}
         <form method="get" action="/postulate.php" class="card">
+            <?php
+            if($favorites) {
+            ?>
             <input type=checkbox class="favorite" {{favorite}} onclick="setFavorite({{id_offer}},this)"></input>
+            <?php
+            }
+            ?>
             <input type="hidden" name="id_offer" value="{{id_offer}}">
             <img src='resources/images/Logo small.svg' alt='logo test' class='logosmall'>
             <div class="offer-info">

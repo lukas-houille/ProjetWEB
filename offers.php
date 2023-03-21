@@ -13,6 +13,12 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
     foreach($promotions as $promotion) {
         $promotions_options.="<option value=".htmlspecialchars($promotion->id_group).">".htmlspecialchars($promotion->name)."</option>";
     }
+    if(in_array($_SESSION["login"]->isType($base)[0],["Student","Admin"])) {
+        $favorites = true;
+    }
+    else {
+        $favorites = false;
+    }
     require_once "./view/offers_view.php";
 }
 else {
