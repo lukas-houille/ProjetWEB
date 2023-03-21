@@ -1,7 +1,7 @@
 <?php
 require_once "./model/session_model.php";
 initialise_session();
-if(check_login()) {
+if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
     require_once "view/businesses-view.php";
 }
 else {
