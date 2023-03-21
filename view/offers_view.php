@@ -30,14 +30,14 @@ include('navbar.php');
             </div>
             <label>
                 <select id="skills">
-                    <option id="placeholder" value="0">Compétences</option>
+                    <option class="placeholder" value="0">Compétences</option>
                     <?= $skills_options ?>
                 </select>
             </label>
             <div id="selected_skills"></div>
             <label>
                 <select id="promotions">
-                <option id="placeholder" value="0">Promotions</option>
+                    <option class="placeholder" value="0">Promotions</option>
                     <?= $promotions_options ?>
                 </select>
             </label>
@@ -114,7 +114,7 @@ include('navbar.php');
             formatDisplay(response);
         }
     });
-    $("#placeholder").hide();
+    $(".placeholder").hide();
     $("#skills").change(function() {
         if(!$("#selected_skills span[value="+$("#skills option:selected").val()+"]").length) {
             $("<span/>", {
