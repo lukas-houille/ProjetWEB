@@ -39,27 +39,26 @@ require_once('navbar.php');
     </div>
 
     <div class="businesses-layout-cards">
-
-        {{#offers}}
+        {{#companies}}
         <form method="get" action="/postulate.php" class="card">
-            <input type="hidden" name="id_business" value="{{id_business}}">
+            <input type="hidden" name="id_business" value="{{company_id}}">
             <img src='resources/images/Logo small.svg' alt='logo test' class='logosmall'>
             <div class="offer-info">
-                <h3>{{Business_name}}</h3>
+                <h3>{{company_name}}</h3>
                 <div>
                     <div class="header-info">
                         <span class="material-symbols-rounded">Home_Pin</span>
-                        <p>{{city}}</p>
+                        <p>{{cities}}</p>
                     </div>
-                    <div class="header-info">
+                    <!-- <div class="header-info">
                         <span class="material-symbols-rounded">Home_Pin</span>
                         <p>{{note}}</p>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="description">
                     <div class="vertical-align">
-                        <p>Secteur d'activité:<span> {{field}}</span></p>
-                        <p>Autres locatlités:<span> {{date}}</span></p>
+                        <p>Secteur d'activité:<span> {{field_name}}</span></p>
+                        <p>Étudiants CESI déjà pris:<span> {{cesi_interns}}</span></p>
                     </div>
                 </div>
                 <div class="submit">
@@ -70,11 +69,49 @@ require_once('navbar.php');
                 </div>
             </div>
         </form>
-        {{/offers}}
+        {{/companies}}
 
     </div>
 
 </div>
+
+<script>
+    const base_html = $(".businesses-layout-cards").html();
+    $(".businesses-layout-cards").hide();
+    $.ajax({
+        type: "POST",
+        url: "./model/companies_ajax.php",
+        dataType: "json",
+        data: {
+            action: "showAll"
+        },
+        success: function (response) {
+            console.log(response);
+            formatDisplay(response);
+        }
+    });
+    function formatDisplay(response) {
+        format = [["localisations", "cities", 50]];
+        for (let f = 0; f < format.length; f++) {
+            for (let y = 0; y < response.message.length; y++) {
+                response.message[y][format[f][1]] = "";
+                for (let i = 0; i < response.message[y][format[f][0]].length; i++) {
+                    if ((response.message[y][format[f][1]] + response.message[y][format[f][0]][i].name).length >= format[f][2]) {
+                        response.message[y][format[f][1]] += "...";
+                        break
+                    } else {
+                        if (i != 0 && i != response.message[y][format[f][0]].length - 1 || i == 1) {
+                            response.message[y][format[f][1]] += ",";
+                        }
+                        response.message[y][format[f][1]] += response.message[y][format[f][0]][i].name;
+                    }
+                }
+            }
+        }
+        $(".businesses-layout-cards").html(Mustache.render(base_html, {"companies": response.message}));
+        $(".businesses-layout-cards").show();
+    }
+</script>
 
 <?php
 require_once('footer.html');
