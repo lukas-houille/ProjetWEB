@@ -64,6 +64,7 @@ include('navbar.php');
     <div class="offers-layout-cards">
         {{#offers}}
         <form method="get" action="/postulate.php" class="card">
+            <input type=checkbox class="favorite" {{favorite}}></input>
             <input type="hidden" name="id_offer" value="{{id_offer}}">
             <img src='resources/images/Logo small.svg' alt='logo test' class='logosmall'>
             <div class="offer-info">
@@ -73,10 +74,10 @@ include('navbar.php');
                         <span class="material-symbols-rounded">Work</span>
                         <p>{{name}}</p>
                     </div>
-                    <div class="header-info">
-                        <span class="material-symbols-rounded">Home_Pin</span>
-                        <p>{{city}}</p>
-                    </div>
+                </div>
+                <div class="header-info">
+                    <span class="material-symbols-rounded">Home_Pin</span>
+                    <p>{{city}}</p>
                 </div>
                 <div class="description">
                     <div class="vertical-align">
@@ -90,7 +91,7 @@ include('navbar.php');
                 </div>
                 <div class="submit">
                     <button class="outlined" type="submit">
-                        <span class="text"> Voir plus </span>
+                        <span class="text"> Postuler </span>
                         <span class="material-symbols-rounded"> open_in_new </span>
                     </button>
                 </div>

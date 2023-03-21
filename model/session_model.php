@@ -1,5 +1,5 @@
 <?php
-require_once("./model/database.php");
+require_once("database.php");
     class Session {
         private $login = null;
         public function __construct(string &$login) {
@@ -20,13 +20,17 @@ require_once("./model/database.php");
             if($this->checkLogin()) {
                 $tables = ["Student","Tutor","Admin"];
                 foreach($tables AS $table) {
-                    if(!empty($base->executeQuery("SELECT login FROM ".$table." WHERE login=:login LIMIT 1",["login"=>$this->login]))) {
-                        return($table);
+                    $result = $base->executeQuery("SELECT id_".strtolower($table)." FROM ".$table." WHERE login=:login LIMIT 1",["login"=>$this->login], return_option:PDO::FETCH_NUM);
+                    if(!empty($result)) {
+                        return([$table,$result[0][0]]);
                     }
                 }
             }
             return(null);
         }
+        public function getLogin() {
+            return($this->login);
+        } 
     }
     function initialise_session() { // Function used to initialise/resume a session
         if(!session_id()) { // Only creates a function if one isn't already opened
