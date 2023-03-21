@@ -4,8 +4,8 @@
   "short_name": "CESI ton stage",
   "description": "Le meilleur site pour trouver son stage au CESI",
   "start_url": "/",
-  "background_color": "#2f3d58",
-  "theme_color": "#2f3d58",
+  "background_color": "#F6F8FE",
+  "theme_color": "#2947A3",
   "orientation": "any",
   "display": "fullscreen",
   "icons": [
