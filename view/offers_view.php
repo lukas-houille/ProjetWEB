@@ -73,10 +73,10 @@ include('navbar.php');
                         <span class="material-symbols-rounded">Work</span>
                         <p>{{name}}</p>
                     </div>
-                </div>
-                <div class="header-info">
-                    <span class="material-symbols-rounded">Home_Pin</span>
-                    <p>{{city}}</p>
+                    <div class="header-info">
+                        <span class="material-symbols-rounded">Home_Pin</span>
+                        <p>{{city}}</p>
+                    </div>
                 </div>
                 <div class="description">
                     <div class="vertical-align">
@@ -90,7 +90,7 @@ include('navbar.php');
                 </div>
                 <div class="submit">
                     <button class="outlined" type="submit">
-                        <span class="text"> Postuler </span>
+                        <span class="text"> Voir plus </span>
                         <span class="material-symbols-rounded"> open_in_new </span>
                     </button>
                 </div>
