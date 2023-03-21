@@ -43,40 +43,38 @@ require_once('navbar.php');
 
         <!-- Antonin mets ton code d'une carte ici -->
         {{#offers}}
-        <form method="get" action="#id_offer={{id_offer}}" class="card">
+        <form method="get" action="/postulate.php" class="card">
+            <input type="hidden" name="id_offer" value="{{id_offer}}">
             <img src='resources/images/Logo small.svg' alt='logo test' class='logosmall'>
             <div class="offer-info">
                 <h3>{{description}}</h3>
                 <div>
                     <div class="header-info">
-                        <span class="material-symbols-rounded">Work</span>
+                        <span class="material-symbols-rounded">Nom entreprise</span>
                         <p>{{name}}</p>
                     </div>
                 </div>
                 <div class="header-info">
-                    <span class="material-symbols-rounded">Home_Pin</span>
-                    <p>{{city}}</p>
+                    <span class="material-symbols-rounded">Secteur d'activité</span>
+                    <p>{{City}}</p>
                 </div>
                 <div class="description">
                     <div class="vertical-align">
-                        <p>Profile:<span> {{concerns}}</span></p>
-                        <p>Durée:<span> {{duration}} mois</span></p>
+                        <p>domaine d'activité:<span> {{Field}}</span></p>
                     </div>
                     <div class="vertical-align">
-                        <p>Savoir:<span> {{required}}</span></p>
-                        <p>Debut:<span> {{date}}</span></p>
+                        <p>e-mail:<span> {{mail}}</span></p>
                     </div>
                 </div>
                 <div class="submit">
-                    <button class="outlined">
-                        <span class="text"> Postuler </span>
+                    <button class="outlined" type="submit">
+                        <span class="text"> contacter </span>
                         <span class="material-symbols-rounded"> open_in_new </span>
                     </button>
                 </div>
             </div>
         </form>
         {{/offers}}
-
     </div>
 
 </div>
