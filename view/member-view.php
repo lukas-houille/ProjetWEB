@@ -22,7 +22,7 @@ require_once('view/navbar.php');
         </div>
     </div>
     <?php
-    if(($type == "pilote")||($type == "admin")) {
+    if(($type == "Pilote")||($type == "Admin")) {
         echo '<button type="button" onclick="window.location.href=\'dashboard.php\'">
                 <span class="material-symbols-rounded"> Team_Dashboard </span>
                 <span class="text"> Dashboard </span>
