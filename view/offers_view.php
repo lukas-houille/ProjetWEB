@@ -28,25 +28,31 @@ include('navbar.php');
             <div class="close">
                 <span class="material-symbols-rounded popup-close"> close </span>
             </div>
-            <select id="skills">
-                <?= $skills_options ?>
-            </select>
+            <label>
+                <select id="skills">
+                    <?= $skills_options ?>
+                </select>
+            </label>
             <div id="selected_skills"></div>
-            <select id="promotions">
-                <?= $promotions_options ?>
-            </select>
+            <label>
+                <select id="promotions">
+                    <?= $promotions_options ?>
+                </select>
+            </label>
             <div id="selected_promotions"></div>
-            <p>Trier par : <select id="sort">
-                <option>ne pas trier</option>
-                <option value="placesasc">nombre de places offertes croissant</option>
-                <option value="placesdesc">nombre de places offertes décroissant</option>
-                <option value="durationasc">durée croissante</option>
-                <option value="durationdesc">durée décroissante</option>
-                <option value="salaryasc">base de rémunération croissante</option>
-                <option value="salarydesc">base de rémunération décroissante</option>
-                <option value="dateasc">date plus proches</option>
-                <option value="datedesc">date plus éloginées</option>
-            </select></p>
+            <label>
+                Trier par : <select id="sort">
+                    <option>ne pas trier</option>
+                    <option value="placesasc">nombre de places offertes croissant</option>
+                    <option value="placesdesc">nombre de places offertes décroissant</option>
+                    <option value="durationasc">durée croissante</option>
+                    <option value="durationdesc">durée décroissante</option>
+                    <option value="salaryasc">base de rémunération croissante</option>
+                    <option value="salarydesc">base de rémunération décroissante</option>
+                    <option value="dateasc">date plus proches</option>
+                    <option value="datedesc">date plus éloginées</option>
+                </select>
+            </label>
             <button type="button" onclick="loadFiltered()">
                 <span class="text"> Enregistrer </span>
                 <span class="material-symbols-rounded"> chevron_right </span>
