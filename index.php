@@ -14,7 +14,6 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
     require_once('view/navbar.php');
 }
 else {
-    $_SESSION["name"] = "Connexion";
     require_once('view/navbar.php');
 }
 ?>

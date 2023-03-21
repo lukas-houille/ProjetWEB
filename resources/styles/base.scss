@@ -275,3 +275,36 @@ form {
     width: 100%;
     min-height: $view-height;
 }
+
+.selected-filters{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    span{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 0.5rem;
+        padding: 0 0.5rem;
+        border-radius: 0.25rem;
+        background: $color-main;
+        color: $color-light;
+        :hover{
+            background: $color-warning;
+        }
+        span{
+            color: $color-light;
+            font-size: 1rem;
+            width: 1rem;
+            background: transparent;
+        }
+    }
+    :hover{
+        background: $color-warning;
+    }
+}

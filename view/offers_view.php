@@ -34,14 +34,14 @@ include('navbar.php');
                     <?= $skills_options ?>
                 </select>
             </label>
-            <div id="selected_skills"></div>
+            <div id="selected_skills" class="selected-filters"></div>
             <label>
                 <select id="promotions">
                     <option class="placeholder" value="0">Promotions</option>
                     <?= $promotions_options ?>
                 </select>
             </label>
-            <div id="selected_promotions"></div>
+            <div id="selected_promotions" class="selected-filters"></div>
             <label>
                 Trier par : <select id="sort">
                     <option>ne pas trier</option>

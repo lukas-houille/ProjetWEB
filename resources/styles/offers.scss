@@ -15,7 +15,10 @@
         display: flex;
         width: 100%;
         justify-content: center;
-        margin-bottom: 4rem;
+        margin: 4rem;
+        button{
+            margin: 0 1rem;
+        }
     }
 }
 
