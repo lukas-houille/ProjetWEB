@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Member</title>
+    <script type="text/javascript" src="./resources/jquery.js"></script>
     <?php
     include('header.php');
     ?>
@@ -19,6 +20,12 @@ require_once('view/navbar.php');
     </button>
 
 </div>
+
+<script>
+    $(".content button").click(function() {
+        window.location.replace("?disconnect");
+    });
+</script>
 
 <?php
 require_once('view/footer.html');
