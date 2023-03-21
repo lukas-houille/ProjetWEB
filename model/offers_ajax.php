@@ -31,6 +31,25 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQUE
             $result = $base->executeQueryUnNamed($sql,$values,return_option:PDO::FETCH_OBJ);
             returnResults($result, $base);
         }
+        elseif($_POST["action"] == "setFavorite" && isset($_POST["id_offer"]) && !empty($_POST["id_offer"]) && isset($_POST["create"]) && !empty($_POST["create"])) {
+            $type = $_SESSION["login"]->isType($base);
+            if($type[0] == "Admin") {
+                if($_POST["create"] == "true") { // jQuery AJAX sends booleans as strings
+                    $base->executeQuery("INSERT INTO admin_wishes VALUES(:offer,:id)",["offer" => $_POST["id_offer"], "id" => $type[1]]);
+                }
+                else {
+                    $base->executeQuery("DELETE FROM admin_wishes WHERE id_offer=:offer AND id_admin=:id",["offer" => $_POST["id_offer"], "id" => $type[1]]);
+                }
+            }
+            elseif($type[0] == "Student") {
+                if($_POST["create"] == "true") { // jQuery AJAX sends booleans as strings
+                    $base->executeQuery("INSERT INTO wishes VALUES(:offer,:id)",["offer" => $_POST["id_offer"], "id" => $type[1]]);
+                }
+                else {
+                    $base->executeQuery("DELETE FROM wishes WHERE id_offer=:offer AND id_student=:id",["offer" => $_POST["id_offer"], "id" => $type[1]]);
+                }
+            } 
+        }
     }
 }
 

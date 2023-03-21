@@ -15,6 +15,7 @@ include('navbar.php');
 <div class="content">
     <div class="title-filter">
         <h1>Stages</h1>
+        <!-- <input type="checkbox" class="testbox"></input> -->
         <div class="filter">
             <button class="outlined btn-filter-popup">
                 <span class="text"> Filtrer / Trier </span>
@@ -64,7 +65,7 @@ include('navbar.php');
     <div class="offers-layout-cards">
         {{#offers}}
         <form method="get" action="/postulate.php" class="card">
-            <input type=checkbox class="favorite" {{favorite}}></input>
+            <input type=checkbox class="favorite" {{favorite}} onclick="setFavorite({{id_offer}},this)"></input>
             <input type="hidden" name="id_offer" value="{{id_offer}}">
             <img src='resources/images/Logo small.svg' alt='logo test' class='logosmall'>
             <div class="offer-info">
@@ -140,6 +141,22 @@ include('navbar.php');
         }
         $("#promotions").val(0);
     });
+    function setFavorite(id_offer, checkbox) {
+        console.log(checkbox.checked);    
+        $.ajax({
+            type: "POST",
+            url: "./model/offers_ajax.php",
+            dataType: "json",
+            data: {
+                action: "setFavorite",
+                id_offer: id_offer,
+                create : checkbox.checked
+            },
+            success: function (response) {
+            }
+        });
+    }
+    
     function loadFiltered() {
         var skills = [];
         $('#selected_skills span').each(function() {
