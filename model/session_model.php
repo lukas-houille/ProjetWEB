@@ -11,10 +11,21 @@ require_once("./model/database.php");
             }
             return false;
         }
-        public function name(Database $base) {
+        public function name(Database &$base) {
             if($this->checkLogin()) {
                 return($base->executeQuery("SELECT first_name,last_name FROM ((SELECT Login.login,first_name,last_name FROM Login JOIN Student ON Login.login=Student.login) UNION (SELECT Login.login,first_name,last_name FROM Login JOIN Tutor ON Login.login=Tutor.login) UNION (SELECT Login.login,first_name,last_name FROM Login JOIN Admin ON Login.login=Admin.login)) AS logins WHERE login=:login LIMIT 1;",["login"=>$this->login], return_option:PDO::FETCH_OBJ)[0]);  
             }
+        }
+        public function isType(Database &$base) {
+            if($this->checkLogin()) {
+                $tables = ["Student","Tutor","Admin"];
+                foreach($tables AS $table) {
+                    if(!empty($base->executeQuery("SELECT login FROM ".$table." WHERE login=:login LIMIT 1",["login"=>$this->login]))) {
+                        return($table);
+                    }
+                }
+            }
+            return(null);
         }
     }
     function initialise_session() { // Function used to initialise/resume a session

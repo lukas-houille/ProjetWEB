@@ -12,8 +12,8 @@
 require_once('view/navbar.php');
 ?>
 
+<p>Pour rappel, vous êtes un <?= $type ?></p>
 <div class="content">
-    //deconnexion
     <button>
         <span class="material-symbols-rounded"> logout </span>
         <span class="text"> Se déconnecter </span>
