@@ -30,12 +30,14 @@ include('navbar.php');
             </div>
             <label>
                 <select id="skills">
+                    <option id="placeholder" value="0">Compétences</option>
                     <?= $skills_options ?>
                 </select>
             </label>
             <div id="selected_skills"></div>
             <label>
                 <select id="promotions">
+                <option id="placeholder" value="0">Promotions</option>
                     <?= $promotions_options ?>
                 </select>
             </label>
@@ -112,7 +114,8 @@ include('navbar.php');
             formatDisplay(response);
         }
     });
-    $("#skills option").click(function() {
+    $("#placeholder").hide();
+    $("#skills").change(function() {
         if(!$("#selected_skills span[value="+$("#skills option:selected").val()+"]").length) {
             $("<span/>", {
                 value: $("#skills option:selected").val(),
@@ -122,8 +125,9 @@ include('navbar.php');
                 }
             }).appendTo("#selected_skills");
         }
+        $("#skills").val(0);
     });
-    $("#promotions option").click(function() {
+    $("#promotions").change(function() {
         if(!$("#selected_promotions span[value="+$("#promotions option:selected").val()+"]").length) {
             $("<span/>", {
                 value: $("#promotions option:selected").val(),
@@ -133,6 +137,7 @@ include('navbar.php');
                 }
             }).appendTo("#selected_promotions");
         }
+        $("#promotions").val(0);
     });
     function loadFiltered() {
         var skills = [];
