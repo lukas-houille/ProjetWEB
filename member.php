@@ -1,6 +1,9 @@
 <?php
 require_once "./model/session_model.php";
 initialise_session();
+if(isset($_GET["disconnect"])) {
+    erase_session();
+}
 if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
     require_once "view/member-view.php";
 }
