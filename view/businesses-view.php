@@ -40,9 +40,6 @@ require_once('navbar.php');
 
     <div class="businesses-layout-cards">
 
-
-        <!-- Antonin mets ton code d'une carte ici -->
-        {{#offers}}
         {{#offers}}
         <form method="get" action="/postulate.php" class="card">
             <input type="hidden" name="id_business" value="{{id_business}}">
@@ -67,13 +64,12 @@ require_once('navbar.php');
                 </div>
                 <div class="submit">
                     <button class="outlined" type="submit">
-                        <span class="text"> Postuler </span>
+                        <span class="text"> Voir plus </span>
                         <span class="material-symbols-rounded"> open_in_new </span>
                     </button>
                 </div>
             </div>
         </form>
-        {{/offers}}
         {{/offers}}
 
     </div>
