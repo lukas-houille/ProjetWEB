@@ -50,10 +50,10 @@ require_once('navbar.php');
                         <span class="material-symbols-rounded">Home_Pin</span>
                         <p>{{cities}}</p>
                     </div>
-                    <!-- <div class="header-info">
-                        <span class="material-symbols-rounded">Home_Pin</span>
-                        <p>{{note}}</p>
-                    </div> -->
+                    <div class="header-info">
+                        <span>Confiance des tuteurs:</span>
+                        <p>{{grade}}</p>
+                    </div>
                 </div>
                 <div class="description">
                     <div class="vertical-align">

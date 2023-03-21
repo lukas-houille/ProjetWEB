@@ -41,6 +41,7 @@ function returnResults(array $result, Database $base) {
     else {
         foreach($result as $company) {
             $company->localisations = $base->executeQuery("SELECT name,postcode FROM is_located_in JOIN City ON is_located_in.id_city=City.id_city WHERE id_company=:company",["company" => $company->id_company], return_option:PDO::FETCH_OBJ);
+            $company->grade = $base->executeQuery("SELECT AVG(grade) FROM teacher_evaluates WHERE grade <= 5 AND id_company=:company",["company" => $company->id_company], return_option:PDO::FETCH_NUM)[0][0]; 
         }
         answer(200,$result);
     }
