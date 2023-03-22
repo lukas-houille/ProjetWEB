@@ -62,7 +62,7 @@ include('navbar-view.php');
             </button>
         </form>
     </div>
-    <div class="offers-layout-cards">
+    <div class="offers-layout-cards content-layout">
         {{#offers}}
         <form method="get" action="/postulate.php" class="card">
             <?php
@@ -81,10 +81,10 @@ include('navbar-view.php');
                         <span class="material-symbols-rounded">Work</span>
                         <p>{{name}}</p>
                     </div>
-                </div>
-                <div class="header-info">
-                    <span class="material-symbols-rounded">Home_Pin</span>
-                    <p>{{city}}</p>
+                    <div class="header-info">
+                        <span class="material-symbols-rounded">Home_Pin</span>
+                        <p>{{city}}</p>
+                    </div>
                 </div>
                 <div class="description">
                     <div class="vertical-align">
