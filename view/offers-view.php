@@ -62,7 +62,7 @@ include('navbar-view.php');
             </button>
         </form>
     </div>
-    <div class="content-layout">
+    <div class="offers-layout-cards">
         {{#offers}}
         <form method="get" action="/postulate.php" class="card">
             <?php
