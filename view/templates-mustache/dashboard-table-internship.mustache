@@ -2,21 +2,27 @@
     <thead>
     <tr>
         <th> ID </th>
-        <th> Nom </th>
-        <th> Prénom </th>
-        <th> Promo </th>
-        <th> Center </th>
+        <th> Description </th>
+        <th> Date </th>
+        <th> Durée </th>
+        <th> Salaire </th>
+        <th> Entreprise </th>
+        <th> Ville </th>
+        <th> Code postal </th>
     </tr>
     </thead>
     <tbody>
     {{#internship}}
     <tr>
-        <td> {{id_student}} </td>
-        <td> {{first_name}} </td>
-        <td> {{last_name}} </td>
-        <td> {{promotion}} </td>
-        <td> {{center}} </td>
-        <td> <span class="material-symbols-rounded" onclick="window.location.href='dashboard.php?id={{id_student}}'"> Edit_Note </span> </td>
+        <td> {{id_offer}} </td>
+        <td> {{description}} </td>
+        <td> {{date}} </td>
+        <td> {{duration}} </td>
+        <td> {{salary}} </td>
+        <td> {{name}} </td>
+        <td> {{city}} </td>
+        <td> {{postcode}} </td>
+        <td> <span class="material-symbols-rounded" onclick="window.location.href='dashboard.php?view=internship&id={{id_offer}}'"> Edit_Note </span> </td>
     </tr>
     {{/internship}}
     </tbody>
