@@ -229,7 +229,7 @@ form {
     padding: 2rem;
 }
 
-.pop-up{
+.popup{
     display: none;
     position: fixed;
     top: 0;
@@ -355,6 +355,8 @@ form {
         tbody{
             tr{
                 td{
+                    border-collapse: collapse;
+                    border: 1px solid $color-main-dark;
                     padding: 0.5rem;
                     span{
                         font-size: 1rem;

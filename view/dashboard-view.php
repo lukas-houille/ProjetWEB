@@ -38,7 +38,7 @@ require_once('view/navbar-view.php');
             ?>
         </div>
         <div class="dashboard-options">
-            <button class="outlined btn-filter-popup">
+            <button class="outlined btn-filter-popup" onclick="openPopUp('dashboard-popup-newEntry')">
                 <span class="text"> Nouvelle entrée </span>
                 <span class="material-symbols-rounded"> filter_list </span>
             </button>
@@ -48,6 +48,17 @@ require_once('view/navbar-view.php');
             </label>
         </div>
     </div>
+
+    <div class="popup" id="dashboard-popup-newEntry">
+        <!-- Filter Pop up form -->
+        <form>
+            <div class="close">
+                <span class="material-symbols-rounded popup-close"> close </span>
+            </div>
+            Mettre template mustache
+        </form>
+    </div>
+
     <div class="content-layout">
         <!-- Tableau html avec data et mustache -->
         <?= $table ?>

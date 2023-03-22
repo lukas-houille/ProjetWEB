@@ -18,14 +18,14 @@ require_once('navbar-view.php');
     <div class="title-filter">
         <h1>Entreprises</h1>
         <div class="filter">
-            <button class="outlined btn-filter-popup">
+            <button class="outlined btn-filter-popup" onclick="openPopUp('company-popup-filter')">
                 <span class="text"> Filtrer / Trier </span>
                 <span class="material-symbols-rounded"> filter_list </span>
             </button>
         </div>
     </div>
 
-    <div class="pop-up">
+    <div class="popup" id="company-popup-filter">
         <!-- Filter Pop up form -->
         <form action="offers.php" method="get">
             <div class="close">

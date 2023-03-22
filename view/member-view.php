@@ -20,20 +20,20 @@ require_once('view/navbar-view.php');
             <!-- Mettre les infos de l'utilisateur avec mustache -->
         </div>
     </div>
-    <?php
-    if($type[0] == "Admin" || $type[0] == "Tutor") {
+    <div id="member-btns">
+        <?php
+        if($type[0] == "Admin" || $type[0] == "Tutor") {
         echo '<button type="button" onclick="window.location.href=\'dashboard.php\'">
-                <span class="text"> Dashboard </span>
-                <span class="material-symbols-rounded"> Team_Dashboard </span>
-            </button>';
-    }
-    ?>
-
-    <button type="button" onclick="window.location.href='index.php?disconnect'">
-        <span class="material-symbols-rounded"> logout </span>
-        <span class="text" id="disconnect"> Deconnexion </span>
-    </button>
-
+            <span class="text"> Dashboard </span>
+            <span class="material-symbols-rounded"> Team_Dashboard </span>
+        </button>';
+        }
+        ?>
+        <button type="button" onclick="window.location.href='index.php?disconnect'">
+            <span class="material-symbols-rounded"> logout </span>
+            <span class="text" id="disconnect"> Deconnexion </span>
+        </button>
+    </div>
 </div>
 
 <?php

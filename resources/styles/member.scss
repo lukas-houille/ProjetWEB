@@ -1,15 +1,21 @@
 @import "base.scss";
 
 .member-name-info{
-    h1{
-        margin: 4rem;
-    }
+    padding: 4rem;
     #info{
-        margin: 2rem;
-        width: 100%;
+        margin: 2rem 0 0 0;
         background: $color-light-grey;
         padding: 2rem;
         border-radius: 1rem;
         color: $color-dark;
+    }
+}
+#member-btns{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    button{
+        margin: 0 1rem;
     }
 }

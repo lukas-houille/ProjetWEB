@@ -17,13 +17,13 @@ include('navbar-view.php');
         <h1>Stages</h1>
         <!-- <input type="checkbox" class="testbox"></input> -->
         <div class="filter">
-            <button class="outlined btn-filter-popup">
+            <button class="outlined btn-filter-popup" onclick="openPopUp('offers-popup-filter')">
                 <span class="text"> Filtrer / Trier </span>
                 <span class="material-symbols-rounded"> filter_list </span>
             </button>
         </div>
     </div>
-    <div class="pop-up" id="offers-popup-filter">
+    <div class="popup" id="offers-popup-filter">
         <!-- Filter Pop up form -->
         <form>
             <div class="close">
