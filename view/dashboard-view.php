@@ -38,7 +38,7 @@ require_once('view/navbar-view.php');
             ?>
         </div>
         <div class="dashboard-options">
-            <button class="outlined btn-filter-popup">
+            <button class="outlined btn-newEntry">
                 <span class="text"> Nouvelle entrée </span>
                 <span class="material-symbols-rounded"> filter_list </span>
             </button>
