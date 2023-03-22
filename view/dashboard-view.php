@@ -19,7 +19,7 @@ require_once('view/navbar-view.php');
                 <span class="text"> Etudiants </span>
                 <span class="material-symbols-rounded"> filter_list </span>
             </button>
-            <button class="primary" id="btn-table-compagny" onclick="window.location.href='?view=compagny'">
+            <button class="primary" id="btn-table-compagny" onclick="window.location.href='?view=company'">
                 <span class="text"> Entreprises </span>
                 <span class="material-symbols-rounded"> filter_list </span>
             </button>
@@ -38,7 +38,7 @@ require_once('view/navbar-view.php');
             ?>
         </div>
         <div class="dashboard-options">
-            <button class="outlined btn-newEntry">
+            <button class="outlined btn-filter-popup">
                 <span class="text"> Nouvelle entrée </span>
                 <span class="material-symbols-rounded"> filter_list </span>
             </button>
@@ -50,37 +50,7 @@ require_once('view/navbar-view.php');
     </div>
     <div class="content-layout">
         <!-- Tableau html avec data et mustache -->
-        <div id="dashboard-table-student">
-            <?= $student_table ?>
-        </div>
-        <div id="dashboard-table-business">
-            <?php
-            /*require_once ("vendor/mustache/mustache/src/Mustache/Autoloader.php");
-            Mustache_Autoloader::register();
-            $m = new Mustache_Engine;
-            $template = file_get_contents('view/templates-mustache/dashboard-table-internship.mustache');
-            echo $m->render($template, ["internship" => $base->executeQuery("")]);*/
-            ?>
-        </div>
-        <div id="dashboard-table-internship">
-            <?php
-            /*require_once ("vendor/mustache/mustache/src/Mustache/Autoloader.php");
-            Mustache_Autoloader::register();
-            $m = new Mustache_Engine;
-            $template = file_get_contents('view/templates-mustache/dashboard-table-internship.mustache');
-            echo $m->render($template, ["internship" => $base->executeQuery("SELECT Internship_offer.id_offer,duration,salary,date,places,description,Company.name,City.name as city FROM Internship_offer JOIN Company ON Internship_offer.id_company=Company.id_company JOIN City ON Internship_offer.id_city=City.id_city WHERE Internship_offer.visible=1 AND Company.visible=1")]);*/
-            ?>
-        </div>
-
-        <div id="dashboard-table-tutor">
-            <?php
-            /*require_once ("vendor/mustache/mustache/src/Mustache/Autoloader.php");
-            Mustache_Autoloader::register();
-            $m = new Mustache_Engine;
-            $template = file_get_contents('view/templates-mustache/dashboard-table-internship.mustache');
-            echo $m->render($template, ["internship" => $base->executeQuery("")]);*/
-            ?>
-        </div>
+        <?= $table ?>
     </div>
 </div>
 

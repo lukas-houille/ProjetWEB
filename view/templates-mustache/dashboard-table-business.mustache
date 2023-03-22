@@ -3,21 +3,21 @@
     <tr>
         <th> ID </th>
         <th> Nom </th>
-        <th> Prénom </th>
-        <th> Promo </th>
-        <th> Center </th>
+        <th> Étudiants CESI pris </th>
+        <th> Email </th>
+        <th> Secteur </th>
     </tr>
     </thead>
     <tbody>
-    {{#person}}
+    {{#company}}
     <tr>
-        <td> {{id_student}} </td>
-        <td> {{first_name}} </td>
-        <td> {{last_name}} </td>
-        <td> {{promotion}} </td>
-        <td> {{center}} </td>
-        <td> <span class="material-symbols-rounded" onclick="window.location.href='dashboard.php?id={{id_student}}'"> Edit_Note </span> </td>
+        <td> {{id_company}} </td>
+        <td> {{company_name}} </td>
+        <td> {{cesi_interns}} </td>
+        <td> {{email}} </td>
+        <td> {{field_name}} </td>
+        <td> <span class="material-symbols-rounded" onclick="window.location.href='dashboard.php?view=company&id={{id_company}}'"> Edit_Note </span> </td>
     </tr>
-    {{/person}}
+    {{/company}}
     </tbody>
 </table>

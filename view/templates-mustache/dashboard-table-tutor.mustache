@@ -4,19 +4,17 @@
         <th> ID </th>
         <th> Nom </th>
         <th> Prénom </th>
-        <th> Promo </th>
         <th> Center </th>
     </tr>
     </thead>
     <tbody>
     {{#person}}
     <tr>
-        <td> {{id_student}} </td>
+        <td> {{id_tutor}} </td>
         <td> {{first_name}} </td>
         <td> {{last_name}} </td>
-        <td> {{promotion}} </td>
         <td> {{center}} </td>
-        <td> <span class="material-symbols-rounded" onclick="window.location.href='dashboard.php?id={{id_student}}'"> Edit_Note </span> </td>
+        <td> <span class="material-symbols-rounded" onclick="window.location.href='dashboard.php?view=tutor&id={{id_tutor}}'"> Edit_Note </span> </td>
     </tr>
     {{/person}}
     </tbody>
