@@ -1,17 +1,5 @@
 @import "base";
 
-.offers-layout-cards {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    margin: 1rem 1rem;
-    padding: 1rem;
-    border-radius: 1rem;
-    border: 1px solid $color-main-dark;
-}
 
 .card{
     display: flex;

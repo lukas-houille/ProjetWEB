@@ -198,7 +198,11 @@ label {
     display: flex;
     flex-direction: column;
     margin-top: 0.5rem;
-
+    align-items: flex-start;
+    justify-content: center;
+    span{
+        font-weight: 600;
+    }
     [type=text], [type=email], [type=password], [type=number], [type=date], [type=time], [type=tel], [type=url], [type=week], [type=month], [type=search], [type=color], [type=range], [type=datetime-local], [type=checkbox], [type=radio], [type=file], select, textarea {
         padding: 0.5rem;
         border: 1px solid $color-light-grey;
@@ -211,10 +215,6 @@ label {
             outline: none;
             border: 1px solid $color-main;
         }
-    }
-
-    [type=checkbox], [type=radio] {
-        // à faire
     }
 }
 
@@ -263,8 +263,6 @@ form {
         }
     }
 }
-
-
 
 .warning{
     color: $color-warning;
@@ -315,7 +313,7 @@ form {
     align-items: flex-start;
     justify-content: flex-start;
     flex-wrap: wrap;
-
+    width: 100%;
     h1 {
         margin: 4rem;
     }
@@ -323,10 +321,47 @@ form {
     .filter {
         display: flex;
         width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
         justify-content: center;
-        margin: 4rem;
         button{
-            margin: 0 1rem;
+            margin: 1rem;
+        }
+    }
+}
+
+.content-layout{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 1rem 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid $color-main-dark;
+    table{
+        thead{
+            tr{
+                th{
+                    font-weight: 600;
+                }
+            }
+        }
+        tbody{
+            tr{
+                td{
+                    padding: 0.5rem;
+                    span{
+                        font-size: 1rem;
+                        color: $color-main-dark;
+                        cursor: pointer;
+                    }
+                }
+            }
         }
     }
 }

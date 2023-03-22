@@ -1,0 +1,19 @@
+@import "base.scss";
+
+.dashboard-options{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    width: 100%;
+    #dashboard-search{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-left: 1rem;
+    }
+}

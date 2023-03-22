@@ -21,7 +21,7 @@ require_once('view/navbar.php');
         </div>
     </div>
     <?php
-    if($type == "Admin" || $type == "Tutor") {
+    if($type[0] == "Admin" || $type[0] == "Tutor") {
         echo '<button type="button" onclick="window.location.href=\'dashboard.php\'">
                 <span class="text"> Dashboard </span>
                 <span class="material-symbols-rounded"> Team_Dashboard </span>
@@ -29,18 +29,12 @@ require_once('view/navbar.php');
     }
     ?>
 
-    <button>
+    <button type="button" onclick="window.location.href='index.php?disconnect'">
         <span class="material-symbols-rounded"> logout </span>
-        <span class="text"> Se déconnecter </span>
+        <span class="text" id="disconnect"> Deconnexion </span>
     </button>
 
 </div>
-
-<script>
-    $(".content button").click(function() {
-        window.location.replace("?disconnect");
-    });
-</script>
 
 <?php
 require_once('view/footer.html');

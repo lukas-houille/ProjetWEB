@@ -2,10 +2,11 @@
 require_once "./model/session_model.php";
 initialise_session();
 if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
-    if ($type == "Tutor" || $type == "Admin") {
-        require_once "dashboard-view.php";
+    $type = $_SESSION["login"]->isType($base);
+    if ($type[0] == "Admin" || $type[0] == "Tutor") {
+        require_once "view/dashboard-view.php";
     } else {
-        require_once ""; // TODO: Add the forbidden page
+        require_once "index.php"; // TODO: Add the forbidden page
     }
 }
 else {

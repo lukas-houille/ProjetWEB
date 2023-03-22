@@ -10,11 +10,10 @@
 <?php
 require_once "./model/session_model.php";
 initialise_session();
-if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
-    require_once('view/navbar.php');
-}
-else {
-    require_once('view/navbar.php');
+require_once('view/navbar.php');
+if(isset($_GET["disconnect"])) {
+    erase_session();
+    header("Location:index.php");
 }
 ?>
 <div class="content">
