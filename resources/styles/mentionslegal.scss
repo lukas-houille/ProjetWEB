@@ -1,0 +1,65 @@
+@import "base.scss";
+
+  p{
+    margin: 2rem;
+    color: $color-dark;
+  }
+  
+  h1, h2 {
+    font-weight: bold;
+    margin: 2rem   ;
+    color: $color-main;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 2rem;
+    
+    
+  }
+  .lienhebergeur {
+    color: $color-main;
+  }
+  
+  .lienhebergeur:hover {
+    color: $color-secondary;
+  }
+  
+  .lienhebergeur:active {
+    color:$color-main;
+  }
+   
+  .lienrgpd:active {
+    color: $color-main;
+  }
+  .lienrgpd:hover {
+    color: $color-secondary;
+  }
+
+  #mentionslegale form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  main {
+    background-color:$color-light; /* choisir une couleur d'arrière-plan */
+    border-radius: 10px; /* ajuster le rayon pour arrondir les coins */
+    padding: 40px; /* ajouter un peu d'espace à l'intérieur de l'arrière-plan arrondi */
+    width: 100%;
+  }
+  
+  
+  /* Media queries for responsiveness if you dont want you can remove*/
+  
+  @media screen and (max-width: 768px) {
+    main {
+      margin: 10px;
+    }
+  
+    #mentionslegale form {
+      flex-direction: column;
+    }
+  }
+  
