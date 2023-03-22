@@ -6,7 +6,7 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
     if ($type[0] == "Admin" || $type[0] == "Tutor") {
         require_once "view/dashboard-view.php";
     } else {
-        require_once "index.php"; // TODO: Add the forbidden page
+        require_once "view/forbidden-view.html";
     }
 }
 else {

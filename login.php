@@ -18,4 +18,4 @@ if((isset($_POST["username"]) && !empty($_POST["username"])) && (isset($_POST["p
         $warning = "<p class='warning'>Wrong username or password !</p>";
     }
 }
-require "./view/login_view.php";
+require "./view/login-view.php";

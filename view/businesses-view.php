@@ -10,7 +10,7 @@
 </head>
 <body>
 <?php
-require_once('navbar.php');
+require_once('navbar-view.php');
 ?>
 
 <div class="content">
@@ -114,7 +114,7 @@ require_once('navbar.php');
 </script>
 
 <?php
-require_once('footer.html');
+require_once('footer-view.html');
 ?>
 </body>
 </html>

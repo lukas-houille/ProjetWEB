@@ -10,7 +10,7 @@
 </head>
 <body>
 <?php
-include('navbar.php');
+include('navbar-view.php');
 ?>
 <div class="content">
     <div class="title-filter">
@@ -212,7 +212,7 @@ include('navbar.php');
 </script>
 
 <?php
-include('footer.html');
+include('footer-view.html');
 ?>
 </body>
 </html>
