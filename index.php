@@ -10,7 +10,7 @@
 <?php
 require_once "./model/session_model.php";
 initialise_session();
-require_once('view/navbar.php');
+require_once('view/navbar-view.php');
 if(isset($_GET["disconnect"])) {
     erase_session();
     header("Location:index.php");
@@ -34,7 +34,7 @@ if(isset($_GET["disconnect"])) {
 
 
 <?php
-require_once('view/footer.html');
+require_once('view/footer-view.html');
 ?>
 </body>
 </html>

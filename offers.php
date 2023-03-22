@@ -19,7 +19,7 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
     else {
         $favorites = false;
     }
-    require_once "./view/offers_view.php";
+    require_once "./view/offers-view.php";
 }
 else {
     require_once "login.php";

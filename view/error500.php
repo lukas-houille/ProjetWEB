@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php
-include('navbar.php');
+include('navbar-view.php');
 ?>
 <form id="form">
 <h1> Erreur 500 </h1>
