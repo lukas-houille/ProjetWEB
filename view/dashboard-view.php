@@ -56,16 +56,26 @@ require_once('view/navbar-view.php');
                 <th> Nom </th>
                 <th> Prénom </th>
                 <th> Promo </th>
+                <th> Center </th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td> 156 </td>
-                <td> dedazazazaza </td>
-                <td> szazazazazaz </td>
-                <td> szazazazazaz </td>
-                <td> <span class="material-symbols-rounded" id={{}}}> Edit_Note </span> </td>
-            </tr>
+            <?php
+            require_once ("vendor/mustache/mustache/src/Mustache/Autoloader.php");
+            Mustache_Autoloader::register();
+            $m = new Mustache_Engine;
+            $template =
+            '{{#person}}<tr>
+                <td> {{id_student}} </td>
+                <td> {{first_name}} </td>
+                <td> {{last_name}} </td>
+                <td> {{promotion}} </td>
+                <td> {{center}} </td>
+                <td> <span class="material-symbols-rounded" onclick="window.location.href=\'dashboard.php?id={{id_student}}\'"> Edit_Note </span> </td>
+            </tr>{{/person}}';
+            echo $m->render($template, ["person" => $base->executeQuery("SELECT id_student,first_name,last_name,Center.name AS center,Year_group.name AS promotion FROM Student JOIN Center ON Student.id_center=Center.id_center JOIN Year_group ON Student.id_group=Year_group.id_group;")]);
+            ?>
+
             </tbody>
         </table>
     </div>
