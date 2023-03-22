@@ -3,7 +3,7 @@ require_once "./model/session_model.php";
 initialise_session();
 require_once "./model/dashboard_model.php";
 if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
-    $type = $_SESSION["login"]->isType($base);
+    $type = ($_SESSION["login"]->isType($base));
     if ($type[0] == "Admin" || $type[0] == "Tutor") {
         if ($type[0] == "Admin") {
             $student_table = studentDashboardAdmin($base);

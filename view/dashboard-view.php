@@ -15,24 +15,25 @@ require_once('view/navbar-view.php');
     <div class="title-filter">
         <h1>Dashboard</h1>
         <div class="filter">
-            <button class="primary btn-filter-popup">
+            <button class="primary" id="btn-table-student" onclick="window.location.href='?view=student'">
                 <span class="text"> Etudiants </span>
                 <span class="material-symbols-rounded"> filter_list </span>
             </button>
-            <button class="primary btn-filter-popup">
+            <button class="primary" id="btn-table-compagny" onclick="window.location.href='?view=compagny'">
                 <span class="text"> Entreprises </span>
                 <span class="material-symbols-rounded"> filter_list </span>
             </button>
-            <button class="primary btn-filter-popup">
+            <button class="primary" id="btn-table-internship" onclick="window.location.href='?view=internship'">
                 <span class="text"> Stages </span>
                 <span class="material-symbols-rounded"> filter_list </span>
             </button>
             <?php
-            if ($type == "Admin" || $type == "Tutor") { // Todo: Remplacer par nouvelle variable
-                echo '<button class="outlined btn-filter-popup">
+            if ($type[0] == "Admin" || $type[0] == "Tutor") {
+                echo
+                '<button class="primary" id="btn-table-tutor" onclick="window.location.href=\'?view=tutor\'">
                 <span class="text"> Pilotes </span>
                 <span class="material-symbols-rounded"> filter_list </span>
-            </button>';
+                </button>';
             }
             ?>
         </div>
