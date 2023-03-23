@@ -8,7 +8,7 @@
     </tr>
     </thead>
     <tbody>
-    {{#person}}
+    {{#iteration}}
     <tr>
         <td> {{id_tutor}} </td>
         <td> {{first_name}} </td>
@@ -16,6 +16,7 @@
         <td> {{center}} </td>
         <td> <span class="material-symbols-rounded" onclick="window.location.href='dashboard.php?view=tutor&id={{id_tutor}}'"> Edit_Note </span> </td>
     </tr>
-    {{/person}}
+    {{/iteration}}
     </tbody>
 </table>
+<button onclick="window.location.href='?page={{previous_page}}&view=tutor'">👈</button><p>{{page}}/{{total_page}}</p><button onclick="window.location.href='?page={{next_page}}&view=tutor'">👉</button>

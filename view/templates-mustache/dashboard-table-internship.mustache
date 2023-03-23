@@ -12,7 +12,7 @@
     </tr>
     </thead>
     <tbody>
-    {{#internship}}
+    {{#iteration}}
     <tr>
         <td> {{id_offer}} </td>
         <td> {{description}} </td>
@@ -24,6 +24,7 @@
         <td> {{postcode}} </td>
         <td> <span class="material-symbols-rounded" onclick="window.location.href='dashboard.php?view=internship&id={{id_offer}}'"> Edit_Note </span> </td>
     </tr>
-    {{/internship}}
+    {{/iteration}}
     </tbody>
 </table>
+<button onclick="window.location.href='?page={{previous_page}}&view=internship'">👈</button><p>{{page}}/{{total_page}}</p><button onclick="window.location.href='?page={{next_page}}&view=internship'">👉</button>

@@ -9,7 +9,7 @@
     </tr>
     </thead>
     <tbody>
-    {{#company}}
+    {{#iteration}}
     <tr>
         <td> {{id_company}} </td>
         <td> {{company_name}} </td>
@@ -18,6 +18,7 @@
         <td> {{field_name}} </td>
         <td> <span class="material-symbols-rounded" onclick="window.location.href='dashboard.php?view=company&id={{id_company}}'"> Edit_Note </span> </td>
     </tr>
-    {{/company}}
+    {{/iteration}}
     </tbody>
 </table>
+<button onclick="window.location.href='?page={{previous_page}}&view=company'">👈</button><p>{{page}}/{{total_page}}</p><button onclick="window.location.href='?page={{next_page}}&view=company'">👉</button>
