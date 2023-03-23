@@ -4,14 +4,13 @@
     <title>Mentions légal</title>
     <?php
     include('header.php');
-    ?>
+?>
+  
 	<link rel="stylesheet" href="mentionslegal.css">
 <body>
 <?php
-include('navbar.php');
-
+require_once('view/navbar-view.php');
 ?>
-
 <div id="mentionslegale ">
     
         <img src="addons/images/LogoBig.svg">
