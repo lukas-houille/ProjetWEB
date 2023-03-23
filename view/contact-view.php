@@ -17,22 +17,22 @@ require_once('navbar-view.php');
             <div class="horizontal-align">
                 <label for="nom">
                     <span>Nom</span>
-                    <input type="text" id="nom">
+                    <input type="text" id="nom"  required pattern="[a-zA-Z]+" minlength="2" maxlength="21">
                 </label>
 
                 <label for="prenom">
                     <span>Prénom</span>
-                    <input type="text" id="prenom">
+                    <input type="text" id="prenom"  required pattern="[a-zA-Z]+" minlength="2" maxlength="20">
                 </label>
             </div>
             <div class="horizontal-align">
                 <label for="email">
                     <span>E-mail</span>
-                    <input type="email" id="email">
+                    <input type="email" id="email"required>
                 </label>
                 <label for="select">
                     <span>Service concerné</span>
-                    <select id="select">
+                    <select id="select" required>
                         <option value="service1">Service 1</option>
                         <option value="service2">Service 2</option>
                         <option value="service3">Service 3</option>
@@ -41,11 +41,11 @@ require_once('navbar-view.php');
             </div>
             <label for="objet" id="objet">
                 <span>Objet de la demande</span>
-                <input type="text" id="objet_demande">
+                <input type="text" id="objet_demande"  required pattern="[a-zA-Z]+" minlength="2" maxlength="200">
             </label>
             <label for="message" id="message">
                 <span>Message</span>
-                <textarea id="message"></textarea>
+                <textarea id="message"  required pattern="[a-zA-Z]+" minlength="2" maxlength="800"></textarea>
             </label>
             <button type="submit">
                 <span class="text">Envoyer</span>
