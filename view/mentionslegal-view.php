@@ -13,7 +13,7 @@ require_once('view/navbar-view.php');
 ?>
 <div id="mentionslegale ">
     
-        <img src="addons/images/LogoBig.svg">
+       
 
 </div>
 
