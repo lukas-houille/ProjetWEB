@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="theme-color" content="#2947A3"> 
     <title>Accueil</title>
     <?php
     require_once('view/header.php');
@@ -31,9 +30,6 @@ if(isset($_GET["disconnect"])) {
         </div>
     </div>
 </div>
-
-
-
 <?php
 require_once('view/footer-view.html');
 ?>
