@@ -65,17 +65,21 @@ include('navbar-view.php');
     <div class="offers-layout-cards content-layout">
         {{#offers}}
         <form method="get" class="card">
-            <?php
-            if($favorites) {
-            ?>
-            <input type=checkbox class="favorite" {{favorite}} onclick="setFavorite({{id_offer}},this)"></input>
-            <?php
-            }
-            ?>
+
             <input type="hidden" name="id_offer" value="{{id_offer}}">
             <img src='resources/images/Logo small.svg' alt='logo test' class='logosmall'>
             <div class="offer-info">
+                <div class="card-header">
                 <h3>{{description}}</h3>
+                <?php
+                echo ($favorites)?
+                    '<input type=checkbox class="favorite" id="fav-{{id_offer}}" {{favorite}} onclick="setFavorite({{id_offer}},this)">
+                    <label for="fav-{{id_offer}}" class="material-symbols-rounded">
+                    <span class="material-symbols-rounded">Bookmark</span>
+                    </label>
+                    ' : '';
+                ?>
+                </div>
                 <div>
                     <div class="header-info">
                         <span class="material-symbols-rounded">Work</span>
