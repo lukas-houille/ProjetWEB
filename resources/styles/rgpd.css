@@ -1,4 +1,3 @@
-@charset "UTF-8";
 body, * {
   font-family: "Monsterrat", sans-serif;
   font-weight: 500;
@@ -329,23 +328,6 @@ form {
   cursor: pointer;
 }
 
-p {
-  margin: 2rem;
-  color: #0D1220;
-}
-
-h1, h2 {
-  font-weight: bold;
-  margin: 2rem;
-  color: #2947A3;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 2rem;
-}
-
 .lienmail {
   color: blue;
 }
@@ -358,13 +340,6 @@ ul {
   color: #9CD336;
 }
 
-form {
-  background-color: #fefefe; /* choisir une couleur d'arrière-plan */
-  border-radius: 10px; /* ajuster le rayon pour arrondir les coins */
-  padding: 20px; /* ajouter un peu d'espace à l'intérieur de l'arrière-plan arrondi */
-  width: 100%;
-}
-
 /* Media queries for responsiveness */
 @media screen and (max-width: 768px) {
   main {
@@ -373,4 +348,6 @@ form {
   #mentionslegale form {
     flex-direction: column;
   }
-}/*# sourceMappingURL=rgpd.css.map */
+}
+
+/*# sourceMappingURL=rgpd.css.map */
