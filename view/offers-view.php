@@ -64,7 +64,7 @@ include('navbar-view.php');
     </div>
     <div class="offers-layout-cards content-layout">
         {{#offers}}
-        <form method="get" class="card">
+        <form method="get" action="/postulate.php" class="card">
             <?php
             if($favorites) {
             ?>

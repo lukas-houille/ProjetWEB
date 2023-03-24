@@ -1,0 +1,28 @@
+@import "base.scss";
+
+  .lienmail {
+    color: blue;
+  }
+  
+  .lienmail:hover {
+    color: #9CD336;
+  }
+  
+  .lienmail:active {
+    color: #9CD336;
+  }
+
+  
+  
+  /* Media queries for responsiveness */
+  
+  @media screen and (max-width: 768px) {
+    main {
+      margin: 10px;
+    }
+  
+    #mentionslegale form {
+      flex-direction: column;
+    }
+  }
+  

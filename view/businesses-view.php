@@ -38,7 +38,7 @@ require_once('navbar-view.php');
         </form>
     </div>
 
-    <div class="businesses-layout-cards content-layout">
+    <div class="businesses-layout-cards">
         {{#companies}}
         <form method="get" action="/postulate.php" class="card">
             <input type="hidden" name="id_business" value="{{company_id}}">
