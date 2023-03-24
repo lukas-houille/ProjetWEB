@@ -31,8 +31,6 @@ if(isset($_GET["disconnect"])) {
     </div>
 </div>
 
-
-
 <?php
 require_once('view/footer-view.html');
 ?>
