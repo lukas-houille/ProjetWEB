@@ -1,12 +1,12 @@
 <?php
 require "database-config.php";
 
-class Database {
+class Database extends DatabaseConfiguration {
     private $PDO;
     private $connected = false;
-    public function __construct(string $address,string $user,string $password,array $settings) {
+    public function __construct() {
         try {
-            $this->PDO = new PDO($address, $user, $password, $settings);
+            $this->PDO = new PDO($this->address, $this->user, $this->password, $this->settings);
             $this->connected = true;
         }
         catch(PDOException $pe) {
@@ -68,5 +68,4 @@ class Database {
     }
 }
 
-
-$base = new Database($address, $user, $password, $settings);
+$base = new Database();
