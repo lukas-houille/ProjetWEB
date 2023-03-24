@@ -1,0 +1,53 @@
+@import "base.scss";
+p{
+    margin: 2rem;
+    color: #0D1220;
+  }
+  
+  h1, h2 {
+    font-weight: bold;
+    margin: 2rem   ;
+    color: #2947A3
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 2rem;
+    
+    
+  }
+  .lienmail {
+    color: blue;
+  }
+  
+  .lienmail:hover {
+    color: #9CD336;
+  }
+  
+  .lienmail:active {
+    color: #9CD336;
+  }
+
+  
+  form {
+    background-color: #fefefe; /* choisir une couleur d'arrière-plan */
+    border-radius: 10px; /* ajuster le rayon pour arrondir les coins */
+    padding: 20px; /* ajouter un peu d'espace à l'intérieur de l'arrière-plan arrondi */
+    width: 100%;
+    
+  }
+  
+  
+  /* Media queries for responsiveness */
+  
+  @media screen and (max-width: 768px) {
+    main {
+      margin: 10px;
+    }
+  
+    #mentionslegale form {
+      flex-direction: column;
+    }
+  }
+  
