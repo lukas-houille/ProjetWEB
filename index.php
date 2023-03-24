@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="theme-color" content="#2947A3"> 
     <title>Accueil</title>
     <?php
     require_once('view/header.php');
