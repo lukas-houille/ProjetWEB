@@ -10,8 +10,13 @@
   "display": "fullscreen",
   "icons": [
     {
-      "src": "resources/images/Logo small.svg",
+      "src": "resources/images/Logo small.png",
       "sizes": "512x512"
+    },
+    {
+      "src": "resources/images/maskable_icon.png",
+      "sizes": "192x192",
+      "purpose": "maskable"
     }
   ]
 }
