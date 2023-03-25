@@ -6,9 +6,19 @@ initialise_session();
 if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
     if(isset($_GET["id_offer"]) && !empty($_GET["id_offer"])) {
         $offer = new Offer($_GET["id_offer"]);
-        $exists = $offer->fillOffer();
-        if($exists) {
+        if($offer->fillOffer()) {
             $content = $offer->fillTemplate();
+            $type = $_SESSION["login"]->isType()[0];
+            if ($type == "Admin" || $type == "Student") {
+                $content.= '<button type="button" onclick="window.location.href=\'postulate.php?id_offer='.$_GET["id_offer"].'\'">
+                <span class="text">Postulez !</span>
+                </button>';
+            }
+            if ($type == "Tutor" || $type = "Admin") {
+                $content.= '<button type="button" onclick="window.location.href="placeholder"">
+                <span class="text">Modifier</span>
+                </button>';
+            }
             require_once("./view/single-offer-view.php");
         }
         else {
