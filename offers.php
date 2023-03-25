@@ -6,12 +6,13 @@ initialise_session();
 if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
     if(isset($_GET["id_offer"]) && !empty($_GET["id_offer"])) {
         $offer = new Offer($_GET["id_offer"]);
-        $content = $offer->fillOffer();
-        if(is_null($content)) {
-            require_once('./view/error404.html');
+        $exists = $offer->fillOffer();
+        if($exists) {
+            $content = $offer->fillTemplate();
+            require_once("./view/single-offer-view.php");
         }
         else {
-            require_once("./view/single-offer-view.php");
+            require_once('./view/error404.html');
         }
     }
     else {
