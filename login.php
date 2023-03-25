@@ -2,12 +2,10 @@
 require "./model/login_model.php";
 $warning = "";
 if((isset($_POST["username"]) && !empty($_POST["username"])) && (isset($_POST["password"]) && !empty($_POST["password"]))) {
-    $hash = userHash($_POST["username"],$base);
-    if (!is_null($hash) && checkHash($hash,$_POST["password"])) {
+    $login = new Login($_POST["username"]);
+    if ($login->checkPassword($_POST["password"])) {
         initialise_session();
         $_SESSION["login"] = new Session($_POST["username"]);
-        $name = $_SESSION["login"]->name();
-        echo "<p>". $name->first_name." ".$name->last_name ."</p>";
         if(basename($_SERVER["SCRIPT_FILENAME"]) == "login.php") {
             header("Location: index.php");
         }

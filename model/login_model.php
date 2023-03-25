@@ -2,17 +2,24 @@
 require_once "database.php";
 require_once "session_model.php";
 
-function userHash(string $username, Database $base) {
-    $result = $base->executeQuery("SELECT password FROM Login WHERE login=:username LIMIT 1",["username" => $_POST["username"]]);
-    if (!empty($result)) {
-        return $result[0]["password"];
-    }
-    return null;
-}
+class Login extends Database {
+    private $username = null;
 
-function checkHash(string $hash, string $password) {
-    if (password_verify($password, $hash)) {
-        return true;
+    public function __construct(string $username) {
+        parent::__construct();
+        $this->username = $username;
     }
-    return false;
+
+    public function checkPassword(string $password) {
+        if(!is_null($this->username)) {
+            $result = $this->executeQuery("SELECT password FROM Login WHERE login=:username LIMIT 1",["username" => $this->username], return_option:PDO::FETCH_OBJ);
+            if(!empty($result)) {
+                $hash = $result[0]->password;
+                if (password_verify($password, $hash)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
