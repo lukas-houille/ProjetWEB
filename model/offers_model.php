@@ -15,6 +15,7 @@ class Offer extends Database{
     public string $description;
     public int $id_company;
     public string $company_name;
+    public string $email;
     public string $city;
     public string $postcode;
     public array $skills;
@@ -27,7 +28,7 @@ class Offer extends Database{
         $this->m = new Mustache_Engine;
     }
     public function fillOffer() {
-        $offer = $this->executeQuery("SELECT Internship_offer.id_offer,duration,salary,date,places,description,Company.id_company,Company.name,City.name as city, postcode FROM Internship_offer JOIN Company ON Internship_offer.id_company=Company.id_company JOIN City ON Internship_offer.id_city=City.id_city WHERE Internship_offer.visible=1 AND Company.visible=1 AND Internship_offer.id_offer=:id LIMIT 1",["id" => $this->id_offer], return_option: PDO::FETCH_OBJ);
+        $offer = $this->executeQuery("SELECT Internship_offer.id_offer,duration,salary,date,places,description,Company.id_company,Company.name,email,City.name as city, postcode FROM Internship_offer JOIN Company ON Internship_offer.id_company=Company.id_company JOIN City ON Internship_offer.id_city=City.id_city WHERE Internship_offer.visible=1 AND Company.visible=1 AND Internship_offer.id_offer=:id LIMIT 1",["id" => $this->id_offer], return_option: PDO::FETCH_OBJ);
         if(array_key_exists(0,$offer)) {
             $offer = $offer[0];
             $this->skills = $this->executeQuery("SELECT Ability.id_ability,name FROM requires JOIN Ability ON requires.id_ability=Ability.id_ability WHERE id_offer=:id",["id" => $this->id_offer]);
@@ -38,6 +39,7 @@ class Offer extends Database{
             $this->places = $offer->places;
             $this->description = $offer->description;
             $this->id_company = $offer->id_company;
+            $this->email = $offer->email;
             $this->company_name = $offer->name;
             $this->city = $offer->city;
             $this->postcode = $offer->postcode;
@@ -58,5 +60,11 @@ class Offer extends Database{
         else {
             return false;
         }
+    }
+    public function studentAppliesTo(int $id_student) {
+
+    }
+    public function adminAppliesTo(int $id_admin) {
+        $this->executeQuery("INSERT INTO admin_applies_for (id_admin,id_offer) VALUES (:id_admin,:id_offer)", ["id_admin" => $id_admin, "id_offer" => $this->id_offer]);
     }
 }
