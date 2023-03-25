@@ -5,7 +5,7 @@ if(isset($_GET["disconnect"])) {
     erase_session();
 }
 if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
-    $type = $_SESSION["login"]->isType($base);
+    $type = $_SESSION["login"]->isType();
     require_once "view/member-view.php";
 }
 else {

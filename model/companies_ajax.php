@@ -3,6 +3,8 @@ require_once 'database.php';
 require_once 'session_model.php';
 initialise_session();
 
+$base = new Database();
+
 if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQUESTED_WITH'])=="XMLHTTPREQUEST") {
     if(isset($_POST["action"]) && isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
         if($_POST["action"] == "showAll") {

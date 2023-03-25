@@ -11,13 +11,17 @@ require_once("database.php");
             }
             return false;
         }
-        public function name(Database &$base) {
+        /*The following methods all instantiate a Database. The session class couldn't have been made a child of Database since it uses PDO,
+        which cannot be serialised, which we need the Session class to be in order for it to be set a a $_SESSION variable.*/
+        public function name() {
             if($this->checkLogin()) {
+                $base = new Database();
                 return($base->executeQuery("SELECT first_name,last_name FROM ((SELECT Login.login,first_name,last_name FROM Login JOIN Student ON Login.login=Student.login) UNION (SELECT Login.login,first_name,last_name FROM Login JOIN Tutor ON Login.login=Tutor.login) UNION (SELECT Login.login,first_name,last_name FROM Login JOIN Admin ON Login.login=Admin.login)) AS logins WHERE login=:login LIMIT 1;",["login"=>$this->login], return_option:PDO::FETCH_OBJ)[0]);  
             }
         }
-        public function isType(Database &$base) {
+        public function isType() {
             if($this->checkLogin()) {
+                $base = new Database();
                 $tables = ["Student","Tutor","Admin"];
                 foreach($tables AS $table) {
                     $result = $base->executeQuery("SELECT id_".strtolower($table)." FROM ".$table." WHERE login=:login LIMIT 1",["login"=>$this->login], return_option:PDO::FETCH_NUM);
@@ -42,4 +46,3 @@ require_once("database.php");
         session_unset();
         session_destroy();
     }
-?>

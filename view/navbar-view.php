@@ -15,7 +15,7 @@ require_once("./model/session_model.php");
         <a href="member.php">
             <?php
             if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
-                $name = $_SESSION["login"]->name($base);
+                $name = $_SESSION["login"]->name();
                 echo "<p>". $name->first_name." ".$name->last_name ."</p>";
             }
             else {

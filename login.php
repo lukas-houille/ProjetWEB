@@ -6,6 +6,8 @@ if((isset($_POST["username"]) && !empty($_POST["username"])) && (isset($_POST["p
     if (!is_null($hash) && checkHash($hash,$_POST["password"])) {
         initialise_session();
         $_SESSION["login"] = new Session($_POST["username"]);
+        $name = $_SESSION["login"]->name();
+        echo "<p>". $name->first_name." ".$name->last_name ."</p>";
         if(basename($_SERVER["SCRIPT_FILENAME"]) == "login.php") {
             header("Location: index.php");
         }

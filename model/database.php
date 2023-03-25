@@ -67,5 +67,3 @@ class Database extends DatabaseConfiguration {
         }
     }
 }
-
-$base = new Database();
