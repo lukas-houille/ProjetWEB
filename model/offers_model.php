@@ -62,7 +62,7 @@ class Offer extends Database{
         }
     }
     public function studentAppliesTo(int $id_student) {
-
+        $this->executeQuery("INSERT INTO applies_for (id_offer,id_student) VALUES (:id_offer,:id_student)", ["id_student" => $id_student, "id_offer" => $this->id_offer]);
     }
     public function adminAppliesTo(int $id_admin) {
         $this->executeQuery("INSERT INTO admin_applies_for (id_admin,id_offer) VALUES (:id_admin,:id_offer)", ["id_admin" => $id_admin, "id_offer" => $this->id_offer]);

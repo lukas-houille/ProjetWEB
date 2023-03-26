@@ -9,7 +9,12 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
         $offer = new Offer($_GET["id_offer"]);
         if ($offer->fillOffer()) {
             if(isset($_POST["sent"]) && $_POST["sent"]) {
-                $offer->adminAppliesTo($type[1]);
+                if($type[0] == "Student") {
+                    $offer->studentAppliesTo($type[1]);
+                }
+                if($type[0] == "Admin") {
+                    $offer->adminAppliesTo($type[1]);
+                }
                 header("Location: offers.php");
                 die();
             }
