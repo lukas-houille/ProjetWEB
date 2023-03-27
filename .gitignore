@@ -1,3 +1,8 @@
+# Editors
+.idea
+.vscode
+
+#php
 www/vendor
 www/cache
 www/resources/**/*.css
