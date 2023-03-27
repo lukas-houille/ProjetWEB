@@ -7,7 +7,12 @@ initialise_session();
 if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
     if(isset($_GET["id_offer"]) && !empty($_GET["id_offer"])) {
         $offer = new Offer($_GET["id_offer"]);
-        if($offer->fillOffer()) {
+        if(isset($_GET["delete"]) && $_GET["delete"]) {
+            $offer->deleteOffer();
+            header("Location: offers.php");
+            die();
+        }
+        elseif($offer->fillOffer()) {
             $content = $offer->fillTemplate();
             $type = $_SESSION["login"]->isType()[0];
             if ($type == "Admin" || $type == "Student") {
@@ -16,8 +21,11 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
                 </button>';
             }
             if ($type == "Tutor" || $type = "Admin") {
-                $content.= '<button type="button" onclick="window.location.href="placeholder"">
+                $content.= '<button type="button" onclick="window.location.href=\'placeholder\'">
                 <span class="text">Modifier</span>
+                </button>';
+                $content.='<button type="button" onclick="window.location.href=\'offers.php?id_offer='.$_GET["id_offer"].'&delete=1\'">
+                <span class="text">Supprimer</span>
                 </button>';
             }
             require_once("./view/single-offer-view.php");

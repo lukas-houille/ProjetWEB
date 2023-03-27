@@ -53,13 +53,20 @@ class Offer extends Database{
         return($this->m->render(file_get_contents("view/templates-mustache/single-offer-view.mustache"),$this));
     }
     public function offerExists() {
-        $offer = $this->executeQuery("SELECT Internship_offer.id_offer FROM Internship_offer JOIN Company ON Internship_offer.id_company=Company.id_company JOIN City ON Internship_offer.id_city=City.id_city WHERE Internship_offer.visible=1 AND Company.visible=1 AND Internship_offer.id_offer=:id LIMIT 1",["id" => $this->id]);
+        $offer = $this->executeQuery("SELECT Internship_offer.id_offer FROM Internship_offer JOIN Company ON Internship_offer.id_company=Company.id_company JOIN City ON Internship_offer.id_city=City.id_city WHERE Internship_offer.visible=1 AND Company.visible=1 AND Internship_offer.id_offer=:id LIMIT 1",["id" => $this->id_offer]);
         if(array_key_exists(0,$offer)) {
             return true;
         }
         else {
             return false;
         }
+    }
+    public function deleteOffer() {
+        if($this->offerExists()) {
+            $this->executeQuery("UPDATE Internship_offer SET visible=0 WHERE id_offer=:id_offer",["id_offer" => $this->id_offer]);
+            return true;
+        }
+        return false;
     }
     public function studentAppliesTo(int $id_student) {
         $this->executeQuery("INSERT INTO applies_for (id_offer,id_student) VALUES (:id_offer,:id_student)", ["id_student" => $id_student, "id_offer" => $this->id_offer]);
