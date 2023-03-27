@@ -1,0 +1,49 @@
+@import "base.scss";
+
+#rgpd form {
+  margin-bottom: 20px; 
+  margin: 2rem;
+  background-color:$color-light; /* choisir une couleur d'arrière-plan */
+    width: 100%;
+  p{
+    margin: 2rem;
+    color: $color-dark;
+  }
+  
+  h1, h2 {
+    margin: 2rem   ;
+    color: $color-main;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 2rem;
+    
+    
+  }
+  .lienmail {
+    color:  $color-main;
+  }
+  
+  .lienmail:hover {
+    color: $color-secondary;
+  }
+  
+  .lienmail:active {
+    color:  $color-secondary;
+  }
+
+}
+  
+  /* Media queries for responsiveness */
+  
+  @media screen and (max-width: 768px) {
+    main {
+      margin: 10px;
+    }
+  
+    #mentionslegale form {
+      flex-direction: column;
+    }
+  }
+  
