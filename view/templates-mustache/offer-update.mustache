@@ -1,41 +1,45 @@
 {{#offer}}
-
 <label>
-    <input type="text" name="offer_title" value="{{offer_name}}" placeholder="Titre de l'offre">
+    <input type="text" name="offer_title" value="{{description}}" placeholder="Titre de l'offre">
 </label>
 <label>
-    <input type="text" name="offer_city" value="{{offer_city}}" placeholder="Ville">
+    <input id="postcode" value="{{postcode}}"><select id="cities"><option value="{{id_city}}">{{city}}</option></p>
 </label>
 <label>
-    <input type="text" name="offer_field" value="{{offer_field}}" placeholder="Secteur d'activité">
+    <input type="date" name="offer_start_date" value="{{date}}" placeholder="Date de début">
 </label>
 <label>
-    <input type="text" name="offer_start_date" value="{{offer_start_date}}" placeholder="Date de début">
-</label>
-<label>
-    <input type="text" name="offer_description" value="{{offer_description}}" placeholder="Description de l'offre">
-</label>
-<label>
-    <input type="text" name="searched_profile" value="{{searched_profile}}" placeholder="Profil recherché">
-</label>
-<label>
-    <input type="text" name="offer_duration" value="{{offer_duration}}" placeholder="Durée">
-</label>
-<label>
-    <input type="text" name="offer_places" value="{{offer_places}}" placeholder="Places">
-</label>
-<label>
-    <input type="text" name="offer_salary" value="{{offer_salary}}" placeholder="Gratification totale">
-</label>
-<label>
-    <select name="offer_skills" >
-        {{#skills}}
-            <option value="{{id}}">{{name}}</option>
-        {{/skills}}
+    <select id="promotions">
+        <option class="placeholder" value="0">Promotions</option>
+        {{#existing_promotions}}<option value="{{id_group}}">{{name}}</option>{{/existing_promotions}}
     </select>
+    <div id="selected_promotions" class="selected-filters">
+    {{#concerns}}
+        <span value="{{id_group}}">{{name}}<span class="material-symbols-rounded popup-close"> close </span></span>
+    {{/concerns}}
+    </div>
+</label>
+<label>
+    <input type="text" name="offer_duration" value="{{duration}}" placeholder="Durée">
+</label>
+<label>
+    <input type="text" name="offer_places" value="{{places}}" placeholder="Places">
+</label>
+<label>
+    <input type="text" name="offer_salary" value="{{salary}}" placeholder="Gratification totale">
+</label>
+<label>
+    <select id="skills">
+        <option class="placeholder" value="0">Compétences</option>
+        {{#existing_skills}}<option value="{{id_ability}}">{{name}}</option>{{/existing_skills}}
+    </select>
+    <div id="selected_skills" class="selected-filters">
+    {{#skills}}
+        <span value="{{id_ability}}">{{name}}<span class="material-symbols-rounded popup-close"> close </span></span>
+    {{/skills}}
+    </div>
 </label>
 <label>
     <input type="submit" value="Modifier l'offre">
 </label>
-
 {{/offer}}

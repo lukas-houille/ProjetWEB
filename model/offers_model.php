@@ -28,7 +28,7 @@ class Offer extends Database{
         $this->m = new Mustache_Engine;
     }
     public function fillOffer() {
-        $offer = $this->executeQuery("SELECT Internship_offer.id_offer,duration,salary,date,places,description,Company.id_company,Company.name,email,City.name as city, postcode FROM Internship_offer JOIN Company ON Internship_offer.id_company=Company.id_company JOIN City ON Internship_offer.id_city=City.id_city WHERE Internship_offer.visible=1 AND Company.visible=1 AND Internship_offer.id_offer=:id LIMIT 1",["id" => $this->id_offer], return_option: PDO::FETCH_OBJ);
+        $offer = $this->executeQuery("SELECT Internship_offer.id_offer,duration,salary,date,places,description,Company.id_company,Company.name,email,City.id_city,City.name as city, postcode FROM Internship_offer JOIN Company ON Internship_offer.id_company=Company.id_company JOIN City ON Internship_offer.id_city=City.id_city WHERE Internship_offer.visible=1 AND Company.visible=1 AND Internship_offer.id_offer=:id LIMIT 1",["id" => $this->id_offer], return_option: PDO::FETCH_OBJ);
         if(array_key_exists(0,$offer)) {
             $offer = $offer[0];
             $this->skills = $this->executeQuery("SELECT Ability.id_ability,name FROM requires JOIN Ability ON requires.id_ability=Ability.id_ability WHERE id_offer=:id",["id" => $this->id_offer]);
@@ -41,6 +41,7 @@ class Offer extends Database{
             $this->id_company = $offer->id_company;
             $this->email = $offer->email;
             $this->company_name = $offer->name;
+            $this->id_city = $offer->id_city;
             $this->city = $offer->city;
             $this->postcode = $offer->postcode;
             return true;
@@ -49,8 +50,13 @@ class Offer extends Database{
             return false;
         }
     }
-    public function fillTemplate() {
+    public function fillTemplateView() {
         return($this->m->render(file_get_contents("view/templates-mustache/single-offer-view.mustache"),$this));
+    }
+    public function fillTemplateModify() {
+        $existing_skills = $this->executeQuery("SELECT id_ability, name FROM Ability", return_option:PDO::FETCH_OBJ);
+        $existing_promotions = $this->executeQuery("SELECT id_group, name FROM Year_group", return_option:PDO::FETCH_OBJ);
+        return($this->m->render(file_get_contents("view/templates-mustache/offer-update.mustache"),["offer" => $this,"existing_skills" => $existing_skills, "existing_promotions" => $existing_promotions]));
     }
     public function offerExists() {
         $offer = $this->executeQuery("SELECT Internship_offer.id_offer FROM Internship_offer JOIN Company ON Internship_offer.id_company=Company.id_company JOIN City ON Internship_offer.id_city=City.id_city WHERE Internship_offer.visible=1 AND Company.visible=1 AND Internship_offer.id_offer=:id LIMIT 1",["id" => $this->id_offer]);

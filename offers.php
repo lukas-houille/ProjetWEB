@@ -13,20 +13,25 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
             die();
         }
         elseif($offer->fillOffer()) {
-            $content = $offer->fillTemplate();
-            $type = $_SESSION["login"]->isType()[0];
-            if ($type == "Admin" || $type == "Student") {
-                $content.= '<button type="button" onclick="window.location.href=\'postulate.php?id_offer='.$_GET["id_offer"].'\'">
-                <span class="text">Postulez !</span>
-                </button>';
+            if(isset($_GET["modify"]) && $_GET["modify"]) {
+                $content = $offer->fillTemplateModify();
             }
-            if ($type == "Tutor" || $type = "Admin") {
-                $content.= '<button type="button" onclick="window.location.href=\'placeholder\'">
-                <span class="text">Modifier</span>
-                </button>';
-                $content.='<button type="button" onclick="window.location.href=\'offers.php?id_offer='.$_GET["id_offer"].'&delete=1\'">
-                <span class="text">Supprimer</span>
-                </button>';
+            else {
+                $content = $offer->fillTemplateView();
+                $type = $_SESSION["login"]->isType()[0];
+                if ($type == "Admin" || $type == "Student") {
+                    $content.= '<button type="button" onclick="window.location.href=\'postulate.php?id_offer='.$_GET["id_offer"].'\'">
+                    <span class="text">Postulez !</span>
+                    </button>';
+                }
+                if ($type == "Tutor" || $type = "Admin") {
+                    $content.= '<button type="button" onclick="window.location.href=\'offers.php?id_offer='.$_GET["id_offer"].'&modify=1\'">
+                    <span class="text">Modifier</span>
+                    </button>';
+                    $content.='<button type="button" onclick="window.location.href=\'offers.php?id_offer='.$_GET["id_offer"].'&delete=1\'">
+                    <span class="text">Supprimer</span>
+                    </button>';
+                }
             }
             require_once("./view/single-offer-view.php");
         }
