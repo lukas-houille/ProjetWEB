@@ -1,13 +1,12 @@
 <div class="showcompanybody">
     <div class="showdetailsbody">
-        <h1>{{company_name}}</h1>
-        <p>{{cities}}</p>
-        <p>Secteur d'activité:<span> {{field_name}}</span></p>
-        <p>Étudiants CESI déjà pris:<span> {{cesi_interns}}</span></p>
+        <h1>{{name}}</h1>
+        {{#locations}}<p>{{city}}, {{postcode}} </p>{{/locations}}
+        <p>Secteur d'activité : <span> {{field}}</span></p>
+        <p>Étudiants CESI déjà pris :<span> {{cesi_interns}}</span></p>
 
     <div class="details">
-            <h3>Description de l'entreprise:</h3>
-            <p><span>{{description}}</span></p>
+            <p>Adresse email : <span>{{email}}</span></p>
         </div>
 
         <div class="header-info">

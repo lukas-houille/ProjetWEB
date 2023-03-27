@@ -41,8 +41,8 @@ require_once('navbar-view.php');
 
     <div class="businesses-layout-cards content-layout">
         {{#companies}}
-        <form method="get" action="/postulate.php" class="card">
-            <input type="hidden" name="id_business" value="{{company_id}}">
+        <form method="get" class="card">
+            <input type="hidden" name="id_business" value="{{id_company}}">
             <img src='resources/images/Logo small.svg' alt='logo test' class='logosmall'>
             <div class="offer-info">
                 <h3>{{company_name}}</h3>
