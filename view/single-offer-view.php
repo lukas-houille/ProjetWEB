@@ -14,7 +14,7 @@
 include('navbar-view.php');
 ?>
 
-<div class="postulatebody">
+<div class="postulatebody content">
 <?= $content ?>
 </div>
 
