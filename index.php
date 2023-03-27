@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Accueil</title>
+    <link rel="stylesheet" href="resources/styles/landing.css">
     <?php
     require_once('view/header.php');
     ?>

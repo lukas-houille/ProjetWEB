@@ -4,6 +4,7 @@
     <title>Offers</title>
     <script type="text/javascript" src="./resources/jquery.js"></script>
     <script type="text/javascript" src="./resources/mustache.js"></script>
+    <link rel="stylesheet" href="resources/styles/businesses.css">
     <?php
     require_once('header.php');
     ?>

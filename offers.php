@@ -2,6 +2,7 @@
 require_once "./model/session_model.php";
 require_once "./model/database.php";
 require_once "./model/offers_model.php";
+
 initialise_session();
 if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
     if(isset($_GET["id_offer"]) && !empty($_GET["id_offer"])) {

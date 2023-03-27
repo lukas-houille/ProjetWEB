@@ -3,7 +3,7 @@
 <head>
     <title>Postuler</title>
     <script type="text/javascript" src="./resources/jquery.js"></script>
-    <link rel="stylesheet" href="style/postulate.scss">
+
     <?php
     include('header.php');
     ?>

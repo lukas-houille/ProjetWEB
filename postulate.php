@@ -1,4 +1,4 @@
-    <?php
+<?php
 require_once "./model/session_model.php";
 require_once "./model/offers_model.php";
 require_once ("vendor/mustache/mustache/src/Mustache/Autoloader.php");

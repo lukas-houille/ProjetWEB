@@ -3,6 +3,7 @@
 <head>
     <title>Member</title>
     <script type="text/javascript" src="./resources/jquery.js"></script>
+    <link rel="stylesheet" href="resources/styles/member.css">
     <?php
     include('header.php');
     ?>

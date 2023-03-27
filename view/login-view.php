@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="resources/styles/login.css">
     <?php
     include('header.php');
     ?>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Contact</title>
+    <link rel="stylesheet" href="resources/styles/contact.css">
     <?php
     include('header.php');
     ?>

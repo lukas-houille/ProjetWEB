@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Dashboard</title>
+    <link rel="stylesheet" href="resources/styles/dashboard.css">
     <?php
     include('header.php');
     ?>

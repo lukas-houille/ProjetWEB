@@ -4,7 +4,7 @@
     <title>Offers</title>
     <script type="text/javascript" src="./resources/jquery.js"></script>
     <script type="text/javascript" src="./resources/mustache.js"></script>
-    <link rel="stylesheet" href="style/postulate.scss">
+    <link rel="stylesheet" type="text/css" href="resources/styles/postulate.css">
     <?php
     include('header.php');
     ?>

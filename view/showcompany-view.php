@@ -4,7 +4,7 @@
     <title>Company</title>
     <script type="text/javascript" src="./resources/jquery.js"></script>
     <script type="text/javascript" src="./resources/mustache.js"></script>
-    <link rel="stylesheet" href="showcompany.css">
+    <link rel="stylesheet" type="text/css" href="resources/styles/showcompany.css">
     <?php
     include('header.php');
     ?>
