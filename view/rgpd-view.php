@@ -16,11 +16,8 @@
 include('navbar.php');
 
 ?>
-
-<div id="mentionslegale ">
-    
-     
-
+<div class="content">
+<div id="rgpd ">
 
 <form>
   <h1>Politique de confidentialité du site</h1>
@@ -50,6 +47,8 @@ include('navbar.php');
   <p>Si vous avez des questions ou des préoccupations concernant notre politique de confidentialité, n'hésitez pas à nous contacter à l'adresse e-mail suivante : <a class="lienmail" href="mailto:adresse@email-de-lentreprise">adresse@email-de-lentreprise</a>.</p>
   <p> deuxiéme option mettre le liens vers contact et rajouter en service concérné </p>
   <form>
+</div>
+</div>
   <?php include('footer.php'); ?>
   
 </body>
