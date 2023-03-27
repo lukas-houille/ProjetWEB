@@ -1,0 +1,41 @@
+{{#offer}}
+
+<label>
+    <input type="text" name="offer_title" value="{{offer_name}}" placeholder="Titre de l'offre">
+</label>
+<label>
+    <input type="text" name="offer_city" value="{{offer_city}}" placeholder="Ville">
+</label>
+<label>
+    <input type="text" name="offer_field" value="{{offer_field}}" placeholder="Secteur d'activité">
+</label>
+<label>
+    <input type="text" name="offer_start_date" value="{{offer_start_date}}" placeholder="Date de début">
+</label>
+<label>
+    <input type="text" name="offer_description" value="{{offer_description}}" placeholder="Description de l'offre">
+</label>
+<label>
+    <input type="text" name="searched_profile" value="{{searched_profile}}" placeholder="Profil recherché">
+</label>
+<label>
+    <input type="text" name="offer_duration" value="{{offer_duration}}" placeholder="Durée">
+</label>
+<label>
+    <input type="text" name="offer_places" value="{{offer_places}}" placeholder="Places">
+</label>
+<label>
+    <input type="text" name="offer_salary" value="{{offer_salary}}" placeholder="Gratification totale">
+</label>
+<label>
+    <select name="offer_skills" >
+        {{#skills}}
+            <option value="{{id}}">{{name}}</option>
+        {{/skills}}
+    </select>
+</label>
+<label>
+    <input type="submit" value="Modifier l'offre">
+</label>
+
+{{/offer}}
