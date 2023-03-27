@@ -12,3 +12,4 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
 else {
     require_once "login.php";
 }
+
