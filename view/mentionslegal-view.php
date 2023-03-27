@@ -15,7 +15,7 @@ require_once('view/navbar-view.php');
     
        
 
-</div>
+
 
 <main>
         <h1>Mentions légales</h1>
@@ -25,12 +25,12 @@ require_once('view/navbar-view.php');
         <li>Raison sociale : Cesi Ton Stage</li>
         <li>Adresse : 6 rue du Bois Chênes le Loup</li>
         <li>Téléphone : +33 1 23 45 67 89</li>
-        <li>Email :<a class="lienrgpd" href="contact@pulseheberg.com">Envoyer un e-mail</e-mail></a> </li>
+        <li>Email :<a class="lienrgpd" href="mailto:contact@pulseheberg.com">Envoyer un e-mail</e-mail></a> </li>
         <li>Immatriculée au RCS de Nancy sous le numéro 123 456 789</li>
         <li>Numéro SIRET : 123 456 789 00012</li>
         <li>Capital social :  100 000 euros</li>
         <li>Directeur de la publication : Antonin Bourrel</li>
-        <li>Hébergeur : PulseHeberg, 9 Boulevard de Strasbourg, 83000 Toulon <a class="lienrgpd" href="contact@pulseheberg.com">Envoyer un e-mail</e-mail></a> <a class="lienhebergeur" href="tel:+33422141360">+33 (0) 4 22 14 13 60 </a>
+        <li>Hébergeur : PulseHeberg, 9 Boulevard de Strasbourg, 83000 Toulon <a class="lienrgpd" href="mailto:contact@pulseheberg.com">Envoyer un e-mail</e-mail></a> <a class="lienhebergeur" href="tel:+33422141360">+33 (0) 4 22 14 13 60 </a>
 </li>
     </ul>
 
@@ -43,6 +43,7 @@ require_once('view/navbar-view.php');
     <h2>Propriété intellectuelle</h2>
     <p>L'ensemble du contenu de ce site (textes, logos, images, etc.) est protégé par le droit d'auteur et autres droits de propriété intellectuelle. Toute reproduction ou utilisation non autorisée du contenu du site est interdite.</p>
 </main>
+</div>
 
 
 <?php
