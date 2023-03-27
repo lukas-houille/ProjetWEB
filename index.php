@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Accueil</title>
+    <meta name="theme-color" content="#2947A3">
     <link rel="stylesheet" href="resources/styles/landing.css">
     <?php
     require_once('view/header.php');
