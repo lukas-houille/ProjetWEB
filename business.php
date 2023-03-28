@@ -1,6 +1,7 @@
 <?php
 require_once "./model/session_model.php";
 require_once "./model/company_model.php";
+
 initialise_session();
 
 if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
