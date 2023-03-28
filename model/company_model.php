@@ -49,6 +49,9 @@ class Company extends Database{
     public function fillTemplateView() {
         return($this->m->render(file_get_contents("view/templates-mustache/company-view.mustache"),$this));
     }
+    public function FillTemplateEvaluate() {
+        return($this->m->render(file_get_contents("view/templates-mustache/company-evaluate.mustache"),$this));
+    }
     public function fillTemplateModify() {
         $existing_fields = $this->executeQuery("SELECT id_field,name FROM Field", return_option:PDO::FETCH_OBJ);
         return($this->m->render(file_get_contents("view/templates-mustache/company-update.mustache"),["company" => $this,"existing_fields" => $existing_fields]));
@@ -91,10 +94,22 @@ class Company extends Database{
             return false;
         }
     }
-    public function studentAppliesTo(int $id_student) {
-        $this->executeQuery("INSERT INTO applies_for (id_offer,id_student) VALUES (:id_offer,:id_student)", ["id_student" => $id_student, "id_offer" => $this->id_offer]);
+    public function studentEvaluates(int $id_student, int $grade, string $details) {
+        if($grade >= 0 && $grade <= 5 && strlen($details) <= 800) {
+            $this->executeQuery("DELETE FROM student_evaluates WHERE id_company=:id AND id_student=:id_student",["id" => $this->id_company, "id_student" => $id_student]);
+            $this->executeQuery("INSERT INTO student_evaluates (id_company,id_student,grade,details) VALUES (:id,:id_student,:grade,:details)", ["id" => $this->id_company, "id_student" => $id_student, "grade" => $grade, "details" => $details]);
+        }
     }
-    public function adminAppliesTo(int $id_admin) {
-        $this->executeQuery("INSERT INTO admin_applies_for (id_admin,id_offer) VALUES (:id_admin,:id_offer)", ["id_admin" => $id_admin, "id_offer" => $this->id_offer]);
+    public function tutorEvaluates(int $id_tutor, int $grade, string $details) {
+        if($grade >= 0 && $grade <= 5 && strlen($details) <= 800) {
+            $this->executeQuery("DELETE FROM teacher_evaluates WHERE id_company=:id AND id_tutor=:id_tutor",["id" => $this->id_company, "id_tutor" => $id_tutor]);
+            $this->executeQuery("INSERT INTO teacher_evaluates (id_company,id_tutor,grade,details) VALUES (:id,:id_tutor,:grade,:details)", ["id" => $this->id_company, "id_tutor" => $id_tutor, "grade" => $grade, "details" => $details]);
+        }
+    }
+    public function adminEvaluates(int $id_admin, int $grade, string $details) {
+        if($grade >= 0 && $grade <= 5 && strlen($details) <= 800) {
+            $this->executeQuery("DELETE FROM admin_evaluates WHERE id_company=:id AND id_admin=:id_admin",["id" => $this->id_company, "id_admin" => $id_admin]);
+            $this->executeQuery("INSERT INTO admin_evaluates (id_company,id_admin,grade,details) VALUES (:id,:id_admin,:grade,:details)", ["id" => $this->id_company, "id_admin" => $id_admin, "grade" => $grade, "details" => $details]);
+        }
     }
 }

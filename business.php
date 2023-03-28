@@ -13,7 +13,7 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
             header("Location: business.php");
             die();
         }
-        if($business->fillCompany()) {
+        elseif($business->fillCompany()) {
             if(isset($_GET["modify"]) && $_GET["modify"] && in_array($type[0],["Tutor","Admin"])) {
                 if(!empty($_POST)) {
                     $business->modifyCompany($_POST);
@@ -24,9 +24,25 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
                     $content = $business->fillTemplateModify();
                 }
             }
+            elseif(isset($_GET["evaluate"]) && $_GET["evaluate"]) {
+                if(!empty($_POST) && isset($_POST["grade"]) && isset($_POST["details"])) {
+                    if($type[0] == "Student") {
+                        $business->studentEvaluates($type[1],$_POST["grade"],$_POST["details"]);
+                    }
+                    elseif($type[0] == "Tutor") {
+                        $business->tutorEvaluates($type[1],$_POST["grade"],$_POST["details"]);
+                    }
+                    elseif($type[0] == "Admin") {
+                        $business->adminEvaluates($type[1],$_POST["grade"],$_POST["details"]);
+                    }
+                }
+                else {
+                    $content = $business->FillTemplateEvaluate();
+                }
+            }
             else {
                 $content = $business->fillTemplateView();
-                $content.= '<div class="button-layout"><button type="button" onclick="">
+                $content.= '<div class="button-layout"><button type="button" onclick="window.location.href=\'business.php?id_business='.$_GET["id_business"].'&evaluate=1\'">
                     <span class="text">Noter</span>
                     </button>';
                 if ($type[0] == "Tutor" || $type[0] == "Admin") {
@@ -39,11 +55,11 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
                     </div></div>';
                 }
             }
-            require_once("./view/single-business-view.php");
         }
         else {
             require_once('./view/error404.html');
         }
+        require_once("./view/single-business-view.php");
     }
     else {    
         require_once "view/businesses-view.php";
