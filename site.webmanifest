@@ -11,7 +11,8 @@
   "icons": [
     {
       "src": "/resources/images/Logosmall512.svg",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "type":"image/png"
     },
     {
       "src": "/resources/images/Logo%20small.svg",
