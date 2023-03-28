@@ -41,9 +41,6 @@ require_once("database.php");
             session_start();
             session_regenerate_id();
         }
-        if(isset($_COOKIE['user_login']) && isset($_COOKIE['user_password'])){
-            $_SESSION["login"] = new Session($_COOKIE['user_login']);
-        }
     }
     function erase_session()
     { // Function used to erase a session, in order for the user to disconnect if he wants to
