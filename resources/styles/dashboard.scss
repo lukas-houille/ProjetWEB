@@ -18,3 +18,40 @@
         margin-left: 1rem;
     }
 }
+.dashboard-content-layout{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.pagination-button{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    button{
+        margin: 1rem;
+    }
+}
+
+table{
+    margin-top: 2rem;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    th{
+        text-align: left;
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+    }
+    td{
+        text-align: left;
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+        span{
+            cursor: pointer;
+        }
+    }
+}

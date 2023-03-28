@@ -16,9 +16,13 @@
         <td> {{last_name}} </td>
         <td> {{promotion}} </td>
         <td> {{center}} </td>
-        <td> <span class="material-symbols-rounded" onclick="window.location.href='dashboard.php?view=student&id={{id_student}}'"> Edit_Note </span> </td>
+        <td>
+            <span class="material-symbols-rounded" onclick="window.location.href='dashboard.php?view=student&id={{id_student}}'"> Edit_Note </span>
+        </td>
     </tr>
     {{/iteration}}
     </tbody>
 </table>
-<button onclick="window.location.href='?page={{previous_page}}&view=student'">👈</button><p>{{page}}/{{total_page}}</p><button onclick="window.location.href='?page={{next_page}}&view=student'">👉</button>
+<div class="pagination-button">
+    <button onclick="window.location.href='?page={{previous_page}}&view=student'">👈</button><p>{{page}}/{{total_page}}</p><button onclick="window.location.href='?page={{next_page}}&view=student'">👉</button>
+</div>

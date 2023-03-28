@@ -60,7 +60,7 @@ require_once('view/navbar-view.php');
         </form>
     </div>
 
-    <div class="content-layout">
+    <div class="dashboard-content-layout">
         <!-- Tableau html avec data et mustache -->
         <?= $table ?>
     </div>
