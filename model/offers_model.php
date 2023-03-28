@@ -21,7 +21,7 @@ class Offer extends Database{
     public array $skills;
     public array $concerns;
 
-    public function __construct(int $id) {
+    public function __construct(int $id=0) {
         parent::__construct();
         $this->id_offer = $id;
         Mustache_Autoloader::register();
@@ -59,13 +59,13 @@ class Offer extends Database{
         return($this->m->render(file_get_contents("view/templates-mustache/offer-update.mustache"),["offer" => $this,"existing_skills" => $existing_skills, "existing_promotions" => $existing_promotions]));
     }
     public function offerExists() {
-        $offer = $this->executeQuery("SELECT Internship_offer.id_offer FROM Internship_offer JOIN Company ON Internship_offer.id_company=Company.id_company JOIN City ON Internship_offer.id_city=City.id_city WHERE Internship_offer.visible=1 AND Company.visible=1 AND Internship_offer.id_offer=:id LIMIT 1",["id" => $this->id_offer]);
-        if(array_key_exists(0,$offer)) {
-            return true;
+        if($this->id_offer != 0) {
+            $offer = $this->executeQuery("SELECT Internship_offer.id_offer FROM Internship_offer JOIN Company ON Internship_offer.id_company=Company.id_company JOIN City ON Internship_offer.id_city=City.id_city WHERE Internship_offer.visible=1 AND Company.visible=1 AND Internship_offer.id_offer=:id LIMIT 1",["id" => $this->id_offer]);
+            if(array_key_exists(0,$offer)) {
+                return true;
+            }
         }
-        else {
-            return false;
-        }
+        return false;
     }
     public function deleteOffer() {
         if($this->offerExists()) {
@@ -95,6 +95,31 @@ class Offer extends Database{
         else {
             return false;
         }
+    }
+    public function createOffer(array $values, int $id_company) {
+        $needed_values = ["description","id_city","date","duration","places","salary"];
+        var_dump($values);
+        foreach($needed_values AS $value) { // Checks to see if the given array has all of the necessary information
+            if(!array_key_exists($value,$values)) {
+                return false;
+            }
+        }
+        if($values["date"] <= date("Y-m-d")) { // Check to see if the given date isn't prior to the current date
+            return false;
+        }
+        if($values["salary"] < 1) { // Check to see if the given salary is superior to 0
+            return false;
+        }
+        $this->executeQuery("INSERT INTO Internship_offer (duration, salary, date, places, description, visible, id_company, id_city) VALUES (:duration,:salary,:date,:places,:description,true,:id_company,:id_city)",["duration" => $values["duration"], "salary" => $values["salary"], "date" => $values["date"], "places" => $values["places"], "description" => $values["description"], "id_company" => $id_company, "id_city" => $values["id_city"]]);
+        $this->id_offer = $this->executeQuery("SELECT LAST_INSERT_ID()",return_option:PDO::FETCH_NUM)[0][0];
+        $possible_arrays = [["skills","requires", ["id_ability","id_offer"]],["promotions","concerns", ["id_group","id_offer"]]];
+        foreach($possible_arrays AS $array) {
+            $this->executeQuery("DELETE FROM ".$array[1]." WHERE id_offer=:id",["id" => $this->id_offer]);
+            foreach($values[$array[0]] AS $value) {
+                $this->executeQuery("INSERT INTO ".$array[1]."(".$array[2][0].",".$array[2][1].") VALUES (:id_value,:id)",["id_value" => $value, "id" => $this->id_offer]);
+            }
+        }
+        return true;
     }
     public function studentAppliesTo(int $id_student) {
         $this->executeQuery("INSERT INTO applies_for (id_offer,id_student,id_state) VALUES (:id_offer,:id_student,1)", ["id_student" => $id_student, "id_offer" => $this->id_offer]);
@@ -143,5 +168,8 @@ class Offer extends Database{
     public function updateCompanyStats() {
         $this->executeQuery("UPDATE Internship_offer SET places=places-1 WHERE id_offer=:id",["id" => $this->id_offer]);
         $this->executeQuery("UPDATE Company SET cesi_interns=cesi_interns+1 WHERE id_company=:id_company",["id_company" => $this->id_company]);
+    }
+    public function getID() {
+        return($this->id_offer);
     }
 }

@@ -32,15 +32,15 @@
         </div>
         <label>
             <span>Durée</span>
-            <input type="text" name="duration" value="{{duration}}" placeholder="Durée">
+            <input type="number" step="0.01" name="duration" value="{{duration}}" placeholder="Durée">
         </label>
         <label>
             <span>Places</span>
-            <input type="text" name="places" value="{{places}}" placeholder="Places">
+            <input type="number" name="places" value="{{places}}" placeholder="Places">
         </label>
         <label>
             <span>Gratification totale</span>
-            <input type="number" min="1" name="salary" value="{{salary}}" placeholder="Gratification totale">
+            <input type="number" min=1 name="salary" step="0.01" value="{{salary}}" placeholder="Gratification totale">
         </label>
         <label>
             <select id="skills">
@@ -58,7 +58,7 @@
         </div>
         <div class="button-layout">
             <button type="submit">
-                <span class="text">Modifier</span>
+                <span class="text">Appliquer</span>
                 <span class="material-symbols-rounded"> send </span>
             </button>
         </div>
