@@ -98,7 +98,6 @@ class Offer extends Database{
     }
     public function createOffer(array $values, int $id_company) {
         $needed_values = ["description","id_city","date","duration","places","salary"];
-        var_dump($values);
         foreach($needed_values AS $value) { // Checks to see if the given array has all of the necessary information
             if(!array_key_exists($value,$values)) {
                 return false;
