@@ -461,3 +461,15 @@ form {
         }
     }
 }
+
+.button-layout{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    button{
+        margin: 1rem;
+    }
+}

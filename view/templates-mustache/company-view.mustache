@@ -1,10 +1,16 @@
 <div class="content">
     <h1>{{name}}</h1>
-    <p class="bold">Lieu</p>
-    {{#locations}}<p>{{city}}, {{postcode}} </p>{{/locations}}
-    <p class="bold">Secteur d'activité : <span> {{field}}</span></p>
-    <p class="bold">Étudiants CESI déjà pris :<span> {{cesi_interns}}</span></p>
-    <p class="bold">Adresse email : <span>{{email}}</span></p>
-    <p class="bold">Confiance des tuteurs: <span> {{grade}}</span></p>
-    <p class="bold">Note des étudiants <span> {{grade}}</span></p>
-</div>
+    <form class="single-company-form">
+        <p class="bold">Lieu</p>
+        {{#locations}}<span>{{city}}, {{postcode}} </span>{{/locations}}
+        <p class="bold">Secteur d'activité :</p>
+        <span> {{field}}</span>
+        <p class="bold">Étudiants CESI déjà pris :</p>
+        <span> {{cesi_interns}}</span>
+        <p class="bold">Adresse email : </p>
+        <span>{{email}}</span>
+        <p class="bold">Confiance des tuteurs:</p>
+        <span> {{grade}}</span>
+        <p class="bold">Note des étudiants </p>
+        <span> {{grade}}</span>
+    </form>
