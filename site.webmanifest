@@ -10,7 +10,7 @@
   "display": "fullscreen",
   "icons": [
     {
-      "src": "/resources/images/Logosmal512.svg",
+      "src": "/resources/images/Logosmall512.svg",
       "sizes": "512x512"
     },
     {
