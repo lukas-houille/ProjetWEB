@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentions légal</title>
     <?php
     include('header.php');
     ?>
-
-    <link rel="stylesheet" href="resources/styles/mentionslegal.css">
+    <link rel="stylesheet" href="resources/styles/rgpd.css">
+</head>
 <body>
 <?php
-require_once('view/navbar-view.php');
+include('view/navbar-view.php');
 ?>
 <div id="mentionslegale" class="content">
         <h1>Mentions légales</h1>
