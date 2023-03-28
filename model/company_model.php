@@ -26,8 +26,8 @@ class Company extends Database{
         $company = $this->executeQuery("SELECT id_company,Company.name, cesi_interns, email, Field.name AS field FROM Company JOIN Field ON Company.id_field=Field.id_field WHERE visible=1 AND id_company=:id LIMIT 1;",["id" => $this->id_company], return_option: PDO::FETCH_OBJ);
         if(array_key_exists(0,$company)) {
             $company = $company[0];
-            $this->locations = $this->executeQuery("SELECT City.name AS city,City.postcode FROM is_located_in JOIN City ON is_located_in.id_city=City.id_city WHERE id_company=:id",["id" => $this->id_company]);
-            $this->grade = $this->executeQuery("SELECT TRUNCATE(AVG(grade),1) FROM teacher_evaluates WHERE grade <= 5 AND id_company=:id",["id" => $this->id_company], return_option:PDO::FETCH_NUM)[0][0]; 
+            $this->locations = $this->executeQuery("SELECT City.id_city,City.name AS city,City.postcode FROM is_located_in JOIN City ON is_located_in.id_city=City.id_city WHERE id_company=:id",["id" => $this->id_company]);
+            $this->grade = (float) $this->executeQuery("SELECT TRUNCATE(AVG(grade),1) FROM teacher_evaluates WHERE grade <= 5 AND id_company=:id",["id" => $this->id_company], return_option:PDO::FETCH_NUM)[0][0]; 
             $this->name = $company->name;
             $this->cesi_interns = $company->cesi_interns;
             $this->email = $company->email;
