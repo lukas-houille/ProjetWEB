@@ -1,19 +1,20 @@
 <h1>{{description}}</h1>
-<div class="postulatedetailsbody">
-    <h3>{{name}}</h3>
-    <p>{{city}}, {{postcode}}</p>
-    <p>Date de début:<span> {{date}}</span></p>
-    <p>Durée:<span> {{duration}} mois</span></p>
-
-</div>
-<div class="details">
+<form class="single-company-form">
     <h3>Détail de l'offre</h3>
-    <p>Profile recherché:{{#concerns}}<span> {{name}}</span>{{/concerns}}</p>
-    <p>Gratification totale:<span> {{salary}}€</span></p>
-    <p>Places:<span> {{places}}</span></p>
-    <p><span>{{description}}</span></p>
-</div>
-<div class="skills">
+    <p class="bold">Lieu :</p>
+    <span>{{city}}, {{postcode}}</span>
+    <p class="bold">Date de début:</p>
+    <span> {{date}}</span>
+    <p class="bold">Durée:</p>
+    <span> {{duration}} mois</span>
+    <p class="bold">Profile recherché:</p>
+    {{#concerns}}
+    <span> {{name}}</span>
+    {{/concerns}}
+    <p class="bold">Gratification totale:</p>
+    <span> {{salary}}€</span>
+    <p class="bold">Places:</p>
+    <span> {{places}}</span>
     <h3>Compétences attendues</h3>
-    <p>{{#skills}}<span>{{name}}</span><br>{{/skills}}</p>
-</div>
+    <span>{{#skills}}<span>{{name}}</span>{{/skills}}</span>
+</form>

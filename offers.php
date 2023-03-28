@@ -26,6 +26,7 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
             }
             else {
                 $content = $offer->fillTemplateView();
+                $content.= '<div class="button-layout">';
                 $type = $_SESSION["login"]->isType()[0];
                 if ($type == "Admin" || $type == "Student") {
                     $content.= '<button type="button" onclick="window.location.href=\'postulate.php?id_offer='.$_GET["id_offer"].'\'">
@@ -40,6 +41,7 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
                     <span class="text">Supprimer</span>
                     </button>';
                 }
+                $content.= '</div>';
             }
             require_once("./view/single-offer-view.php");
         }
