@@ -1,17 +1,10 @@
-<div class="showcompanybody">
-    <div class="showdetailsbody">
-        <h1>{{name}}</h1>
-        {{#locations}}<p>{{city}}, {{postcode}} </p>{{/locations}}
-        <p>Secteur d'activité : <span> {{field}}</span></p>
-        <p>Étudiants CESI déjà pris :<span> {{cesi_interns}}</span></p>
-
-    <div class="details">
-            <p>Adresse email : <span>{{email}}</span></p>
-        </div>
-        <div class="header-info">
-            <p>Confiance des tuteurs: <span> {{grade}}</span></p>
-            <button type="submit" formaction="https://cesitonstage.com/business.php">Retrouver la page entreprise</button>
-        </div>
-
-    </div>
+<div class="content">
+    <h1>{{name}}</h1>
+    <p class="bold">Lieu</p>
+    {{#locations}}<p>{{city}}, {{postcode}} </p>{{/locations}}
+    <p class="bold">Secteur d'activité : <span> {{field}}</span></p>
+    <p class="bold">Étudiants CESI déjà pris :<span> {{cesi_interns}}</span></p>
+    <p class="bold">Adresse email : <span>{{email}}</span></p>
+    <p class="bold">Confiance des tuteurs: <span> {{grade}}</span></p>
+    <p class="bold">Note des étudiants <span> {{grade}}</span></p>
 </div>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Offers</title>
+    <title>Company</title>
     <script type="text/javascript" src="./resources/jquery.js"></script>
     <script type="text/javascript" src="./resources/mustache.js"></script>
-    <link rel="stylesheet" type="text/css" href="resources/styles/postulate.css">
+    <link rel="stylesheet" type="text/css" href="resources/styles/company.css">
     <?php
     include('header.php');
     ?>
