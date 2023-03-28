@@ -1,6 +1,7 @@
 <?php
 require_once "./model/session_model.php";
 require_once "./model/company_model.php";
+require_once "./model/offers_model.php";
 
 initialise_session();
 
@@ -14,7 +15,17 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
             die();
         }
         elseif($business->fillCompany()) {
-            if(isset($_GET["modify"]) && $_GET["modify"] && in_array($type[0],["Tutor","Admin"])) {
+            if(isset($_GET["create_offer"]) && $_GET["create_offer"] == 1 && in_array($type[0],["Tutor","Admin"])) {
+                $offer = new Offer();
+                if(!empty($_POST)) {
+                    if($offer->createOffer($_POST,$_GET["id_business"])) {
+                        header("Location: offers.php?id_offer=".$offer->getID());
+                        die();
+                    }
+                }
+                $content = $offer->fillTemplateModify();
+            }
+            elseif(isset($_GET["modify"]) && $_GET["modify"] && in_array($type[0],["Tutor","Admin"])) {
                 if(!empty($_POST)) {
                     $business->modifyCompany($_POST);
                     header("Refresh:0");
@@ -52,6 +63,9 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
                     <button type="button" onclick="window.location.href=\'business.php?id_business='.$_GET["id_business"].'&delete=1\'">
                     <span class="text">Supprimer</span>
                     </button>
+                    <button type="button" onclick="window.location.href=\'business.php?id_business='.$_GET["id_business"].'&create_offer=1\'">
+                    <span class="text">Créer une offre</span>
+                    </button>
                     </div></div>';
                 }
             }
@@ -61,7 +75,18 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
         }
         require_once("./view/single-business-view.php");
     }
-    else {    
+    elseif(isset($_GET["newEntry"]) && $_GET["newEntry"] == 1 && in_array($type[0],["Tutor","Admin"])) {
+        $business = new Company();
+        if(!empty($_POST)) {
+            if($business->createCompany($_POST)) {
+                header("Location: business.php?id_business=".$business->getID());
+                die();
+            }
+        }
+        $content = $business->fillTemplateModify();
+        require_once("./view/single-business-view.php");
+    }
+    else {
         require_once "view/businesses-view.php";
     }
 }

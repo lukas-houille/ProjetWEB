@@ -1,24 +1,26 @@
-<table>
-    <thead>
-    <tr>
-        <th> ID </th>
-        <th> Nom </th>
-        <th> Prénom </th>
-        <th> Center </th>
-    </tr>
-    </thead>
-    <tbody>
-    {{#iteration}}
-    <tr>
-        <td> {{id_tutor}} </td>
-        <td> {{first_name}} </td>
-        <td> {{last_name}} </td>
-        <td> {{center}} </td>
-        <td> <span class="material-symbols-rounded" onclick="window.location.href='dashboard.php?view=tutor&id={{id_tutor}}'"> Edit_Note </span> </td>
-    </tr>
-    {{/iteration}}
-    </tbody>
-</table>
+<div class="table-overflow">
+    <table>
+        <thead>
+        <tr>
+            <th> ID </th>
+            <th> Nom </th>
+            <th> Prénom </th>
+            <th> Center </th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#iteration}}
+            <tr>
+                <td> {{id_tutor}} </td>
+                <td> {{first_name}} </td>
+                <td> {{last_name}} </td>
+                <td> {{center}} </td>
+                <td> <span class="material-symbols-rounded" onclick="window.location.href='dashboard.php?view=tutor&id={{id_tutor}}'"> Edit_Note </span> </td>
+            </tr>
+        {{/iteration}}
+        </tbody>
+    </table>
+</div>
 <div class="pagination-button">
     <button class="outlined" onclick="window.location.href='?page={{previous_page}}&view=student'">
     <span class="material-symbols-rounded">chevron_left</span>

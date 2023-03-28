@@ -10,6 +10,19 @@ $color-card-bg: #E4E8F1;
 $color-main-dark: #142452;
 $color-secondary-dark: #202E05;
 
+/*
+$color-main: #fff;
+$color-secondary: #000;
+$color-dark: #ffffff;
+$color-light: #0d1220;
+$color-warning: #CC0022;
+$color-light-grey: #696969;
+$color-dark-grey: #61636B;
+$color-card-bg: #242835;
+$color-main-dark: #ffffff;
+$color-secondary-dark: #202E05;
+*/
+
 $view-height: calc(100vh - 76.5px);
 
 body, * {
@@ -476,4 +489,10 @@ form {
 
 .display-block{
     display: block;
+}
+
+@media (max-width: 850px) {
+    html{
+        font-size: 12px;
+    }
 }
