@@ -1,47 +1,66 @@
 {{#offer}}
-<form method="POST">
-<label>
-    <input type="text" name="description" value="{{description}}" placeholder="Titre de l'offre">
-</label>
-<label>
-    <input id="postcode" value="{{postcode}}"><select name="id_city" id="cities"><option value="{{id_city}}">{{city}}</option></p>
-</label>
-<label>
-    <input type="date" name="date" value="{{date}}" placeholder="Date de début">
-</label>
-<label>
-    <select id="promotions">
-        <option class="placeholder" value="0">Promotions</option>
-        {{#existing_promotions}}<option value="{{id_group}}">{{name}}</option>{{/existing_promotions}}
-    </select>
-    <div id="selected_promotions" class="selected-filters">
-    {{#concerns}}
-        <span value="{{id_group}}">{{name}}<span class="material-symbols-rounded popup-close"> close <input type="hidden" name="promotions[]" value="{{id_group}}"></span></span>
-    {{/concerns}}
-    </div>
-</label>
-<label>
-    <input type="text" name="duration" value="{{duration}}" placeholder="Durée">
-</label>
-<label>
-    <input type="text" name="places" value="{{places}}" placeholder="Places">
-</label>
-<label>
-    <input type="text" name="salary" value="{{salary}}" placeholder="Gratification totale">
-</label>
-<label>
-    <select id="skills">
-        <option class="placeholder" value="0">Compétences</option>
-        {{#existing_skills}}<option value="{{id_ability}}">{{name}}</option>{{/existing_skills}}
-    </select>
-    <div id="selected_skills" class="selected-filters">
-    {{#skills}}
-        <span value="{{id_ability}}">{{name}}<span class="material-symbols-rounded popup-close"> close <input type="hidden" name="skills[]" value="{{id_ability}}"></span></span>
-    {{/skills}}
-    </div>
-</label>
-<label>
-    <input type="submit" value="Modifier l'offre">
-</label>
-</form>
+    <form method="POST" class="single-page-form">
+        <label>
+            <span>Titre de l'offre</span>
+            <input type="text" name="description" value="{{description}}" placeholder="Titre de l'offre">
+        </label>
+        <label>
+            <span>Lieu</span>
+            <input id="postcode" placeholder="00000" pattern="\d{5,5}" type="number">
+            <select name="id_city" id="cities">
+            <option value="{{id_city}}">{{city}}</option>
+            </select>
+        </label>
+        <label>
+            <span>Date de début</span>
+            <input type="date" name="date" value="{{date}}" placeholder="Date de début">
+        </label>
+        <label>
+            <select id="promotions">
+                <option class="placeholder" value="0">Promotions</option>
+                {{#existing_promotions}}
+                    <option value="{{id_group}}">{{name}}</option>{{/existing_promotions}}
+            </select>
+        </label>
+        <div id="selected_promotions" class="selected-filters">
+            {{#concerns}}
+                <span value="{{id_group}}">{{name}}<span
+                        class="material-symbols-rounded popup-close"> close <input type="hidden"
+                                                                                   name="promotions[]"
+                                                                                   value="{{id_group}}"></span></span>
+            {{/concerns}}
+        </div>
+        <label>
+            <span>Durée</span>
+            <input type="text" name="duration" value="{{duration}}" placeholder="Durée">
+        </label>
+        <label>
+            <span>Places</span>
+            <input type="text" name="places" value="{{places}}" placeholder="Places">
+        </label>
+        <label>
+            <span>Gratification totale</span>
+            <input type="text" name="salary" value="{{salary}}" placeholder="Gratification totale">
+        </label>
+        <label>
+            <select id="skills">
+                <option class="placeholder" value="0">Compétences</option>
+                {{#existing_skills}}
+                    <option value="{{id_ability}}">{{name}}</option>{{/existing_skills}}
+            </select>
+        </label>
+        <div id="selected_skills" class="selected-filters">
+            {{#skills}}
+                <span value="{{id_ability}}">{{name}}<span class="material-symbols-rounded popup-close"> close <input
+                        type="hidden" name="skills[]" value="{{id_ability}}"></span></span>
+            {{/skills}}
+        </div>
+        <div class="button-layout">
+            <button type="submit">
+                <span class="text">Modifier</span>
+                <span class="material-symbols-rounded"> send </span>
+            </button>
+        </div>
+
+    </form>
 {{/offer}}

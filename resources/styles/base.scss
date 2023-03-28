@@ -21,6 +21,7 @@ body, * {
     padding: 0;
     box-sizing: border-box;
     background-color: $color-light;
+    transition: 0.2s ease;
 }
 
 // font variables definition
