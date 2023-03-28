@@ -1,53 +1,33 @@
-<form>
-    <div class="close">
-        <span class="material-symbols-rounded popup-close"> close </span>
-    </div>
-    <?php
-    if(isset($_GET['modify']) && isset($_GET['modify']) == 1) {
-        echo '<h3> Modifier étudiant </h3>';
-    } else {
-    echo '<h3> Nouvel étudiant </h3>';
-    }
-    ?>
+<form method="POST">
+    <h3> Édition d'étudiant </h3>
     <label>
         <span> Prénom </span>
         <input type="text" name="first_name" placeholder="Prénom" value="{{first_name}}" required>
     </label>
     <label>
         <span> Nom </span>
-        <input type="text" name="first_name" placeholder="Nom" value="{{last_name}}" required>
+        <input type="text" name="last_name" placeholder="Nom" value="{{last_name}}" required>
     </label>
     <label>
-        <select required>
-            <option class="placeholder" value="0">Centre</option>
+        <span> Mot de passe </span>
+        <input type="password" name="password" placeholder="Mot de passe" value="" required>
+    </label>
+    <label>
+        <select name="id_center" required>
             {{#centers}}
                 <option value="{{id_center}}">{{name}}</option>
             {{/centers}}
         </select>
     </label>
     <label>
-        <select id="promotions">
-            <option class="placeholder" value="0">Promotion</option>
+        <select name="id_group" required>
             {{#promotions}}
-                <option value="{{id_promotion}}">{{name}}</option>
+                <option value="{{id_group}}">{{name}}</option>
             {{/promotions}}
         </select>
-    </label>
-    <?php
-    if(isset($_GET['modify']) && isset($_GET['modify']) == 1) {
-        echo
-        '<button>
-    <span class="text">Ajouter</span>
-    <span class="material-symbols-rounded"> Add </span>
-    </button>';
-    } else {
-    echo
-    '
+    </label>        
     <button>
         <span class="text">Enregistrer</span>
         <span class="material-symbols-rounded"> send </span>
     </button>
-    ';
-    }
-    ?>
 </form>
