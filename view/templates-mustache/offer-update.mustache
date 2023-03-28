@@ -19,15 +19,15 @@
             <select id="promotions">
                 <option class="placeholder" value="0">Promotions</option>
                 {{#existing_promotions}}
-                    <option value="{{id_group}}">{{name}}</option>{{/existing_promotions}}
+                    <option value="{{id_group}}">{{name}}</option>
+                {{/existing_promotions}}
             </select>
         </label>
         <div id="selected_promotions" class="selected-filters">
             {{#concerns}}
-                <span value="{{id_group}}">{{name}}<span
-                        class="material-symbols-rounded popup-close"> close <input type="hidden"
-                                                                                   name="promotions[]"
-                                                                                   value="{{id_group}}"></span></span>
+                <span value="{{id_group}}">{{name}}<span class="material-symbols-rounded popup-close"> close
+                    <input type="hidden" name="promotions[]" value="{{id_group}}"></span>
+                </span>
             {{/concerns}}
         </div>
         <label>
@@ -46,7 +46,8 @@
             <select id="skills">
                 <option class="placeholder" value="0">Compétences</option>
                 {{#existing_skills}}
-                    <option value="{{id_ability}}">{{name}}</option>{{/existing_skills}}
+                    <option value="{{id_ability}}">{{name}}</option>
+                {{/existing_skills}}
             </select>
         </label>
         <div id="selected_skills" class="selected-filters">

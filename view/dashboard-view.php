@@ -56,7 +56,8 @@ require_once('view/navbar-view.php');
             <div class="close">
                 <span class="material-symbols-rounded popup-close"> close </span>
             </div>
-            Mettre template mustache
+            <?= $newEntryForm ?>
+            <?= require_once "view/templates-mustache/dashboard-student-newentry.mustache"; ?>
         </form>
     </div>
 

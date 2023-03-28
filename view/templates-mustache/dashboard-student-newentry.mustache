@@ -1,0 +1,30 @@
+<form class="newEntry">
+    <label>
+        <span> Prénom </span>
+        <input type="text" name="first_name" placeholder="Nom" required>
+    </label>
+    <label>
+        <span> Nom </span>
+        <input type="text" name="first_name" placeholder="Nom" required>
+    </label>
+    <label>
+        <select required>
+            <option class="placeholder" value="0">Centre</option>
+            {{#centers}}
+                <option value="{{id_center}}">{{name}}</option>
+            {{/centers}}
+        </select>
+    </label>
+    <label>
+        <select id="promotions">
+            <option class="placeholder" value="0">Promotion</option>
+            {{#promotions}}
+                <option value="{{id_promotion}}">{{name}}</option>
+            {{/promotions}}
+        </select>
+    </label>
+    <button>
+        <span class="text">Ajouter</span>
+        <span class="material-symbols-rounded"> add </span>
+    </button>
+</form>
