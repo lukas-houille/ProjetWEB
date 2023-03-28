@@ -24,5 +24,11 @@
     </tbody>
 </table>
 <div class="pagination-button">
-    <button onclick="window.location.href='?page={{previous_page}}&view=student'">👈</button><p>{{page}}/{{total_page}}</p><button onclick="window.location.href='?page={{next_page}}&view=student'">👉</button>
+    <button class="outlined" onclick="window.location.href='?page={{previous_page}}&view=student'">
+    <span class="material-symbols-rounded">chevron_left</span>
+    </button>
+    <p>{{page}}/{{total_page}}</p>
+    <button class="outlined" onclick="window.location.href='?page={{next_page}}&view=student'">
+    <span class="material-symbols-rounded">chevron_right</span>
+    </button>
 </div>
