@@ -44,7 +44,7 @@ require_once('view/navbar-view.php');
                 <span class="material-symbols-rounded"> filter_list </span>
             </button>
             <label id="dashboard-search">
-                <input type="text" placeholder="Rechercher">
+                <input type="text" placeholder="Rechercher" <?php if(isset($_GET['q'])){echo 'value='.$_GET['q'].'';} ?>>
                 <span class="material-symbols-rounded"> search </span>
             </label>
         </div>

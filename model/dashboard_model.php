@@ -55,3 +55,17 @@ class Dashboard extends Database{
         return($this->m->render(file_get_contents($this->template_location), ["iteration" => $this->table, "previous_page" => $this->page-1, "next_page" => $next, "page" => $this->page, "total_page" => $this->total]));
     }
 }
+
+function recherche();
+{
+    $recherche =$_GET['q']
+    $userpage=$_GET['userpage'];
+    $bdd = debConnect();
+    $req = $bdd->prepare(query: SELECT first_name, last_name, id_center, id_group, login FROM Students WHERE (first_name LIKE "%' . $recherche . '%" 
+    OR last_name LIKE "%' . $recherche . '%" 
+    OR id_center LIKE "%' . $recherche . '%" 
+    OR id_group LIKE "%' . $recherche . '%" 
+   OR login LIKE "%' . $recherche . '%")
+$req->execute();
+return $req->fecthAll();
+}
