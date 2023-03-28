@@ -1,26 +1,28 @@
-<table>
-    <thead>
-    <tr>
-        <th> ID </th>
-        <th> Nom </th>
-        <th> Étudiants CESI pris </th>
-        <th> Email </th>
-        <th> Secteur </th>
-    </tr>
-    </thead>
-    <tbody>
-    {{#iteration}}
-    <tr>
-        <td> {{id_company}} </td>
-        <td> {{company_name}} </td>
-        <td> {{cesi_interns}} </td>
-        <td> {{email}} </td>
-        <td> {{field_name}} </td>
-        <td> <span class="material-symbols-rounded" onclick="window.location.href='business.php?id_business={{id_company}}&modify=1'"> Edit_Note </span> </td>
-    </tr>
-    {{/iteration}}
-    </tbody>
-</table>
+<div class="table-overflow">
+    <table>
+        <thead>
+        <tr>
+            <th> ID </th>
+            <th> Nom </th>
+            <th> Étudiants CESI pris </th>
+            <th> Email </th>
+            <th> Secteur </th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#iteration}}
+            <tr>
+                <td> {{id_company}} </td>
+                <td> {{company_name}} </td>
+                <td> {{cesi_interns}} </td>
+                <td> {{email}} </td>
+                <td> {{field_name}} </td>
+                <td> <span class="material-symbols-rounded" onclick="window.location.href='business.php?id_business={{id_company}}&modify=1'"> Edit_Note </span> </td>
+            </tr>
+        {{/iteration}}
+        </tbody>
+    </table>
+</div>
 <div class="pagination-button">
     <button class="outlined" onclick="window.location.href='?page={{previous_page}}&view=student'">
     <span class="material-symbols-rounded">chevron_left</span>
