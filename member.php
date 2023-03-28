@@ -22,7 +22,7 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
     Mustache_Autoloader::register();
     $m = new Mustache_Engine;
     $cards = $m->render(file_get_contents("view/templates-mustache/favorite-cards.mustache"), $data);
-    var_dump($cards);
+    var_dump($data);
     require_once "view/member-view.php";
 }
 else {
