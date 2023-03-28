@@ -1,32 +1,40 @@
 {{#offer}}
 <label>
+    <span>Titre de l'offre</span>
     <input type="text" name="offer_title" value="{{description}}" placeholder="Titre de l'offre">
 </label>
+<h3>Informations pratiques</h3>
 <label>
+    <span>Lieu du stage</span>
     <input id="postcode" value="{{postcode}}"><select id="cities"><option value="{{id_city}}">{{city}}</option></p>
 </label>
 <label>
+    <span>Date de début</span>
     <input type="date" name="offer_start_date" value="{{date}}" placeholder="Date de début">
 </label>
 <label>
+    <span>Promotions concernés</span>
     <select id="promotions">
         <option class="placeholder" value="0">Promotions</option>
         {{#existing_promotions}}<option value="{{id_group}}">{{name}}</option>{{/existing_promotions}}
     </select>
     <div id="selected_promotions" class="selected-filters">
     {{#concerns}}
-        <span value="{{id_group}}">{{name}}<span class="material-symbols-rounded popup-close"> close </span></span>
+        <span value="{{id_group}}">{{name}}<span class="material-symbols-rounded"> close </span></span>
     {{/concerns}}
     </div>
 </label>
 <label>
+    <span>Durée du stage</span>
     <input type="text" name="offer_duration" value="{{duration}}" placeholder="Durée">
 </label>
 <label>
-    <input type="text" name="offer_places" value="{{places}}" placeholder="Places">
+    <span>Nombre de places ouvertes</span>
+    <input type="number" name="offer_places" value="{{places}}" placeholder="Places">
 </label>
 <label>
-    <input type="text" name="offer_salary" value="{{salary}}" placeholder="Gratification totale">
+    <span>Gratification totale</span>
+    <input type="number" name="offer_salary" value="{{salary}}" placeholder="Gratification totale">
 </label>
 <label>
     <select id="skills">
@@ -39,7 +47,8 @@
     {{/skills}}
     </div>
 </label>
-<label>
-    <input type="submit" value="Modifier l'offre">
-</label>
+<button type="submit">
+    <span class="text">Modifier l'offre</span>
+    <span class="material-symbols-rounded"> update </span>
+</button>
 {{/offer}}
