@@ -56,16 +56,4 @@ class Dashboard extends Database{
     }
 }
 
-function recherche();
-{
-    $recherche =$_GET['q']
-    $userpage=$_GET['userpage'];
-    $bdd = debConnect();
-    $req = $bdd->prepare(query: SELECT first_name, last_name, id_center, id_group, login FROM Students WHERE (first_name LIKE "%' . $recherche . '%" 
-    OR last_name LIKE "%' . $recherche . '%" 
-    OR id_center LIKE "%' . $recherche . '%" 
-    OR id_group LIKE "%' . $recherche . '%" 
-   OR login LIKE "%' . $recherche . '%")
-$req->execute();
-return $req->fecthAll();
-}
+
