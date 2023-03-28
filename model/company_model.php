@@ -14,7 +14,10 @@ class Company extends Database{
     public int $id_field;
     public string $field;
     public array $locations;
-    public float $grade;
+    public float $tutor_grade;
+    public int $tutor_evaluations;
+    public float $student_grade;
+    public int $student_evaluations;
     
 
     public function __construct(int $id) {
@@ -28,7 +31,10 @@ class Company extends Database{
         if(array_key_exists(0,$company)) {
             $company = $company[0];
             $this->locations = $this->executeQuery("SELECT City.id_city,City.name AS city,City.postcode FROM is_located_in JOIN City ON is_located_in.id_city=City.id_city WHERE id_company=:id",["id" => $this->id_company]);
-            $this->grade = (float) $this->executeQuery("SELECT TRUNCATE(AVG(grade),1) FROM teacher_evaluates WHERE grade <= 5 AND id_company=:id",["id" => $this->id_company], return_option:PDO::FETCH_NUM)[0][0]; 
+            $this->tutor_grade = (float) $this->executeQuery("SELECT TRUNCATE(AVG(grade),1) FROM teacher_evaluates WHERE grade <= 5 AND id_company=:id",["id" => $this->id_company], return_option:PDO::FETCH_NUM)[0][0];
+            $this->tutor_evaluations = (int) $this->executeQuery("SELECT COUNT(grade) FROM teacher_evaluates WHERE grade <= 5 AND id_company=:id",["id" => $this->id_company], return_option:PDO::FETCH_NUM)[0][0];
+            $this->student_grade = (float) $this->executeQuery("SELECT TRUNCATE(AVG(grade),1) FROM student_evaluates WHERE grade <= 5 AND id_company=:id",["id" => $this->id_company], return_option:PDO::FETCH_NUM)[0][0];
+            $this->student_evaluations = (int) $this->executeQuery("SELECT COUNT(grade) FROM student_evaluates WHERE grade <= 5 AND id_company=:id",["id" => $this->id_company], return_option:PDO::FETCH_NUM)[0][0];
             $this->name = $company->name;
             $this->cesi_interns = $company->cesi_interns;
             $this->email = $company->email;
