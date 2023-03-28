@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Entreprises</title>
+    <title>Businesses</title>
     <script type="text/javascript" src="./resources/jquery.js"></script>
     <script type="text/javascript" src="./resources/mustache.js"></script>
     <link rel="stylesheet" href="resources/styles/company.css">
