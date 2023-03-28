@@ -20,7 +20,7 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
             }
             Mustache_Autoloader::register();
             $m = new Mustache_Engine;
-            $panel = $m->render(file_get_contents("view/templates-mustache/postulate-view.mustache"),[$offer, "id_offer" => $_GET["id_offer"]]);
+            $panel = $m->render(file_get_contents("view/templates-mustache/postulate-view.mustache"),["email" => $offer->email, "id_offer" => $_GET["id_offer"]]);
             require_once "./view/postulate-view.php";
         }
         else {

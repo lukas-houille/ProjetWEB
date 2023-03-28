@@ -1,4 +1,4 @@
-<button type="button" onclick="window.location.href='mailto:{{email}}'">Envoyez votre candidature par mail</button>
+<button type="button" onclick="window.open('mailto:{{email}}')">Envoyez votre candidature par mail</button>
 <label>J'atteste sur l'honneur avoir envoyé ma candidature à l'entreprise :</label><input type=checkbox id="confirm"></input>
 <form id="send" action="postulate.php?id_offer={{id_offer}}" method="post">
     <button type="submit" name="sent" value="1">Confirmer l'envoi de votre candidature</button>
