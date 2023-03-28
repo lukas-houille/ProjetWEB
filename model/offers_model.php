@@ -74,6 +74,28 @@ class Offer extends Database{
         }
         return false;
     }
+    public function modifyOffer(array $values) {
+        if($this->offerExists()) {
+            $possible_values = ["description","id_city","date","duration","places","salary"];
+            foreach($possible_values AS $value) {
+                if(array_key_exists($value,$values)) {
+                    if($this->{$value}!=$values[$value]) {
+                        $this->executeQuery("UPDATE Internship_offer SET ".$value."=:value WHERE id_offer=:id",["modified_value" => $value, "value" => $values[$value], "id" => $this->id_offer]);
+                    }
+                }
+            }
+            $possible_arrays = [["skills","requires", ["id_ability","id_offer"]],["promotions","concerns", ["id_group","id_offer"]]];
+            foreach($possible_arrays AS $array) {
+                $this->executeQuery("DELETE FROM ".$array[1]." WHERE id_offer=:id",["id" => $this->id_offer]);
+                foreach($values[$array[0]] AS $value) {
+                    $this->executeQuery("INSERT INTO ".$array[1]."(".$array[2][0].",".$array[2][1].") VALUES (:id_value,:id)",["id_value" => $value, "id" => $this->id_offer]);
+                }
+            }
+        }
+        else {
+            return false;
+        }
+    }
     public function studentAppliesTo(int $id_student) {
         $this->executeQuery("INSERT INTO applies_for (id_offer,id_student) VALUES (:id_offer,:id_student)", ["id_student" => $id_student, "id_offer" => $this->id_offer]);
     }
