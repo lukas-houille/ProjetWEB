@@ -50,17 +50,6 @@ require_once('view/navbar-view.php');
         </div>
     </div>
 
-    <div class="popup" id="dashboard-popup-newEntry">
-        <!-- Filter Pop up form -->
-        <form>
-            <div class="close">
-                <span class="material-symbols-rounded popup-close"> close </span>
-            </div>
-            <?= $newEntryForm ?>
-            <?= require_once "view/templates-mustache/dashboard-student-newentry.mustache"; ?>
-        </form>
-    </div>
-
     <div class="dashboard-content-layout">
         <!-- Tableau html avec data et mustache -->
         <?= $table ?>

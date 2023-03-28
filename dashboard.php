@@ -38,7 +38,6 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
             }
         }
         $table = $dashboard->applyTemplate();
-        $newEntryForm = "";// TODO: Add connection with mustache template
         require_once "view/dashboard-view.php";
     }
     else {
