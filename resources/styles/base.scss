@@ -249,8 +249,8 @@ form {
         top: calc(100vh/6);
         left: calc(100vw/6);
         width: 100%;
+        height: fit-content;
         max-width: calc(200vw/3);
-        height: 100%;
         max-height: calc(200vh/3);
         overflow: auto;
         align-items: center;
@@ -351,29 +351,6 @@ form {
     padding: 1rem;
     border-radius: 1rem;
     border: 1px solid $color-main-dark;
-    table{
-        thead{
-            tr{
-                th{
-                    font-weight: 600;
-                }
-            }
-        }
-        tbody{
-            tr{
-                td{
-                    border-collapse: collapse;
-                    border: 1px solid $color-main-dark;
-                    padding: 0.5rem;
-                    span{
-                        font-size: 1rem;
-                        color: $color-main-dark;
-                        cursor: pointer;
-                    }
-                }
-            }
-        }
-    }
 }
 
 .card{
