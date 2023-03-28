@@ -6,15 +6,16 @@ require_once "./model/offers_model.php";
 initialise_session();
 
 if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
+    $type = $_SESSION["login"]->isType();
     if(isset($_GET["id_offer"]) && !empty($_GET["id_offer"])) {
         $offer = new Offer($_GET["id_offer"]);
-        if(isset($_GET["delete"]) && $_GET["delete"]) {
+        if(isset($_GET["delete"]) && $_GET["delete"] && in_array($type[0],["Tutor","Admin"])) {
             $offer->deleteOffer();
             header("Location: offers.php");
             die();
         }
         elseif($offer->fillOffer()) {
-            if(isset($_GET["modify"]) && $_GET["modify"]) {
+            if(isset($_GET["modify"]) && $_GET["modify"] && in_array($type[0],["Tutor","Admin"])) {
                 if(!empty($_POST)) {
                     $offer->modifyOffer($_POST);
                     header("Refresh:0");
@@ -27,13 +28,12 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
             else {
                 $content = $offer->fillTemplateView();
                 $content.= '<div class="button-layout">';
-                $type = $_SESSION["login"]->isType()[0];
-                if ($type == "Admin" || $type == "Student") {
+                if ($type[0] == "Admin" || $type[0] == "Student") {
                     $content.= '<button type="button" onclick="window.location.href=\'postulate.php?id_offer='.$_GET["id_offer"].'\'">
                     <span class="text">Postulez !</span>
                     </button>';
                 }
-                if ($type == "Tutor" || $type = "Admin") {
+                if ($type[0] == "Tutor" || $type[0] == "Admin") {
                     $content.= '<button type="button" onclick="window.location.href=\'offers.php?id_offer='.$_GET["id_offer"].'&modify=1\'">
                     <span class="text">Modifier</span>
                     </button>';

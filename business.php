@@ -5,15 +5,16 @@ require_once "./model/company_model.php";
 initialise_session();
 
 if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
+    $type = $_SESSION["login"]->isType();
     if(isset($_GET["id_business"]) && !empty($_GET["id_business"])) {
         $business = new Company($_GET["id_business"]);
-        if(isset($_GET["delete"]) && $_GET["delete"]) {
+        if(isset($_GET["delete"]) && $_GET["delete"] && in_array($type[0],["Tutor","Admin"])) {
             $business->deleteCompany();
             header("Location: business.php");
             die();
         }
         if($business->fillCompany()) {
-            if(isset($_GET["modify"]) && $_GET["modify"]) {
+            if(isset($_GET["modify"]) && $_GET["modify"] && in_array($type[0],["Tutor","Admin"])) {
                 if(!empty($_POST)) {
                     $business->modifyCompany($_POST);
                     header("Refresh:0");
@@ -28,8 +29,7 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
                 $content.= '<div class="button-layout"><button type="button" onclick="">
                     <span class="text">Noter</span>
                     </button>';
-                $type = $_SESSION["login"]->isType()[0];
-                if ($type == "Tutor" || $type = "Admin") {
+                if ($type[0] == "Tutor" || $type[0] == "Admin") {
                     $content.= '<button type="button" onclick="window.location.href=\'business.php?id_business='.$_GET["id_business"].'&modify=1\'">
                     <span class="text">Modifier</span>
                     </button>
