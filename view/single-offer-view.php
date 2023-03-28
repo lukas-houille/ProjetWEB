@@ -23,6 +23,7 @@ include('navbar-view.php');
 include('footer-view.html');
 ?>
 <script>
+    $(".applystate[value!=1] button").hide();
     const regex = new RegExp("(?=^.{0,5}$)[0-9]{5}");
 	$("#postcode").on("input", async() => {
 		$("#cities").empty();

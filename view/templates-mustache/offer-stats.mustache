@@ -16,7 +16,7 @@
         <td> {{id_admin}} </td>
         <td> {{first_name}} </td>
         <td> {{last_name}} </td>
-        <td> {{name}} </td>
+        <td><span class="applystate" value={{id_state}}>{{name}} <button onclick="window.location.href='offers.php?id_offer={{id_offer}}&id_admin={{id_admin}}&validate=1'">✅</button><button onclick="window.location.href='offers.php?id_offer={{id_offer}}&id_admin={{id_admin}}&validate=0'">❌</button></span></td>
     </tr>
 {{/admins}}
     </tbdoy>
@@ -36,7 +36,7 @@
         <td> {{id_student}} </td>
         <td> {{first_name}} </td>
         <td> {{last_name}} </td>
-        <td> {{name}} </td>
+        <td><span class="applystate" value={{id_state}}>{{name}} <button onclick="window.location.href='offers.php?id_offer={{id_offer}}&id_student={{id_student}}&validate=1'">✅</button><button onclick="window.location.href='offers.php?id_offer={{id_offer}}&id_student={{id_student}}&validate=0'">❌</button></span></td>
     </tr>
 {{/students}}
     </tbdoy>

@@ -15,7 +15,25 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
             die();
         }
         elseif($offer->fillOffer()) {
-            if(isset($_GET["modify"]) && $_GET["modify"] && in_array($type[0],["Tutor","Admin"])) {
+            if(in_array($type[0],["Tutor","Admin"]) && isset($_GET["validate"]) && ($_GET["validate"] == 0 || $_GET["validate"] == 1) && (isset($_GET["id_student"]) || isset($_GET["id_admin"]))) {
+                if(isset($_GET["id_student"]) && $offer->studentApplied($_GET["id_student"])) {
+                    if($_GET["validate"] == 0) {
+                        $offer->modifyStateStudent($_GET["id_student"],3);
+                    }
+                    elseif($_GET["validate"] == 1 && $offer->places>0) {
+                        $offer->modifyStateStudent($_GET["id_student"],2);
+                    }
+                }
+                elseif(isset($_GET["id_admin"]) && $offer->adminApplied($_GET["id_admin"])) {
+                    if($_GET["validate"] == 0) {
+                        $offer->modifyStateAdmin($_GET["id_admin"],3);
+                    }
+                    elseif($_GET["validate"] == 1 && $offer->places>0) {
+                        $offer->modifyStateAdmin($_GET["id_admin"],2);
+                    }
+                }
+            }
+            elseif(isset($_GET["modify"]) && $_GET["modify"] && in_array($type[0],["Tutor","Admin"])) {
                 if(!empty($_POST)) {
                     $offer->modifyOffer($_POST);
                     header("Refresh:0");
