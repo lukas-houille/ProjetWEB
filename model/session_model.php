@@ -37,10 +37,10 @@ require_once("database.php");
         } 
     }
     function initialise_session() { // Function used to initialise/resume a session
-        session_set_cookie_params(86400);
         if(!session_id()) { // Only creates a function if one isn't already opened
             session_start();
             session_regenerate_id();
+            setcookie('PHPSESSID', session_id(), time() + 3600, '/', null, false, true);
         }
     }
     function erase_session()
