@@ -1,55 +1,53 @@
-<div class="popup display-block">
-    <form>
-        <div class="close">
-            <span class="material-symbols-rounded popup-close"> close </span>
-        </div>
-        <?php
-        if(isset($_GET['modify']) && isset($_GET['modify']) == 1) {
-            echo '<h3> Modifier étudiant </h3>';
-        } else {
-        echo '<h3> Nouvel étudiant </h3>';
-        }
-        ?>
-        <label>
-            <span> Prénom </span>
-            <input type="text" name="first_name" placeholder="Prénom" value="{{first_name}}" required>
-        </label>
-        <label>
-            <span> Nom </span>
-            <input type="text" name="first_name" placeholder="Nom" value="{{last_name}}" required>
-        </label>
-        <label>
-            <select required>
-                <option class="placeholder" value="0">Centre</option>
-                {{#centers}}
-                    <option value="{{id_center}}">{{name}}</option>
-                {{/centers}}
-            </select>
-        </label>
-        <label>
-            <select id="promotions">
-                <option class="placeholder" value="0">Promotion</option>
-                {{#promotions}}
-                    <option value="{{id_promotion}}">{{name}}</option>
-                {{/promotions}}
-            </select>
-        </label>
-        <?php
-        if(isset($_GET['modify']) && isset($_GET['modify']) == 1) {
-            echo
-            '<button>
-        <span class="text">Ajouter</span>
-        <span class="material-symbols-rounded"> Add </span>
-        </button>';
-        } else {
+<form>
+    <div class="close">
+        <span class="material-symbols-rounded popup-close"> close </span>
+    </div>
+    <?php
+    if(isset($_GET['modify']) && isset($_GET['modify']) == 1) {
+        echo '<h3> Modifier étudiant </h3>';
+    } else {
+    echo '<h3> Nouvel étudiant </h3>';
+    }
+    ?>
+    <label>
+        <span> Prénom </span>
+        <input type="text" name="first_name" placeholder="Prénom" value="{{first_name}}" required>
+    </label>
+    <label>
+        <span> Nom </span>
+        <input type="text" name="first_name" placeholder="Nom" value="{{last_name}}" required>
+    </label>
+    <label>
+        <select required>
+            <option class="placeholder" value="0">Centre</option>
+            {{#centers}}
+                <option value="{{id_center}}">{{name}}</option>
+            {{/centers}}
+        </select>
+    </label>
+    <label>
+        <select id="promotions">
+            <option class="placeholder" value="0">Promotion</option>
+            {{#promotions}}
+                <option value="{{id_promotion}}">{{name}}</option>
+            {{/promotions}}
+        </select>
+    </label>
+    <?php
+    if(isset($_GET['modify']) && isset($_GET['modify']) == 1) {
         echo
-        '
-        <button>
-            <span class="text">Enregistrer</span>
-            <span class="material-symbols-rounded"> send </span>
-        </button>
-        ';
-        }
-        ?>
-    </form>
-</div>
+        '<button>
+    <span class="text">Ajouter</span>
+    <span class="material-symbols-rounded"> Add </span>
+    </button>';
+    } else {
+    echo
+    '
+    <button>
+        <span class="text">Enregistrer</span>
+        <span class="material-symbols-rounded"> send </span>
+    </button>
+    ';
+    }
+    ?>
+</form>
