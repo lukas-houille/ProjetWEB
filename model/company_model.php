@@ -20,7 +20,7 @@ class Company extends Database{
     public int $student_evaluations;
     
 
-    public function __construct(int $id) {
+    public function __construct(int $id=0) {
         parent::__construct();
         $this->id_company = $id;
         Mustache_Autoloader::register();
@@ -95,6 +95,24 @@ class Company extends Database{
             return false;
         }
     }
+    public function createCompany(array $values) {
+        $needed_values = ["name","email","cesi_interns","id_field","link"];
+        foreach($needed_values AS $value) { // Checks to see if the given array has all of the necessary information
+            if(!array_key_exists($value,$values) || (empty($values[$value]) && !in_array($value,["link"]))) { // Checks if information is not empty, unless it's not strictly necessary such as for link
+                return false;
+            }
+        }
+        $this->executeQuery("INSERT INTO Company (name,visible,cesi_interns,email,id_field,link) VALUES (:name,true,:cesi_interns,:email,:id_field,:link)", ["name" => $values["name"],"cesi_interns" => $values["cesi_interns"], "email" => $values["email"], "id_field" => $values["id_field"], "link" => $values["link"]]);
+        $this->id_company = $this->executeQuery("SELECT LAST_INSERT_ID()",return_option:PDO::FETCH_NUM)[0][0];
+        $possible_arrays = [["cities","is_located_in", ["id_city","id_company"]]];
+        foreach($possible_arrays AS $array) {
+            $this->executeQuery("DELETE FROM ".$array[1]." WHERE id_offer=:id",["id" => $this->id_offer]);
+            foreach($values[$array[0]] AS $value) {
+                $this->executeQuery("INSERT INTO ".$array[1]."(".$array[2][0].",".$array[2][1].") VALUES (:id_value,:id)",["id_value" => $value, "id" => $this->id_company]);
+            }
+        }
+        return true;
+    }
     public function studentEvaluates(int $id_student, int $grade, string $details) {
         if($grade >= 0 && $grade <= 5 && strlen($details) <= 800) {
             $this->executeQuery("DELETE FROM student_evaluates WHERE id_company=:id AND id_student=:id_student",["id" => $this->id_company, "id_student" => $id_student]);
@@ -112,5 +130,8 @@ class Company extends Database{
             $this->executeQuery("DELETE FROM admin_evaluates WHERE id_company=:id AND id_admin=:id_admin",["id" => $this->id_company, "id_admin" => $id_admin]);
             $this->executeQuery("INSERT INTO admin_evaluates (id_company,id_admin,grade,details) VALUES (:id,:id_admin,:grade,:details)", ["id" => $this->id_company, "id_admin" => $id_admin, "grade" => $grade, "details" => $details]);
         }
+    }
+    public function getID() {
+        return($this->id_company);
     }
 }

@@ -15,7 +15,9 @@
         <label>
             <span>Domaine</span>
             <select name="id_field">
+                {{#id_field}}
                 <option value="{{id_field}}">{{field}}</option>
+                {{/id_field}}
                 {{#existing_fields}}
                     <option value="{{id_field}}">{{name}}</option>
                 {{/existing_fields}}
@@ -30,7 +32,7 @@
             <input id="postcode" placeholder="00000" pattern="\d{5,5}" type="number">
         </label>
         <label>
-            <select name="id_city" id="cities"></select>
+            <select id="cities"></select>
             <div id="selected_cities" class="selected-filters">
                 {{#locations}}
                     <span value="{{id_city}}">{{city}}, {{postcode}}<span class="material-symbols-rounded popup-close"> close <input

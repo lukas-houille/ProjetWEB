@@ -75,7 +75,18 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
         }
         require_once("./view/single-business-view.php");
     }
-    else {    
+    elseif(isset($_GET["newEntry"]) && $_GET["newEntry"] == 1 && in_array($type[0],["Tutor","Admin"])) {
+        $business = new Company();
+        if(!empty($_POST)) {
+            if($business->createCompany($_POST)) {
+                header("Location: business.php?id_business=".$business->getID());
+                die();
+            }
+        }
+        $content = $business->fillTemplateModify();
+        require_once("./view/single-business-view.php");
+    }
+    else {
         require_once "view/businesses-view.php";
     }
 }
