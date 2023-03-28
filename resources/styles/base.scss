@@ -473,3 +473,24 @@ form {
         margin: 1rem;
     }
 }
+
+.bold{
+    font-weight: 700;
+}
+
+.single-page-form {
+    margin: 4rem;
+    padding: 2rem;
+    align-items: flex-start;
+    .single-page-skill{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        background: $color-main;
+        color: $color-light;
+        margin-bottom: 1rem;
+    }
+}
