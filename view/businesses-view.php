@@ -43,7 +43,7 @@ require_once('navbar-view.php');
         {{#companies}}
         <form method="get" class="card">
             <input type="hidden" name="id_business" value="{{id_company}}">
-            <img src='resources/images/Logo small.svg' alt='logo test' class='logosmall'>
+            <img src='{{link}}' alt='logo test' class='logosmall'>
             <div class="offer-info">
                 <h3>{{company_name}}</h3>
                 <div>

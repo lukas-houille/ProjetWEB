@@ -68,7 +68,7 @@ include('navbar-view.php');
         <form method="get" class="card">
 
             <input type="hidden" name="id_offer" value="{{id_offer}}">
-            <img src='resources/images/Logo small.svg' alt='logo test' class='logosmall'>
+            <img src='{{link}}' alt='logo test' class='logosmall'>
             <div class="offer-info">
                 <div class="card-header">
                 <h3>{{description}}</h3>
