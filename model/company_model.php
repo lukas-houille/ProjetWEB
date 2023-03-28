@@ -27,7 +27,7 @@ class Company extends Database{
         $this->m = new Mustache_Engine;
     }
     public function fillCompany() {
-        $company = $this->executeQuery("SELECT id_company,Company.name, cesi_interns, email, Field.name AS field, Field.id_field FROM Company JOIN Field ON Company.id_field=Field.id_field WHERE visible=1 AND id_company=:id LIMIT 1;",["id" => $this->id_company], return_option: PDO::FETCH_OBJ);
+        $company = $this->executeQuery("SELECT id_company,Company.name, cesi_interns, email, Field.name AS field, Field.id_field, Company.link FROM Company JOIN Field ON Company.id_field=Field.id_field WHERE visible=1 AND id_company=:id LIMIT 1;",["id" => $this->id_company], return_option: PDO::FETCH_OBJ);
         if(array_key_exists(0,$company)) {
             $company = $company[0];
             $this->locations = $this->executeQuery("SELECT City.id_city,City.name AS city,City.postcode FROM is_located_in JOIN City ON is_located_in.id_city=City.id_city WHERE id_company=:id",["id" => $this->id_company]);
@@ -40,6 +40,7 @@ class Company extends Database{
             $this->email = $company->email;
             $this->field = $company->field;
             $this->id_field = $company->id_field;
+            $this->link = $company->link;
             return true;
         }
         else {
@@ -74,7 +75,7 @@ class Company extends Database{
     }
     public function modifyCompany(array $values) {
         if($this->companyExists()) {
-            $possible_values = ["name","email","cesi_interns","id_field"];
+            $possible_values = ["name","email","cesi_interns","id_field","link"];
             foreach($possible_values AS $value) {
                 if(array_key_exists($value,$values)) {
                     if($this->{$value}!=$values[$value]) {
