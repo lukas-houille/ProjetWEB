@@ -13,7 +13,6 @@
 }
 
 .member-fav{
-
     background-color: $color-light-grey;
     margin: 0 4rem 4rem 4rem;
     border-radius: 1rem;
@@ -25,8 +24,12 @@
         width: 100%;
     }
    form{
+       margin: 1rem;
        flex-direction: row;
        width: fit-content;
        height: fit-content;
+       p{
+           margin:0 0.5rem;
+       }
    }
 }

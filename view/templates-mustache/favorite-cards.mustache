@@ -1,12 +1,13 @@
 <div class="member-fav">
     <h3> Offres favorites </h3>
     {{#offers}}
-    <form>
+    <form action="offers.php" method="GET" >
         <p class="bold"> {{description}} </p>
         <p> {{company}} </p>
         <p> {{location}} </p>
-        <button class="outlined" onclick="window.location.href='/offers.php?id_offer={{id_offer}}'">
-            <p class="text"> Voir l'offre </p>
+        <input type="hidden" name="id_offer" value="{{id_offer}}">
+        <button class="outlined" type="submit" >
+            <span class="text"> Voir l'offre </span>
         </button>
     </form>
     {{/offers}}
