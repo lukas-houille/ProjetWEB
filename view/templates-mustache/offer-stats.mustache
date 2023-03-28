@@ -1,0 +1,43 @@
+<h1>Statistiques de l'offre</h1>
+<span><p>Offre présente dans {{wishlists}} listes de souhaits</p></span>
+<h2>Postulations :</h2>
+<table>
+    <thead>
+    <tr>
+        <th> ID_Student </th>
+        <th> Prénom </th>
+        <th> Nom </th>
+        <th> Status </th>
+    </tr>
+    </thead>
+    <tbody>
+{{#admins}}
+    <tr>
+        <td> {{id_admin}} </td>
+        <td> {{first_name}} </td>
+        <td> {{last_name}} </td>
+        <td> {{name}} </td>
+    </tr>
+{{/admins}}
+    </tbdoy>
+</table>
+<table>
+    <thead>
+    <tr>
+        <th> ID_Admin </th>
+        <th> Prénom </th>
+        <th> Nom </th>
+        <th> Status </th>
+    </tr>
+    </thead>
+    <tbody>
+{{#students}}
+    <tr>
+        <td> {{id_student}} </td>
+        <td> {{first_name}} </td>
+        <td> {{last_name}} </td>
+        <td> {{name}} </td>
+    </tr>
+{{/students}}
+    </tbdoy>
+</table>

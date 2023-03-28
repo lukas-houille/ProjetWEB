@@ -25,6 +25,11 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
                     $content = $offer->fillTemplateModify();
                 }
             }
+            elseif(isset($_GET["stats"]) && $_GET["stats"] && in_array($type[0],["Tutor","Admin"])) {
+                Mustache_Autoloader::register();
+                $m = new Mustache_Engine;
+                $content = $m->render(file_get_contents("view/templates-mustache/offer-stats.mustache"),array_merge(["wishlists" => $offer->wishingAmount()],$offer->isApplyingFor()));
+            }
             else {
                 $content = $offer->fillTemplateView();
                 $content.= '<div class="button-layout">';
@@ -39,6 +44,9 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
                     </button>';
                     $content.='<button type="button" onclick="window.location.href=\'offers.php?id_offer='.$_GET["id_offer"].'&delete=1\'">
                     <span class="text">Supprimer</span>
+                    </button>';
+                    $content.='<button type="button" onclick="window.location.href=\'offers.php?id_offer='.$_GET["id_offer"].'&stats=1\'">
+                    <span class="text">Statistiques</span>
                     </button>';
                 }
                 $content.= '</div>';

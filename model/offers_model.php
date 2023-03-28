@@ -97,9 +97,15 @@ class Offer extends Database{
         }
     }
     public function studentAppliesTo(int $id_student) {
-        $this->executeQuery("INSERT INTO applies_for (id_offer,id_student) VALUES (:id_offer,:id_student)", ["id_student" => $id_student, "id_offer" => $this->id_offer]);
+        $this->executeQuery("INSERT INTO applies_for (id_offer,id_student,id_state) VALUES (:id_offer,:id_student,1)", ["id_student" => $id_student, "id_offer" => $this->id_offer]);
     }
     public function adminAppliesTo(int $id_admin) {
-        $this->executeQuery("INSERT INTO admin_applies_for (id_admin,id_offer) VALUES (:id_admin,:id_offer)", ["id_admin" => $id_admin, "id_offer" => $this->id_offer]);
+        $this->executeQuery("INSERT INTO admin_applies_for (id_admin,id_offer,id_state) VALUES (:id_admin,:id_offer,1)", ["id_admin" => $id_admin, "id_offer" => $this->id_offer]);
+    }
+    public function wishingAmount() {
+        return((int) $this->executeQuery("SELECT COUNT(*) FROM wishes;", return_option:PDO::FETCH_NUM)[0][0] + (int) $this->executeQuery("SELECT COUNT(*) FROM admin_wishes;", return_option:PDO::FETCH_NUM)[0][0]);
+    }
+    public function isApplyingFor() {
+        return(["admins" => $this->executeQuery("SELECT admin_applies_for.id_admin,admin_applies_for.id_offer,Admin.first_name, Admin.last_name, State.name FROM web_test.admin_applies_for JOIN State ON admin_applies_for.id_state=State.id_state JOIN Admin ON admin_applies_for.id_admin=Admin.id_admin WHERE id_offer=:id",["id"=>$this->id_offer], return_option:PDO::FETCH_OBJ),"students" => $this->executeQuery("SELECT applies_for.id_student,applies_for.id_offer,Student.first_name,Student.last_name,State.name FROM applies_for JOIN State ON applies_for.id_state=State.id_state JOIN Student ON applies_for.id_student=Student.id_student WHERE id_offer=:id",["id"=>$this->id_offer], return_option:PDO::FETCH_OBJ)]);
     }
 }
