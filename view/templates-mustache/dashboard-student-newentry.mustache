@@ -1,11 +1,18 @@
-<form class="newEntry">
+<form>
+    <?php
+        if(isset($_GET['modify']) && isset($_GET['modify']) == 1) {
+            echo '<h3> Modifier étudiant </h3>';
+    } else {
+    echo '<h3> Nouvel étudiant </h3>';
+    }
+    ?>
     <label>
         <span> Prénom </span>
         <input type="text" name="first_name" placeholder="Prénom" value="{{first_name}}" required>
     </label>
     <label>
         <span> Nom </span>
-        <input type="text" name="first_name" placeholder="Nom" value="{{last_name}}"required>
+        <input type="text" name="first_name" placeholder="Nom" value="{{last_name}}" required>
     </label>
     <label>
         <select required>
@@ -23,8 +30,19 @@
             {{/promotions}}
         </select>
     </label>
-    <button>
-        <span class="text">Enregistrer</span>
-        <span class="material-symbols-rounded"> send </span>
-    </button>
+    <?php
+        if(isset($_GET['modify']) && isset($_GET['modify']) == 1) {
+            echo
+            '<button>
+            <span class="text">Ajouter</span>
+            <span class="material-symbols-rounded"> Add </span>
+            </button>';
+        } else {
+        echo
+        '<button>
+            <span class="text">Enregistrer</span>
+            <span class="material-symbols-rounded"> send </span>
+        </button>';
+        }
+        ?>
 </form>
