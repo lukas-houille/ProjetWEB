@@ -29,7 +29,7 @@ include('footer-view.html');
 		if(regex.test($("#postcode").val())) {
 			$.ajax({
 				type:"POST",
-				url:"http://localhost/data/ProjetWEB-main/model/city_ajax.php",
+				url:"https://cesitonstage.com/model/city_ajax.php",
 				data: {
 					postcode: $("#postcode").val()
 				},
