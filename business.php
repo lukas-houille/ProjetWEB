@@ -12,21 +12,33 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
             die();
         }
         if($business->fillCompany()) {
-            $content = $business->fillTemplate();
-            $content.= '<div class="button-layout"><button type="button" onclick="">
-                <span class="text">Noter</span>
-                </button>';
-            $type = $_SESSION["login"]->isType()[0];
-            if ($type == "Tutor" || $type = "Admin") {
-                $content.= '<button type="button" onclick="">
-                <span class="text">Modifier</span>
-                </button>
-                <button type="button" onclick="window.location.href=\'business.php?id_business='.$_GET["id_business"].'&delete=1\'">
-                <span class="text">Supprimer</span>
-                </button>
-                </div></div>';
+            if(isset($_GET["modify"]) && $_GET["modify"]) {
+                if(!empty($_POST)) {
+                    $business->modifyCompany($_POST);
+                    header("Refresh:0");
+                    die();
+                }
+                else {
+                    $content = $business->fillTemplateModify();
+                }
             }
-            require_once("./view/single-offer-view.php");
+            else {
+                $content = $business->fillTemplateView();
+                $content.= '<div class="button-layout"><button type="button" onclick="">
+                    <span class="text">Noter</span>
+                    </button>';
+                $type = $_SESSION["login"]->isType()[0];
+                if ($type == "Tutor" || $type = "Admin") {
+                    $content.= '<button type="button" onclick="window.location.href=\'business.php?id_business='.$_GET["id_business"].'&modify=1\'">
+                    <span class="text">Modifier</span>
+                    </button>
+                    <button type="button" onclick="window.location.href=\'business.php?id_business='.$_GET["id_business"].'&delete=1\'">
+                    <span class="text">Supprimer</span>
+                    </button>
+                    </div></div>';
+                }
+            }
+            require_once("./view/single-business-view.php");
         }
         else {
             require_once('./view/error404.html');
