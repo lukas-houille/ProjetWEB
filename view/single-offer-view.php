@@ -50,7 +50,7 @@ include('footer-view.html');
         if(!$("#selected_skills span[value="+$("#skills option:selected").val()+"]").length) {
             $("<span/>", {
                 value: $("#skills option:selected").val(),
-                html: $("#skills option:selected").text()+" <span class=\"material-symbols-rounded popup-close\"> close </span>",
+                html: $("#skills option:selected").text()+" <input type=\"hidden\" name=\"skills[]\" value=\""+$("#skills option:selected").val()+"\"><span class=\"material-symbols-rounded popup-close\"> close </span>",
                 click: function(){
                     $(this).remove();
                 }
@@ -62,7 +62,7 @@ include('footer-view.html');
         if(!$("#selected_promotions span[value="+$("#promotions option:selected").val()+"]").length) {
             $("<span/>", {
                 value: $("#promotions option:selected").val(),
-                html: $("#promotions option:selected").text()+" <span class=\"material-symbols-rounded popup-close\"> close </span>",
+                html: $("#promotions option:selected").text()+" <input type=\"hidden\" name=\"promotions[]\" value=\""+$("#promotions option:selected").val()+"\"><span class=\"material-symbols-rounded popup-close\"> close </span>",
                 click: function(){
                     $(this).remove();
                 }
