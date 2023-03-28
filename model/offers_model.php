@@ -106,6 +106,42 @@ class Offer extends Database{
         return((int) $this->executeQuery("SELECT COUNT(*) FROM wishes;", return_option:PDO::FETCH_NUM)[0][0] + (int) $this->executeQuery("SELECT COUNT(*) FROM admin_wishes;", return_option:PDO::FETCH_NUM)[0][0]);
     }
     public function isApplyingFor() {
-        return(["admins" => $this->executeQuery("SELECT admin_applies_for.id_admin,admin_applies_for.id_offer,Admin.first_name, Admin.last_name, State.name FROM web_test.admin_applies_for JOIN State ON admin_applies_for.id_state=State.id_state JOIN Admin ON admin_applies_for.id_admin=Admin.id_admin WHERE id_offer=:id",["id"=>$this->id_offer], return_option:PDO::FETCH_OBJ),"students" => $this->executeQuery("SELECT applies_for.id_student,applies_for.id_offer,Student.first_name,Student.last_name,State.name FROM applies_for JOIN State ON applies_for.id_state=State.id_state JOIN Student ON applies_for.id_student=Student.id_student WHERE id_offer=:id",["id"=>$this->id_offer], return_option:PDO::FETCH_OBJ)]);
+        return(["admins" => $this->executeQuery("SELECT admin_applies_for.id_admin,admin_applies_for.id_offer,Admin.first_name, Admin.last_name, State.id_state, State.name FROM web_test.admin_applies_for JOIN State ON admin_applies_for.id_state=State.id_state JOIN Admin ON admin_applies_for.id_admin=Admin.id_admin WHERE id_offer=:id",["id"=>$this->id_offer], return_option:PDO::FETCH_OBJ),"students" => $this->executeQuery("SELECT applies_for.id_student,applies_for.id_offer,Student.first_name,Student.last_name,State.name, State.id_state FROM applies_for JOIN State ON applies_for.id_state=State.id_state JOIN Student ON applies_for.id_student=Student.id_student WHERE id_offer=:id",["id"=>$this->id_offer], return_option:PDO::FETCH_OBJ)]);
+    }
+    public function adminApplied(int $id_admin) {
+        // Checks to see if the given admin applied to the offer and haven't got an answer yet
+        $result = $this->executeQuery("SELECT id_admin FROM admin_applies_for WHERE id_offer=:id AND id_admin=:id_admin LIMIT 1", ["id" => $this->id_offer, "id_admin" => $id_admin], return_option:PDO::FETCH_OBJ);
+        if(array_key_exists(0,$result)) { // If query result isn't empty
+            if($result[0]->id_state == 1) { // If the application is still on pending state
+                return true;
+            }
+        }
+        return false;
+    }
+    public function studentApplied(int $id_student) {
+        // Checks to see if the given student applied to the offer and haven't got an answer yet
+        $result = $this->executeQuery("SELECT id_state FROM applies_for WHERE id_offer=:id AND id_student=:id_student LIMIT 1", ["id" => $this->id_offer, "id_student" => $id_student], return_option:PDO::FETCH_OBJ);
+        if(array_key_exists(0,$result)) { // If query result isn't empty
+            if($result[0]->id_state == 1) { // If the application is still on pending state
+                return true;
+            }
+        }
+        return false;
+    }
+    public function modifyStateAdmin(int $id_admin, int $id_state) {
+        $this->executeQuery("UPDATE admin_applies_for SET id_state=:id_state WHERE id_offer=:id AND id_admin=:id_admin", ["id" => $this->id_offer, "id_admin" => $id_admin, "id_state" => $id_state]);
+        if($id_state == 2) {
+            $this->updateCompanyStats();
+        }
+    }
+    public function modifyStateStudent(int $id_student, int $id_state) {
+        $this->executeQuery("UPDATE applies_for SET id_state=:id_state WHERE id_offer=:id AND id_student=:id_student", ["id" => $this->id_offer, "id_student" => $id_student, "id_state" => $id_state]);
+        if($id_state == 2) {
+            $this->updateCompanyStats();
+        }
+    }
+    public function updateCompanyStats() {
+        $this->executeQuery("UPDATE Internship_offer SET places=places-1 WHERE id_offer=:id",["id" => $this->id_offer]);
+        $this->executeQuery("UPDATE Company SET cesi_interns=cesi_interns+1 WHERE id_company=:id_company",["id_company" => $this->id_company]);
     }
 }
