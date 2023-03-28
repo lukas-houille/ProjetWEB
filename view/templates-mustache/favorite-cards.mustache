@@ -1,0 +1,13 @@
+<div class="member-fav">
+    <h3> Offres favorites </h3>
+    {{#offers}}
+    <form>
+        <p class="bold"> {{description}} </p>
+        <p> {{company}} </p>
+        <p> {{location}} </p>
+        <button class="outlined" onclick="window.location.href='/offers.php?id_offer={{id_offer}}'">
+            <p class="text"> Voir l'offre </p>
+        </button>
+    </form>
+    {{/offers}}
+</div>

@@ -11,3 +11,22 @@
         color: $color-dark;
     }
 }
+
+.member-fav{
+
+    background-color: $color-light-grey;
+    margin: 0 4rem 4rem 4rem;
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    h3{
+        width: 100%;
+    }
+   form{
+       flex-direction: row;
+       width: fit-content;
+       height: fit-content;
+   }
+}

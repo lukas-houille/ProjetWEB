@@ -21,6 +21,9 @@ require_once('view/navbar-view.php');
             <!-- Mettre les infos de l'utilisateur avec mustache -->
         </div>
     </div>
+    <div id="info">
+        <?= $cards ?>
+    </div>
     <div class="button-layout">
         <?php
         if($type[0] == "Admin" || $type[0] == "Tutor") {

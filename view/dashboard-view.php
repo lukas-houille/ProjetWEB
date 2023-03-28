@@ -18,22 +18,22 @@ require_once('view/navbar-view.php');
         <div class="filter">
             <button class="primary" id="btn-table-student" onclick="window.location.href='?view=student'">
                 <span class="text"> Etudiants </span>
-                <span class="material-symbols-rounded"> filter_list </span>
+                <span class="material-symbols-rounded"> School </span>
             </button>
             <button class="primary" id="btn-table-compagny" onclick="window.location.href='?view=company'">
                 <span class="text"> Entreprises </span>
-                <span class="material-symbols-rounded"> filter_list </span>
+                <span class="material-symbols-rounded"> Work </span>
             </button>
             <button class="primary" id="btn-table-internship" onclick="window.location.href='?view=internship'">
                 <span class="text"> Stages </span>
-                <span class="material-symbols-rounded"> filter_list </span>
+                <span class="material-symbols-rounded"> Description </span>
             </button>
             <?php
             if ($type[0] == "Admin" || $type[0] == "Tutor") {
                 echo
                 '<button class="primary" id="btn-table-tutor" onclick="window.location.href=\'?view=tutor\'">
                 <span class="text"> Pilotes </span>
-                <span class="material-symbols-rounded"> filter_list </span>
+                <span class="material-symbols-rounded"> Person </span>
                 </button>';
             }
             ?>
