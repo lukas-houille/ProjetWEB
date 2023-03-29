@@ -26,7 +26,7 @@ require_once('navbar-view.php');
         </div>
     </div>
 
-    <div id="company-popup-filter">
+    <div class="popup" id="company-popup-filter">
         <!-- Filter Pop up form -->
         <form action="offers.php" method="get">
             <div class="close">
