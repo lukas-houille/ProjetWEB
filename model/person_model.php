@@ -22,6 +22,9 @@ class Login extends Database {
     public function setLogin(string $login) {
         $this->login = $login;
     }
+    public function getLogin() {
+        return($this->login);
+    }
 }
 
 class Student extends Login {
@@ -39,7 +42,7 @@ class Student extends Login {
         $this->fillStudent();
     }
     public function fillStudent() {
-        $result = $this->executeQuery("SELECT first_name,last_name,id_center,id_group,login FROM Student WHERE id_student=:id", ["id" => $this->id_student]);
+        $result = $this->executeQuery("SELECT first_name,last_name,id_center,id_group,login FROM Student WHERE id_student=:id", ["id" => $this->id_student], return_option: PDO::FETCH_OBJ);
         if(array_key_exists(0,$result)) {
             $result = $result[0];
             $this->id_center = $result->id_center;
@@ -51,14 +54,27 @@ class Student extends Login {
         }
         return false;
     }
+    public function modifyStudent(array $values) {
+        $possible_values = ["first_name","last_name","id_center","id_group"];
+        foreach($possible_values AS $value) {
+            if(array_key_exists($value,$values)) {
+                if($this->{$value}!=$values[$value]) {
+                    $this->executeQuery("UPDATE Student SET ".$value."=:value WHERE id_student=:id",["modified_value" => $value, "value" => $values[$value], "id" => $this->id_student]);
+                }
+            }
+        }
+        if(isset($values["password"]) && $values["password"] != "") {
+            $this->executeQuery("UPDATE Login SET password=:password WHERE login=:login",["password" => password_hash($values["password"], PASSWORD_BCRYPT), "login" => $this->getLogin()]);
+        }
+    }
     public function createStudent(string $first_name, string $last_name, string $id_center, string $id_group, string $password) {
         $login = $this->createPerson(($last_name.".".$first_name),$password);
         $this->executeQuery("INSERT INTO Student (first_name,last_name,id_center,id_group,login) VALUES (:first_name,:last_name,:id_center,:id_group,:login)",["first_name" => $first_name, "last_name" => $last_name, "id_center" => $id_center, "id_group" => $id_group, "login" => $login]);
         $this->id_student = $this->executeQuery("SELECT LAST_INSERT_ID()",return_option:PDO::FETCH_NUM)[0][0];
     }
-    public function fillTemplateModify() {
+    public function fillTemplateModify(string $template_location) {
         $centers = $this->executeQuery("SELECT id_center,name FROM Center",return_option: PDO::FETCH_OBJ);
         $promotions = $this->executeQuery("SELECT id_group,name FROM Year_group",return_option: PDO::FETCH_OBJ);
-        return($this->m->render(file_get_contents("view/templates-mustache/update-student.mustache"),["centers" => $centers, "promotions" => $promotions]));
+        return($this->m->render(file_get_contents($template_location),["centers" => $centers, "promotions" => $promotions, "first_name" => $this->first_name, "last_name" => $this->last_name]));
     }
 }

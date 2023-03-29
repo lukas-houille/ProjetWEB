@@ -11,7 +11,7 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
             if($_GET["type"] == "student") {
                 $student = new Student();
                 if(empty($_POST)) {
-                    $content = $student->fillTemplateModify();
+                    $content = $student->fillTemplateModify("view/templates-mustache/create-student.mustache");
                 }
                 else {
                     if(isset($_POST["first_name"]) && isset($_POST["last_name"]) && isset($_POST["id_center"]) && isset($_POST["id_group"]) && isset($_POST["password"])) {
@@ -23,7 +23,20 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
                 }
             }
         }
-        
+    }
+    elseif(isset($_GET["modify"]) && $_GET["modify"] == 1 && in_array($type[0],["Student","Admin"]) && isset($_GET["id_student"])) {
+        $student = new Student($_GET["id_student"]);
+        if($student->fillStudent()) {
+            if(!empty($_POST)) {
+                $student->modifyStudent($_POST);
+                $student->fillStudent();
+            }
+            $content = $student->fillTemplateModify("view/templates-mustache/update-student.mustache");
+        }
+        else {
+            header('Location: ./view/error404.html');
+            die();
+        }
     }
     require_once "./view/person-update-view.php";
 }
