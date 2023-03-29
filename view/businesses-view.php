@@ -136,6 +136,7 @@ require_once('navbar-view.php');
         $('#selected_fields span').each(function() {
             fields.push($(this).attr("value"));
         });
+        $(".businesses-layout-cards").html("");
         $(".offers-layout-cards").hide();
         $.ajax({
             type: "POST",
