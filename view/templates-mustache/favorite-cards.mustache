@@ -2,10 +2,12 @@
     <h3> Offres favorites </h3>
     {{#offers}}
     <form action="offers.php" method="GET" >
+        <div class="member-fav-body">
         <p class="bold"> {{description}} </p>
         <p> {{company}} </p>
         <p> {{location}} </p>
         <input type="hidden" name="id_offer" value="{{id_offer}}">
+        </div>
         <button class="outlined" type="submit" >
             <span class="text"> Voir l'offre </span>
         </button>
