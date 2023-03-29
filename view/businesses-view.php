@@ -26,13 +26,20 @@ require_once('navbar-view.php');
         </div>
     </div>
 
-    <div class="popup" id="company-popup-filter">
+    <div id="company-popup-filter">
         <!-- Filter Pop up form -->
         <form action="offers.php" method="get">
             <div class="close">
                 <span class="material-symbols-rounded popup-close"> close </span>
             </div>
-            <button>
+            <label>
+                <select id="fields">
+                    <option class="placeholder" value="0">Secteur d'activité</option>
+                    <?= $fields_options ?>
+                </select>
+            </label>
+            <div id="selected_fields" class="selected-filters"></div>
+            <button type="button" onclick="loadFiltered()">
                 <span class="text"> Enregistrer </span>
                 <span class="material-symbols-rounded"> chevron_right </span>
             </button>
@@ -91,6 +98,18 @@ require_once('navbar-view.php');
             formatDisplay(response);
         }
     });
+    $("#fields").change(function() {
+        if(!$("#selected_fields span[value="+$("#fields option:selected").val()+"]").length) {
+            $("<span/>", {
+                value: $("#fields option:selected").val(),
+                html: $("#fields option:selected").text()+" <span class=\"material-symbols-rounded popup-close\"> close </span>",
+                click: function(){
+                    $(this).remove();
+                }
+            }).appendTo("#selected_fields");
+        }
+        $("#fields").val(0);
+    });
     function formatDisplay(response) {
         format = [["localisations", "cities", 50]];
         for (let f = 0; f < format.length; f++) {
@@ -111,6 +130,25 @@ require_once('navbar-view.php');
         }
         $(".businesses-layout-cards").html(Mustache.render(base_html, {"companies": response.message}));
         $(".businesses-layout-cards").show();
+    }
+    function loadFiltered() {
+        var fields = [];
+        $('#selected_fields span').each(function() {
+            fields.push($(this).attr("value"));
+        });
+        $(".offers-layout-cards").hide();
+        $.ajax({
+            type: "POST",
+            url: "./model/companies_ajax.php",
+            dataType: "json",
+            data: {
+                action: "showFiltered",
+                fields: fields
+            },
+            success: function (response) {
+                formatDisplay(response);
+            }
+        });
     }
 </script>
 

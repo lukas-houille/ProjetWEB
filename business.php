@@ -87,6 +87,13 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]->checkLogin()) {
         require_once("./view/single-business-view.php");
     }
     else {
+        /*Filling in the filtering/sorting section*/
+        $base = new Database();
+        $fields = $base->executeQuery("SELECT id_field, name FROM Field", return_option:PDO::FETCH_OBJ);
+        $fields_options = "";
+        foreach($fields as $field) {
+            $fields_options.="<option value=".htmlspecialchars($field->id_field).">".htmlspecialchars($field->name)."</option>";
+        }
         require_once "view/businesses-view.php";
     }
 }
